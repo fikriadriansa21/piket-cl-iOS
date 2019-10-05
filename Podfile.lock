@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.9.0)
+  - JVFloatLabeledTextField (1.2.2)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - JVFloatLabeledTextField
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - JVFloatLabeledTextField
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  JVFloatLabeledTextField: df48598472ee015701d509f43e59492a0d4ca208
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: 2e1ad0dbd834b4b328334490c33e7b766419949e
+
+COCOAPODS: 1.8.0

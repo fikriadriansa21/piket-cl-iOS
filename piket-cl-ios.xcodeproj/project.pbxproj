@@ -16,7 +16,6 @@
 		A74E10532345AD84008E08F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74E10512345AD84008E08F4 /* LaunchScreen.storyboard */; };
 		A74E105E2345AD84008E08F4 /* piket_cl_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E105D2345AD84008E08F4 /* piket_cl_iosTests.swift */; };
 		A74E10692345AD84008E08F4 /* piket_cl_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E10682345AD84008E08F4 /* piket_cl_iosUITests.swift */; };
-		A74E1077234758E3008E08F4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A74E1076234758E3008E08F4 /* .gitignore */; };
 		A74E107D23487F24008E08F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E107C23487F24008E08F4 /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +53,6 @@
 		A74E10642345AD84008E08F4 /* piket-cl-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "piket-cl-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74E10682345AD84008E08F4 /* piket_cl_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piket_cl_iosUITests.swift; sourceTree = "<group>"; };
 		A74E106A2345AD84008E08F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A74E1076234758E3008E08F4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		A74E107C23487F24008E08F4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CC2C7F269A168C8EB2EC0568 /* Pods-piket-cl-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piket-cl-ios.release.xcconfig"; path = "Target Support Files/Pods-piket-cl-ios/Pods-piket-cl-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,7 +125,6 @@
 		A74E10452345AD7F008E08F4 /* piket-cl-ios */ = {
 			isa = PBXGroup;
 			children = (
-				A74E1076234758E3008E08F4 /* .gitignore */,
 				A74E107923486D3F008E08F4 /* Model */,
 				A74E107823486D2E008E08F4 /* Controller */,
 				A74E10462345AD7F008E08F4 /* AppDelegate.swift */,
@@ -280,7 +277,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A74E1077234758E3008E08F4 /* .gitignore in Resources */,
 				A74E10532345AD84008E08F4 /* LaunchScreen.storyboard in Resources */,
 				A74E10502345AD84008E08F4 /* Assets.xcassets in Resources */,
 				A74E104E2345AD7F008E08F4 /* Main.storyboard in Resources */,
