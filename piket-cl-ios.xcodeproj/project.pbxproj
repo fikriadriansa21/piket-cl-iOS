@@ -10,13 +10,14 @@
 		00AA3E92D5189000B7CEFDE6 /* Pods_piket_cl_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F3F9EE842BA7AC45C2DD8 /* Pods_piket_cl_ios.framework */; };
 		A74E10472345AD7F008E08F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E10462345AD7F008E08F4 /* AppDelegate.swift */; };
 		A74E10492345AD7F008E08F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E10482345AD7F008E08F4 /* SceneDelegate.swift */; };
-		A74E104B2345AD7F008E08F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E104A2345AD7F008E08F4 /* ViewController.swift */; };
+		A74E104B2345AD7F008E08F4 /* NimCheckerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E104A2345AD7F008E08F4 /* NimCheckerViewController.swift */; };
 		A74E104E2345AD7F008E08F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74E104C2345AD7F008E08F4 /* Main.storyboard */; };
 		A74E10502345AD84008E08F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A74E104F2345AD84008E08F4 /* Assets.xcassets */; };
 		A74E10532345AD84008E08F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74E10512345AD84008E08F4 /* LaunchScreen.storyboard */; };
 		A74E105E2345AD84008E08F4 /* piket_cl_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E105D2345AD84008E08F4 /* piket_cl_iosTests.swift */; };
 		A74E10692345AD84008E08F4 /* piket_cl_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E10682345AD84008E08F4 /* piket_cl_iosUITests.swift */; };
 		A74E107D23487F24008E08F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E107C23487F24008E08F4 /* User.swift */; };
+		A7BEDE13234C76BE0006826E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEDE12234C76BE0006826E /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,7 @@
 		A74E10432345AD7F008E08F4 /* piket-cl-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "piket-cl-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74E10462345AD7F008E08F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A74E10482345AD7F008E08F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A74E104A2345AD7F008E08F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A74E104A2345AD7F008E08F4 /* NimCheckerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimCheckerViewController.swift; sourceTree = "<group>"; };
 		A74E104D2345AD7F008E08F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A74E104F2345AD84008E08F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A74E10522345AD84008E08F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		A74E10682345AD84008E08F4 /* piket_cl_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piket_cl_iosUITests.swift; sourceTree = "<group>"; };
 		A74E106A2345AD84008E08F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A74E107C23487F24008E08F4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A7BEDE12234C76BE0006826E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CC2C7F269A168C8EB2EC0568 /* Pods-piket-cl-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piket-cl-ios.release.xcconfig"; path = "Target Support Files/Pods-piket-cl-ios/Pods-piket-cl-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,7 +160,8 @@
 		A74E107823486D2E008E08F4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A74E104A2345AD7F008E08F4 /* ViewController.swift */,
+				A74E104A2345AD7F008E08F4 /* NimCheckerViewController.swift */,
+				A7BEDE12234C76BE0006826E /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -346,8 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7BEDE13234C76BE0006826E /* LoginViewController.swift in Sources */,
 				A74E107D23487F24008E08F4 /* User.swift in Sources */,
-				A74E104B2345AD7F008E08F4 /* ViewController.swift in Sources */,
+				A74E104B2345AD7F008E08F4 /* NimCheckerViewController.swift in Sources */,
 				A74E10472345AD7F008E08F4 /* AppDelegate.swift in Sources */,
 				A74E10492345AD7F008E08F4 /* SceneDelegate.swift in Sources */,
 			);
