@@ -12,19 +12,27 @@ import Alamofire
 
 
 class NimCheckerViewController: UIViewController {
-    @IBOutlet weak var imageLogoCL: UIImageView!
-    @IBOutlet weak var textFieldNim: UITextField!
-    @IBOutlet weak var buttonCheckPassword: UIButton!
     
-    let baseURL = "https://absensi-codelabs.herokuapp.com/mobile/check-password"
-
+    @IBOutlet weak var textFieldNim: UITextField!
+    let baseURL:String = "https://absensi-codelabs.herokuapp.com/mobile/check-password"
+    var nimText = ""
+    var detailText = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-    func checkPassword(nim: String) {
         
     }
+
+    @IBAction func buttonCheckPassword(_ sender: UIButton) {
+        self.nimText = textFieldNim.text!
+        performSegue(withIdentifier: "sendNim", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! LoginViewController
+        vc.finalNimText = self.nimText        
+    }
+    
 }
 

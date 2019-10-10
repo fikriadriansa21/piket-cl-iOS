@@ -18,18 +18,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97M-oi-n14" userLabel="top container">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="289"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aYG-H3-5AP">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-cl-58" translatesAutoresizingMaskIntoConstraints="NO" id="aYG-H3-5AP">
                                         <rect key="frame" x="147.5" y="104.5" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="Wp5-Ed-yQI"/>
                                             <constraint firstAttribute="height" constant="80" id="w5G-ZV-jm4"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Piket Codelabs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVz-O0-3a2">
+                                        <rect key="frame" x="113" y="228" width="149" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="149" id="5dg-nG-ZJS"/>
+                                            <constraint firstAttribute="height" constant="18" id="ggs-9f-4n6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="aYG-H3-5AP" firstAttribute="centerY" secondItem="97M-oi-n14" secondAttribute="centerY" id="0If-o7-hir"/>
+                                    <constraint firstItem="eVz-O0-3a2" firstAttribute="top" secondItem="aYG-H3-5AP" secondAttribute="bottom" constant="43.5" id="4jN-8I-f9v"/>
                                     <constraint firstItem="aYG-H3-5AP" firstAttribute="centerX" secondItem="97M-oi-n14" secondAttribute="centerX" id="Ocq-gG-7DB"/>
+                                    <constraint firstItem="eVz-O0-3a2" firstAttribute="centerX" secondItem="97M-oi-n14" secondAttribute="centerX" id="Zgd-e2-UY6"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUK-qM-5fa" userLabel="bottom container">
@@ -39,7 +51,7 @@
                                         <rect key="frame" x="68" y="124.5" width="239" height="40"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="239" id="Qr0-lh-AFT"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="239" id="Qr0-lh-AFT"/>
                                             <constraint firstAttribute="height" constant="40" id="a31-rR-2n4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
@@ -47,7 +59,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="5Am-4T-6HA" kind="show" id="a3H-SJ-OA9"/>
+                                            <action selector="buttonCheckPassword:" destination="pyv-ky-UsK" eventType="touchUpInside" id="lB0-rs-8n2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -60,9 +72,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TG-oI-7TX" userLabel="middle container">
                                 <rect key="frame" x="50.5" y="289" width="274" height="89"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6z-6K-2bm">
-                                        <rect key="frame" x="18" y="23" width="239" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6z-6K-2bm">
+                                        <rect key="frame" x="17.5" y="23.5" width="239" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="239" id="5eF-Xo-CDd"/>
+                                            <constraint firstAttribute="height" constant="42" id="hPv-Ng-QEF"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -70,7 +85,9 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="274" id="67W-YC-xod"/>
+                                    <constraint firstItem="b6z-6K-2bm" firstAttribute="centerX" secondItem="8TG-oI-7TX" secondAttribute="centerX" id="B4Q-5Z-Nj2"/>
                                     <constraint firstAttribute="height" constant="89" id="Vzx-9z-0fU"/>
+                                    <constraint firstItem="b6z-6K-2bm" firstAttribute="centerY" secondItem="8TG-oI-7TX" secondAttribute="centerY" id="ZoS-XY-evo"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -90,9 +107,8 @@
                         <viewLayoutGuide key="safeArea" id="GWb-Ax-uxI"/>
                     </view>
                     <connections>
-                        <outlet property="buttonCheckPassword" destination="O67-hv-RrC" id="hll-Md-CjN"/>
-                        <outlet property="imageLogoCL" destination="aYG-H3-5AP" id="2Ih-T0-o7v"/>
                         <outlet property="textFieldNim" destination="b6z-6K-2bm" id="wCp-FA-Msr"/>
+                        <segue destination="5Am-4T-6HA" kind="presentation" identifier="sendNim" id="rvj-4a-ESS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Mf-Ss-Gqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -102,7 +118,7 @@
         <!--LoginViewController-->
         <scene sceneID="duB-SZ-zLw">
             <objects>
-                <viewController id="5Am-4T-6HA" userLabel="LoginViewController" sceneMemberID="viewController">
+                <viewController id="5Am-4T-6HA" userLabel="LoginViewController" customClass="LoginViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ix-U6-RvO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,22 +126,35 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3E-e8-Z5I">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="279"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NIM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0d-3F-n6x">
-                                        <rect key="frame" x="164" y="113" width="46" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keterangan Cek Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oM-6c-9Lb">
+                                        <rect key="frame" x="76" y="186" width="223" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="223" id="OKN-42-vch"/>
+                                            <constraint firstAttribute="height" constant="23" id="QZs-N1-w26"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Keterangan Cek Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oM-6c-9Lb">
-                                        <rect key="frame" x="76" y="189" width="223" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0d-3F-n6x">
+                                        <rect key="frame" x="162" y="125" width="51" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="Mxn-Jh-TU3"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="51" id="nhv-qJ-kka"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="t0d-3F-n6x" firstAttribute="centerX" secondItem="g3E-e8-Z5I" secondAttribute="centerX" id="3uf-kw-cFX"/>
+                                    <constraint firstItem="6oM-6c-9Lb" firstAttribute="centerX" secondItem="g3E-e8-Z5I" secondAttribute="centerX" id="UAb-F2-2qy"/>
+                                    <constraint firstItem="6oM-6c-9Lb" firstAttribute="top" secondItem="t0d-3F-n6x" secondAttribute="bottom" constant="32" id="dDI-Ai-Bnu"/>
+                                    <constraint firstItem="6oM-6c-9Lb" firstAttribute="centerX" secondItem="t0d-3F-n6x" secondAttribute="centerX" id="fH0-4D-T6J"/>
+                                    <constraint firstItem="t0d-3F-n6x" firstAttribute="centerY" secondItem="g3E-e8-Z5I" secondAttribute="centerY" id="wKB-8f-cLg"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8y5-FJ-dCh">
                                 <rect key="frame" x="0.0" y="368" width="375" height="279"/>
@@ -135,7 +164,7 @@
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LP0-OM-jiR"/>
-                                            <constraint firstAttribute="width" constant="239" id="aZb-pR-2O4"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="239" id="aZb-pR-2O4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <state key="normal" title="LOGIN">
@@ -155,15 +184,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSf-Qe-3hn">
                                 <rect key="frame" x="50.5" y="279" width="274" height="89"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2d-8s-hX8">
-                                        <rect key="frame" x="46" y="24" width="183" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2d-8s-hX8">
+                                        <rect key="frame" x="45.5" y="23.5" width="183" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="GPZ-RS-esb"/>
+                                            <constraint firstAttribute="width" constant="183" id="Xyh-K2-QuK"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="b2d-8s-hX8" firstAttribute="centerY" secondItem="eSf-Qe-3hn" secondAttribute="centerY" id="9bi-bu-OpH"/>
+                                    <constraint firstItem="b2d-8s-hX8" firstAttribute="centerX" secondItem="eSf-Qe-3hn" secondAttribute="centerX" id="Exe-NZ-6Ic"/>
                                     <constraint firstAttribute="width" constant="274" id="i0p-yI-t6E"/>
                                     <constraint firstAttribute="height" constant="89" id="rkY-hd-oeh"/>
                                 </constraints>
@@ -185,6 +219,10 @@
                         <viewLayoutGuide key="safeArea" id="wRN-JU-xsq"/>
                     </view>
                     <navigationItem key="navigationItem" id="UIt-o6-4ua"/>
+                    <connections>
+                        <outlet property="labelKeteranganPassword" destination="6oM-6c-9Lb" id="O2N-by-Wbz"/>
+                        <outlet property="labelNim" destination="t0d-3F-n6x" id="b7E-eK-dse"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh0-H7-VfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -330,6 +368,7 @@
     </scenes>
     <resources>
         <image name="chevron.right" catalog="system" width="46" height="64"/>
+        <image name="logo-cl-58" width="58" height="65"/>
         <image name="xmark.rectangle" catalog="system" width="64" height="48"/>
     </resources>
 </document>

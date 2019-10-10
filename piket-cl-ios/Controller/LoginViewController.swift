@@ -12,10 +12,13 @@ import SwiftyJSON
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var labelKeteranganPassword: UILabel!
+    @IBOutlet weak var labelNim: UILabel!
+    var finalNimText = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        labelNim.text = finalNimText        
     }
 
 
