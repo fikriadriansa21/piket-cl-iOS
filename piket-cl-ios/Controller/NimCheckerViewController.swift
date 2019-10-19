@@ -24,18 +24,11 @@ class NimCheckerViewController: UIViewController {
     }
     
     
-    func checkPassword(nim: String) {
+    func checkPassword(nim: String, completion: @escaping (Bool) -> Void) {
 
-        Alamofire.request(baseURL, method: .post, parameters: ["nim": nim])
-                    .validate()
-                    .responseJSON { response in
-        // 3 - HTTP response handle
-                    guard response.result.isSuccess else {
-                    print("Error while fetching remote rooms: \(String(describing: response.result.error))")
-                    return
-
-                 print(response)
-            }
+        Alamofire.request(baseURL, method: .post, parameters: ["nim": nim]).validate().responseJSON { response in
+            print(response.response?.statusCode)
+            completion(true)
         }
     }
     
@@ -47,7 +40,9 @@ class NimCheckerViewController: UIViewController {
         }
                 
         self.nimText = textFieldNim.text!
-        checkPassword(nim: nimText)
+        checkPassword(nim: nimText) { (success) in
+            print("Halloooo")
+        }
         
 //        performSegue(withIdentifier: "sendNim", sender: self)
     }
