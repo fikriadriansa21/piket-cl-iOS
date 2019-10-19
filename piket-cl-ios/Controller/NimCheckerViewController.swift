@@ -10,29 +10,54 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-
 class NimCheckerViewController: UIViewController {
     
     @IBOutlet weak var textFieldNim: UITextField!
-    let baseURL:String = "https://absensi-codelabs.herokuapp.com/mobile/check-password"
+    let baseURL:String = "https://absensi-codelabs.herokuapp.com/mobile/login/check-password"
     var nimText = ""
-    var detailText = ""
+    var detailText: String = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
+    
+    func checkPassword(nim: String) {
 
-    @IBAction func buttonCheckPassword(_ sender: UIButton) {
-        self.nimText = textFieldNim.text!
-        performSegue(withIdentifier: "sendNim", sender: self)
+        Alamofire.request(baseURL, method: .post, parameters: ["nim": nim])
+                    .validate()
+                    .responseJSON { response in
+        // 3 - HTTP response handle
+                    guard response.result.isSuccess else {
+                    print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                    return
+
+                 print(response)
+            }
+        }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! LoginViewController
-        vc.finalNimText = self.nimText        
+    @IBAction func buttonCheckPassword(_ sender: UIButton) {
+        let nim: String = textFieldNim.text!
+        
+        if nim.isEmpty {
+            print("nim harus diisi")
+        }
+                
+        self.nimText = textFieldNim.text!
+        checkPassword(nim: nimText)
+        
+//        performSegue(withIdentifier: "sendNim", sender: self)
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let vc = segue.destination as! LoginViewController
+//        vc.finalNimText = self.nimText
+////        vc.responseText = self.detailText
+//    }
     
 }
+
 

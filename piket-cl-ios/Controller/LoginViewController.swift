@@ -12,13 +12,21 @@ import SwiftyJSON
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var textFieldPassword: UITextField!{
+        didSet {
+            textFieldPassword.tintColor = UIColor.lightGray
+            textFieldPassword.setIcon(#imageLiteral(resourceName: "remove_red_eye-24px"))
+            textFieldPassword.isSecureTextEntry = true
+        }
+    }
     @IBOutlet weak var labelKeteranganPassword: UILabel!
     @IBOutlet weak var labelNim: UILabel!
     var finalNimText = ""
+    var responseText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        labelNim.text = finalNimText        
+        labelNim.text = finalNimText
     }
 
 

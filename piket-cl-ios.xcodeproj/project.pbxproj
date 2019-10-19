@@ -17,6 +17,8 @@
 		A74E105E2345AD84008E08F4 /* piket_cl_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E105D2345AD84008E08F4 /* piket_cl_iosTests.swift */; };
 		A74E10692345AD84008E08F4 /* piket_cl_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E10682345AD84008E08F4 /* piket_cl_iosUITests.swift */; };
 		A74E107D23487F24008E08F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E107C23487F24008E08F4 /* User.swift */; };
+		A7A1F45F2351868D003546F0 /* ImageTextfieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1F45E2351868D003546F0 /* ImageTextfieldExtension.swift */; };
+		A7A1F4612351B3D9003546F0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1F4602351B3D9003546F0 /* RoundButton.swift */; };
 		A7BEDE13234C76BE0006826E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEDE12234C76BE0006826E /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		A74E10682345AD84008E08F4 /* piket_cl_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piket_cl_iosUITests.swift; sourceTree = "<group>"; };
 		A74E106A2345AD84008E08F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A74E107C23487F24008E08F4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A7A1F45E2351868D003546F0 /* ImageTextfieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextfieldExtension.swift; sourceTree = "<group>"; };
+		A7A1F4602351B3D9003546F0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		A7BEDE12234C76BE0006826E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CC2C7F269A168C8EB2EC0568 /* Pods-piket-cl-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piket-cl-ios.release.xcconfig"; path = "Target Support Files/Pods-piket-cl-ios/Pods-piket-cl-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +166,8 @@
 			children = (
 				A74E104A2345AD7F008E08F4 /* NimCheckerViewController.swift */,
 				A7BEDE12234C76BE0006826E /* LoginViewController.swift */,
+				A7A1F45E2351868D003546F0 /* ImageTextfieldExtension.swift */,
+				A7A1F4602351B3D9003546F0 /* RoundButton.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -351,7 +357,9 @@
 			files = (
 				A7BEDE13234C76BE0006826E /* LoginViewController.swift in Sources */,
 				A74E107D23487F24008E08F4 /* User.swift in Sources */,
+				A7A1F4612351B3D9003546F0 /* RoundButton.swift in Sources */,
 				A74E104B2345AD7F008E08F4 /* NimCheckerViewController.swift in Sources */,
+				A7A1F45F2351868D003546F0 /* ImageTextfieldExtension.swift in Sources */,
 				A74E10472345AD7F008E08F4 /* AppDelegate.swift in Sources */,
 				A74E10492345AD7F008E08F4 /* SceneDelegate.swift in Sources */,
 			);

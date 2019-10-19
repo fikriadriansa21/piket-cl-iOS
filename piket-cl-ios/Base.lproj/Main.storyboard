@@ -18,21 +18,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97M-oi-n14" userLabel="top container">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="289"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-cl-58" translatesAutoresizingMaskIntoConstraints="NO" id="aYG-H3-5AP">
-                                        <rect key="frame" x="147.5" y="104.5" width="80" height="80"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cl-logo-name" translatesAutoresizingMaskIntoConstraints="NO" id="aYG-H3-5AP">
+                                        <rect key="frame" x="107.5" y="104.5" width="160" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="Wp5-Ed-yQI"/>
+                                            <constraint firstAttribute="width" constant="160" id="Wp5-Ed-yQI"/>
                                             <constraint firstAttribute="height" constant="80" id="w5G-ZV-jm4"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Piket Codelabs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVz-O0-3a2">
-                                        <rect key="frame" x="113" y="228" width="149" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login Piket" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVz-O0-3a2">
+                                        <rect key="frame" x="113" y="228" width="149" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="149" id="5dg-nG-ZJS"/>
-                                            <constraint firstAttribute="height" constant="18" id="ggs-9f-4n6"/>
+                                            <constraint firstAttribute="height" constant="23" id="ggs-9f-4n6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -47,9 +47,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUK-qM-5fa" userLabel="bottom container">
                                 <rect key="frame" x="0.0" y="378" width="375" height="289"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O67-hv-RrC">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O67-hv-RrC" customClass="RoundButton" customModule="piket_cl_ios" customModuleProvider="target">
                                         <rect key="frame" x="68" y="124.5" width="239" height="40"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.34901960784313724" green="0.83921568627450982" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="239" id="Qr0-lh-AFT"/>
                                             <constraint firstAttribute="height" constant="40" id="a31-rR-2n4"/>
@@ -58,6 +58,11 @@
                                         <state key="normal" title="CHECK">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buttonCheckPassword:" destination="pyv-ky-UsK" eventType="touchUpInside" id="lB0-rs-8n2"/>
                                         </connections>
@@ -72,13 +77,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TG-oI-7TX" userLabel="middle container">
                                 <rect key="frame" x="50.5" y="289" width="274" height="89"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6z-6K-2bm">
-                                        <rect key="frame" x="17.5" y="23.5" width="239" height="42"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nim" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6z-6K-2bm" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="-0.5" y="20.5" width="275" height="48"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="239" id="5eF-Xo-CDd"/>
-                                            <constraint firstAttribute="height" constant="42" id="hPv-Ng-QEF"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="275" id="5eF-Xo-CDd"/>
+                                            <constraint firstAttribute="height" constant="48" id="hPv-Ng-QEF"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -132,7 +137,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="223" id="OKN-42-vch"/>
                                             <constraint firstAttribute="height" constant="23" id="QZs-N1-w26"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -159,9 +164,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8y5-FJ-dCh">
                                 <rect key="frame" x="0.0" y="368" width="375" height="279"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXj-0t-wEa">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXj-0t-wEa" customClass="RoundButton" customModule="piket_cl_ios" customModuleProvider="target">
                                         <rect key="frame" x="68" y="119.5" width="239" height="40"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.34901960780000002" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LP0-OM-jiR"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="239" id="aZb-pR-2O4"/>
@@ -170,6 +175,11 @@
                                         <state key="normal" title="LOGIN">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="DuP-uc-Kql" kind="show" id="B1V-g1-E69"/>
                                         </connections>
@@ -184,13 +194,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSf-Qe-3hn">
                                 <rect key="frame" x="50.5" y="279" width="274" height="89"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2d-8s-hX8">
-                                        <rect key="frame" x="45.5" y="23.5" width="183" height="42"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2d-8s-hX8" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="-0.5" y="20.5" width="275" height="48"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="42" id="GPZ-RS-esb"/>
-                                            <constraint firstAttribute="width" constant="183" id="Xyh-K2-QuK"/>
+                                            <constraint firstAttribute="height" constant="48" id="GPZ-RS-esb"/>
+                                            <constraint firstAttribute="width" constant="275" id="Xyh-K2-QuK"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -244,13 +254,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nama Orang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhK-4X-i7C">
-                                            <rect key="frame" x="82" y="25" width="97" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNC-7V-VcA">
                                             <rect key="frame" x="299" y="8" width="56" height="56"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -263,6 +266,13 @@
                                             <rect key="frame" x="23" y="16" width="32" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nama Orang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhK-4X-i7C">
+                                            <rect key="frame" x="85" y="25" width="97" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -289,15 +299,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFz-5h-ZpY">
-                                <rect key="frame" x="16" y="108" width="343" height="199"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="199"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSy-Pa-kMF">
-                                        <rect key="frame" x="131" y="23" width="80" height="80"/>
+                                        <rect key="frame" x="147" y="21" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nama Orang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsT-rx-JW1">
-                                        <rect key="frame" x="106" y="137" width="131" height="29"/>
+                                        <rect key="frame" x="122" y="137" width="131" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
@@ -307,11 +317,11 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3o-5Z-cZA">
-                                <rect key="frame" x="16" y="315" width="343" height="121"/>
+                                <rect key="frame" x="0.0" y="315" width="375" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&quot;Peryataan sudah piket&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7p-1V-uwS">
-                                        <rect key="frame" x="69" y="49" width="205" height="23"/>
+                                        <rect key="frame" x="85" y="49" width="205" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
@@ -321,17 +331,22 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALL-8o-uwi">
-                                <rect key="frame" x="16" y="444" width="343" height="117"/>
+                                <rect key="frame" x="0.0" y="444" width="375" height="203"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dG-YV-Es2">
-                                        <rect key="frame" x="51" y="34" width="240" height="48"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dG-YV-Es2" customClass="RoundButton" customModule="piket_cl_ios" customModuleProvider="target">
+                                        <rect key="frame" x="67" y="77" width="240" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.34901960780000002" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="CONFIRM">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -344,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPF-Np-NSa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3562" y="134"/>
+            <point key="canvasLocation" x="3560.8000000000002" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pUE-iK-07M">
@@ -368,7 +383,7 @@
     </scenes>
     <resources>
         <image name="chevron.right" catalog="system" width="46" height="64"/>
-        <image name="logo-cl-58" width="58" height="65"/>
+        <image name="cl-logo-name" width="134" height="38"/>
         <image name="xmark.rectangle" catalog="system" width="64" height="48"/>
     </resources>
 </document>
