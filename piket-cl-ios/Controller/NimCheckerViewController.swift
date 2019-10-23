@@ -13,51 +13,63 @@ import Alamofire
 class NimCheckerViewController: UIViewController {
     
     @IBOutlet weak var textFieldNim: UITextField!
-    let baseURL:String = "https://absensi-codelabs.herokuapp.com/mobile/login/check-password"
     var nimText = ""
-    var detailText: String = ""
+    var textBuatAddPassword = ""
+//    var detailText: String = ""
+    let api = APIManager()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    
-    
-    func checkPassword(nim: String) {
-
-        Alamofire.request(baseURL, method: .post, parameters: ["nim": nim])
-                    .validate()
-                    .responseJSON { response in
-        // 3 - HTTP response handle
-                    guard response.result.isSuccess else {
-                    print("Error while fetching remote rooms: \(String(describing: response.result.error))")
-                    return
-
-                 print(response)
-            }
-        }
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func buttonCheckPassword(_ sender: UIButton) {
         let nim: String = textFieldNim.text!
-        
-        if nim.isEmpty {
-            print("nim harus diisi")
-        }
+        let alert = UIAlertController(title: "Warning", message: "NIM must be filled", preferredStyle: .actionSheet)
+
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            print("Silahkan isi NIM-mu")
+        }))
                 
-        self.nimText = textFieldNim.text!
-        checkPassword(nim: nimText)
+        nimText = textFieldNim.text!
         
-//        performSegue(withIdentifier: "sendNim", sender: self)
+        api.checkPassword(nim: nimText) { (success) in
+            if nim.isEmpty {
+                self.present(alert, animated: true)
+                print("nim harus diisi")
+            }
+            if (self.api.status == true){
+                self.performSegue(withIdentifier: "sendNim", sender: nil)
+            }
+            else{
+                self.textBuatAddPassword = "Dari Controller Utama"
+                self.performSegue(withIdentifier: "dontHavePassword", sender: nil)
+            }
+        }
+        
+        
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let vc = segue.destination as! LoginViewController
-//        vc.finalNimText = self.nimText
-////        vc.responseText = self.detailText
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let vcAddPassword = segue.destination as! AddNewViewController
+        let vcLogin = segue.destination as! LoginViewController
+        vcLogin.finalNimText = self.nimText
+        vcLogin.responseText = api.detailText
+//        vcAddPassword.textDisini = self.textBuatAddPassword
+    }
     
 }
 
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

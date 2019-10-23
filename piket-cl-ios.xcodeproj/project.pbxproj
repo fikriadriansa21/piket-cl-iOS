@@ -16,10 +16,13 @@
 		A74E10532345AD84008E08F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74E10512345AD84008E08F4 /* LaunchScreen.storyboard */; };
 		A74E105E2345AD84008E08F4 /* piket_cl_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E105D2345AD84008E08F4 /* piket_cl_iosTests.swift */; };
 		A74E10692345AD84008E08F4 /* piket_cl_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E10682345AD84008E08F4 /* piket_cl_iosUITests.swift */; };
-		A74E107D23487F24008E08F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E107C23487F24008E08F4 /* User.swift */; };
+		A74E107D23487F24008E08F4 /* DataPiket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E107C23487F24008E08F4 /* DataPiket.swift */; };
 		A7A1F45F2351868D003546F0 /* ImageTextfieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1F45E2351868D003546F0 /* ImageTextfieldExtension.swift */; };
 		A7A1F4612351B3D9003546F0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1F4602351B3D9003546F0 /* RoundButton.swift */; };
 		A7BEDE13234C76BE0006826E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEDE12234C76BE0006826E /* LoginViewController.swift */; };
+		A7C06074235DF31300FB7877 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C06073235DF31300FB7877 /* APIManager.swift */; };
+		A7C06078235EB65400FB7877 /* ListJadwalPiketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C06077235EB65400FB7877 /* ListJadwalPiketViewController.swift */; };
+		A7C0607B2360265C00FB7877 /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0607A2360265C00FB7877 /* AddNewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,10 +59,13 @@
 		A74E10642345AD84008E08F4 /* piket-cl-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "piket-cl-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74E10682345AD84008E08F4 /* piket_cl_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piket_cl_iosUITests.swift; sourceTree = "<group>"; };
 		A74E106A2345AD84008E08F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A74E107C23487F24008E08F4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A74E107C23487F24008E08F4 /* DataPiket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPiket.swift; sourceTree = "<group>"; };
 		A7A1F45E2351868D003546F0 /* ImageTextfieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextfieldExtension.swift; sourceTree = "<group>"; };
 		A7A1F4602351B3D9003546F0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		A7BEDE12234C76BE0006826E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A7C06073235DF31300FB7877 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		A7C06077235EB65400FB7877 /* ListJadwalPiketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListJadwalPiketViewController.swift; sourceTree = "<group>"; };
+		A7C0607A2360265C00FB7877 /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
 		CC2C7F269A168C8EB2EC0568 /* Pods-piket-cl-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piket-cl-ios.release.xcconfig"; path = "Target Support Files/Pods-piket-cl-ios/Pods-piket-cl-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +112,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A7147E61235B5FEC00C5D153 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A7C06073235DF31300FB7877 /* APIManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		A74E103A2345AD7F008E08F4 = {
 			isa = PBXGroup;
 			children = (
@@ -131,14 +145,11 @@
 		A74E10452345AD7F008E08F4 /* piket-cl-ios */ = {
 			isa = PBXGroup;
 			children = (
+				A7C06076235E03A800FB7877 /* SupportFiles */,
+				A7147E61235B5FEC00C5D153 /* Networking */,
 				A74E107923486D3F008E08F4 /* Model */,
 				A74E107823486D2E008E08F4 /* Controller */,
-				A74E10462345AD7F008E08F4 /* AppDelegate.swift */,
-				A74E10482345AD7F008E08F4 /* SceneDelegate.swift */,
-				A74E104C2345AD7F008E08F4 /* Main.storyboard */,
-				A74E104F2345AD84008E08F4 /* Assets.xcassets */,
-				A74E10512345AD84008E08F4 /* LaunchScreen.storyboard */,
-				A74E10542345AD84008E08F4 /* Info.plist */,
+				A7C06075235E038500FB7877 /* View */,
 			);
 			path = "piket-cl-ios";
 			sourceTree = "<group>";
@@ -166,8 +177,8 @@
 			children = (
 				A74E104A2345AD7F008E08F4 /* NimCheckerViewController.swift */,
 				A7BEDE12234C76BE0006826E /* LoginViewController.swift */,
-				A7A1F45E2351868D003546F0 /* ImageTextfieldExtension.swift */,
-				A7A1F4602351B3D9003546F0 /* RoundButton.swift */,
+				A7C06077235EB65400FB7877 /* ListJadwalPiketViewController.swift */,
+				A7C0607A2360265C00FB7877 /* AddNewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -175,9 +186,31 @@
 		A74E107923486D3F008E08F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A74E107C23487F24008E08F4 /* User.swift */,
+				A74E107C23487F24008E08F4 /* DataPiket.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A7C06075235E038500FB7877 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A74E104C2345AD7F008E08F4 /* Main.storyboard */,
+				A74E104F2345AD84008E08F4 /* Assets.xcassets */,
+				A74E10512345AD84008E08F4 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A7C06076235E03A800FB7877 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A7A1F45E2351868D003546F0 /* ImageTextfieldExtension.swift */,
+				A7A1F4602351B3D9003546F0 /* RoundButton.swift */,
+				A74E10462345AD7F008E08F4 /* AppDelegate.swift */,
+				A74E10482345AD7F008E08F4 /* SceneDelegate.swift */,
+				A74E10542345AD84008E08F4 /* Info.plist */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,9 +388,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C06078235EB65400FB7877 /* ListJadwalPiketViewController.swift in Sources */,
+				A7C06074235DF31300FB7877 /* APIManager.swift in Sources */,
 				A7BEDE13234C76BE0006826E /* LoginViewController.swift in Sources */,
-				A74E107D23487F24008E08F4 /* User.swift in Sources */,
+				A74E107D23487F24008E08F4 /* DataPiket.swift in Sources */,
 				A7A1F4612351B3D9003546F0 /* RoundButton.swift in Sources */,
+				A7C0607B2360265C00FB7877 /* AddNewViewController.swift in Sources */,
 				A74E104B2345AD7F008E08F4 /* NimCheckerViewController.swift in Sources */,
 				A7A1F45F2351868D003546F0 /* ImageTextfieldExtension.swift in Sources */,
 				A74E10472345AD7F008E08F4 /* AppDelegate.swift in Sources */,
@@ -537,7 +573,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SY534J33X8;
-				INFOPLIST_FILE = "piket-cl-ios/Info.plist";
+				INFOPLIST_FILE = "piket-cl-ios/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -556,7 +592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SY534J33X8;
-				INFOPLIST_FILE = "piket-cl-ios/Info.plist";
+				INFOPLIST_FILE = "piket-cl-ios/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
