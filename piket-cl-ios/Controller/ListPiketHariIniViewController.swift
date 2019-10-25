@@ -8,12 +8,17 @@
 
 import UIKit
 
-class ListJadwalPiketViewController: UIViewController {
-
+class ListPiketHariIniViewController: UIViewController {
+    let api = APIManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func getTokenLogin(){
+        
     }
 
 }

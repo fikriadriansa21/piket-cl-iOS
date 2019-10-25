@@ -16,6 +16,9 @@ class APIManager{
     let piketHariIni: String = "https://absensi-codelabs.herokuapp.com/mobile/piket-hari-ini"
     var detailText = ""
     var status: Bool = false
+    var tokenText = ""
+    var tokenVal = [Token]()
+    
     
     public func checkPassword(nim: String, completion: @escaping (Bool) -> Void) {
         Alamofire.request(urlCheck, method: .post, parameters: ["nim": nim]).validate().responseJSON { response in
@@ -29,40 +32,72 @@ class APIManager{
                 self.status = false
                 completion(false)
             }
-//            print(response.response?.statusCode)
+            print(response.response?.statusCode as Any)
         }
     }
     
-    public func loginUser(nim: String,password: String, completion: @escaping (Bool) -> Void){
+    public func loginUser(nim: String,password: String, completion: @escaping ([Token]) -> Void){
+        
         let param: Parameters = [
             "nim": nim,
             "password": password
         ]
-
         Alamofire.request(
             urlLogin, method: .post, parameters: param)
-            .validate().responseJSON{ (response) in
+            .validate().responseJSON{ response in
                 if(response.response?.statusCode == 200){
                     print("boleh login")
-                    if let json = response.result.value {
-                        print("JSON: \(json)")
+                    
+                    guard let data = response.data else {
+                        return
+                    }                    
+                    do {
+                        
+                        let decoder = JSONDecoder()
+                        let responseToken = try decoder.decode(ResponseToken.self, from: data)
+                        self.tokenVal = [responseToken.data]
+                        print(self.tokenVal)
+                        completion(self.tokenVal)
+//                        self.detailText = tokenVal.self
+//                    completion(true)
+//                        self.tokenText = self.tokenVal
+//                        completion(self.tokenText)
+                    } catch let error {
+                        print(error)
+//                        completion(self)
                     }
-
-//                    guard let data = response.data else { return }
-//                    let json = try? JSON(data:data)
-//                    if let token = json?["data"][0]["token"].string {
-//                                    print(token)
-//                    }
-                    completion(true)
                 }else{
                     print("gabisa login")
-                    completion(false)
                 }
         }
-
     }
     
+    public func getListPiket(token: String, completion: @escaping (Bool) -> Void) {
+        let headers: HTTPHeaders = [
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiRmlrcmkgQWRyaWFuc2EiLCJuaW0iOiIxMDExNzEyOCIsImJpZGFuZ19yaXNldCI6Ik1vYmlsZSIsImlkX3NpZGlramFyaSI6IjEwIiwiaWF0IjoxNTcyMDExMzIxfQ.HlQhGxcN2cAksciBiIbeh5Z7bgYf8plHV5K7W5-KVHM",
+          "Accept": "application/json"
+        ]
+        Alamofire.request(piketHariIni, method: .get, headers: headers).validate().responseJSON { response in
+            
+            guard let data = response.data else{ return }
+            do{
+                let decoder = JSONDecoder()
+                let responseListPiket = try decoder.decode(Response.self, from: data)
+                print(responseListPiket.data as Any)
+            }catch let error{
+                print(error)
+            }
+
+            print(response.response?.statusCode as Any)
+        }
+    }
+    
+    
 }
+        
+
+
+
 
 
 

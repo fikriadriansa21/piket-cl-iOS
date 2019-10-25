@@ -269,7 +269,7 @@
         <!--Jadwal Piket-->
         <scene sceneID="J0c-ib-BVN">
             <objects>
-                <viewController id="IQ0-HE-RIE" sceneMemberID="viewController">
+                <viewController id="IQ0-HE-RIE" customClass="ListPiketHariIniViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CSw-0J-vP8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -284,7 +284,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="81" id="563-6X-fR8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="81" id="563-6X-fR8" customClass="ListPiketHariIniTableViewCell" customModule="piket_cl_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="563-6X-fR8" id="bYL-eF-NCh">
@@ -337,6 +337,10 @@
                                                 </view>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelJobPiket" destination="0TY-xz-Djk" id="4tI-e5-Ciq"/>
+                                            <outlet property="labelNama" destination="lrD-5p-4Sk" id="WMr-xG-Y8r"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

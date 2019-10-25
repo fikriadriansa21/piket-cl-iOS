@@ -43,7 +43,7 @@ class NimCheckerViewController: UIViewController {
                 self.performSegue(withIdentifier: "sendNim", sender: nil)
             }
             else{
-                self.textBuatAddPassword = "Dari Controller Utama"
+//                self.textBuatAddPassword = "Dari Controller Utama"
                 self.performSegue(withIdentifier: "dontHavePassword", sender: nil)
             }
         }
@@ -52,11 +52,9 @@ class NimCheckerViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let vcAddPassword = segue.destination as! AddNewViewController
         let vcLogin = segue.destination as! LoginViewController
         vcLogin.finalNimText = self.nimText
-        vcLogin.responseText = api.detailText
-//        vcAddPassword.textDisini = self.textBuatAddPassword
+        vcLogin.responseText = api.detailText        
     }
     
 }

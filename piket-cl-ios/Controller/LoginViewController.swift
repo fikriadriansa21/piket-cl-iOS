@@ -43,9 +43,7 @@ class LoginViewController: UIViewController {
         
             api.loginUser(nim: finalNimText, password: passwordText){(success) in
                 self.performSegue(withIdentifier: "sendPassword", sender: self)
-
-            }
-        
+            }        
         
     }
     
