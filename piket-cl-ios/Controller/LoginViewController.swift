@@ -25,12 +25,17 @@ class LoginViewController: UIViewController {
     var passwordText = ""
     let api = APIManager()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         labelNim.text = finalNimText
         labelKeteranganPassword.text = responseText
         
         self.hideKeyboardWhenTappedAround()
+        
+        api.getListPiket(){(success) in
+            print("harusnya disini keluar object list piket hari ini")
+        }
     }
     
     @IBAction func loginAction(_ sender: UIButton) {

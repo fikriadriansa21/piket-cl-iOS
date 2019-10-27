@@ -123,22 +123,22 @@
         <!--LoginViewController-->
         <scene sceneID="duB-SZ-zLw">
             <objects>
-                <viewController id="5Am-4T-6HA" userLabel="LoginViewController" customClass="LoginViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="5Am-4T-6HA" userLabel="LoginViewController" customClass="LoginViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ix-U6-RvO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3E-e8-Z5I">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="279"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="289"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keterangan Cek Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oM-6c-9Lb">
-                                        <rect key="frame" x="76" y="186" width="223" height="23"/>
+                                        <rect key="frame" x="76" y="191" width="223" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0d-3F-n6x">
-                                        <rect key="frame" x="162" y="125" width="51" height="29"/>
+                                        <rect key="frame" x="162" y="130" width="51" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="Mxn-Jh-TU3"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="51" id="nhv-qJ-kka"/>
@@ -160,10 +160,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8y5-FJ-dCh">
-                                <rect key="frame" x="0.0" y="368" width="375" height="279"/>
+                                <rect key="frame" x="0.0" y="378" width="375" height="289"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXj-0t-wEa" customClass="RoundButton" customModule="piket_cl_ios" customModuleProvider="target">
-                                        <rect key="frame" x="68" y="119.5" width="239" height="40"/>
+                                        <rect key="frame" x="68" y="124.5" width="239" height="40"/>
                                         <color key="backgroundColor" red="0.34901960780000002" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LP0-OM-jiR"/>
@@ -191,7 +191,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSf-Qe-3hn">
-                                <rect key="frame" x="50.5" y="279" width="274" height="89"/>
+                                <rect key="frame" x="50.5" y="289" width="274" height="89"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2d-8s-hX8" customClass="JVFloatLabeledTextField">
                                         <rect key="frame" x="-0.5" y="20.5" width="275" height="48"/>
@@ -269,7 +269,7 @@
         <!--Jadwal Piket-->
         <scene sceneID="J0c-ib-BVN">
             <objects>
-                <viewController id="IQ0-HE-RIE" customClass="ListPiketHariIniViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="IQ0-HE-RIE" customClass="ListPiketHariIniViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CSw-0J-vP8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -357,9 +357,9 @@
         <!--PicketAssignmentViewController-->
         <scene sceneID="Gyj-eK-yFJ">
             <objects>
-                <viewController id="KSq-Ff-dMc" userLabel="PicketAssignmentViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="KSq-Ff-dMc" userLabel="PicketAssignmentViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hTZ-7w-qJd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFz-5h-ZpY">
@@ -428,11 +428,11 @@
         <!--Jadwal Piket-->
         <scene sceneID="pUE-iK-07M">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DuP-uc-Kql" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="DuP-uc-Kql" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Jadwal Piket" largeTitleDisplayMode="always" id="ntM-wX-sgt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="xvd-Qo-9X7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

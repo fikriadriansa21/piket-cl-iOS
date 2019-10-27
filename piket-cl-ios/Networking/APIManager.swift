@@ -18,6 +18,7 @@ class APIManager{
     var status: Bool = false
     var tokenText = ""
     var tokenVal = [Token]()
+    var dataVal = [Piket]()
     
     
     public func checkPassword(nim: String, completion: @escaping (Bool) -> Void) {
@@ -52,19 +53,13 @@ class APIManager{
                         return
                     }                    
                     do {
-                        
                         let decoder = JSONDecoder()
                         let responseToken = try decoder.decode(ResponseToken.self, from: data)
                         self.tokenVal = [responseToken.data]
                         print(self.tokenVal)
                         completion(self.tokenVal)
-//                        self.detailText = tokenVal.self
-//                    completion(true)
-//                        self.tokenText = self.tokenVal
-//                        completion(self.tokenText)
                     } catch let error {
                         print(error)
-//                        completion(self)
                     }
                 }else{
                     print("gabisa login")
@@ -72,23 +67,29 @@ class APIManager{
         }
     }
     
-    public func getListPiket(token: String, completion: @escaping (Bool) -> Void) {
-        let headers: HTTPHeaders = [
-            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiRmlrcmkgQWRyaWFuc2EiLCJuaW0iOiIxMDExNzEyOCIsImJpZGFuZ19yaXNldCI6Ik1vYmlsZSIsImlkX3NpZGlramFyaSI6IjEwIiwiaWF0IjoxNTcyMDExMzIxfQ.HlQhGxcN2cAksciBiIbeh5Z7bgYf8plHV5K7W5-KVHM",
-          "Accept": "application/json"
+    public func getListPiket(completion: @escaping ([Piket]) -> Void) {
+        let headers = [
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiRmlrcmkgQWRyaWFuc2EiLCJuaW0iOiIxMDExNzEyOCIsImJpZGFuZ19yaXNldCI6Ik1vYmlsZSIsImlkX3NpZGlramFyaSI6IjEwIiwiaWF0IjoxNTcyMDExMzIxfQ.HlQhGxcN2cAksciBiIbeh5Z7bgYf8plHV5K7W5-KVHM"
         ]
         Alamofire.request(piketHariIni, method: .get, headers: headers).validate().responseJSON { response in
             
-            guard let data = response.data else{ return }
-            do{
-                let decoder = JSONDecoder()
-                let responseListPiket = try decoder.decode(Response.self, from: data)
-                print(responseListPiket.data as Any)
-            }catch let error{
-                print(error)
+            if(response.response?.statusCode == 200){
+                print("boleh dapet akses token")
+                
+                guard let data = response.data else {
+                    return
+                }
+                do {
+                    let decoder = JSONDecoder()
+                    let responseList = try decoder.decode(Response.self, from: data)
+                    self.dataVal = responseList.data!
+                    print(self.dataVal)
+                } catch let error {
+                    print(error)
+                }
+            }else{
+                print("gabisa dapet akses token")
             }
-
-            print(response.response?.statusCode as Any)
         }
     }
     

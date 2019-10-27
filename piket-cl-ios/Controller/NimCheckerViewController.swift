@@ -22,6 +22,7 @@ class NimCheckerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
     }
     
     @IBAction func buttonCheckPassword(_ sender: UIButton) {
@@ -43,7 +44,6 @@ class NimCheckerViewController: UIViewController {
                 self.performSegue(withIdentifier: "sendNim", sender: nil)
             }
             else{
-//                self.textBuatAddPassword = "Dari Controller Utama"
                 self.performSegue(withIdentifier: "dontHavePassword", sender: nil)
             }
         }

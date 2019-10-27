@@ -42,19 +42,7 @@ struct Token: Codable {
     enum CodingKeys: String, CodingKey {
         case token = "token"
     }
-    
-//    init(from decoder: Decoder) throws {
-//        let container = try! decoder.container(keyedBy: CodingKeys.self)
-//
-//        token = try container.decode(String.self, forKey: .token)
-//    }
-//
-//    func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//
-//        try container.encode(token, forKey: .token)        
-//    }
-    
+
     
 }
 
@@ -106,29 +94,29 @@ struct Piket: Codable {
         case diperiksa_oleh
     }
     
-    init(from decoder: Decoder) throws {
-        let container = try! decoder.container(keyedBy: CodingKeys.self)
-        
-        id = try container.decode(Int.self, forKey: .id)
-        nama_anggota = try container.decode(String.self, forKey: .nama_anggota)
-        jenis_piket = try container.decode(String.self, forKey: .jenis_piket)
-        status = try container.decode(String.self, forKey: .status)
-        token = try container.decode(String.self, forKey: .token)
-        tanggal_piket = try container.decode(String.self, forKey: .tanggal_piket)
-        diperiksa_oleh = try container.decodeIfPresent(String.self, forKey: .diperiksa_oleh)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        
-        try container.encode(id, forKey: .id)
-        try container.encode(nama_anggota, forKey: .nama_anggota)
-        try container.encode(jenis_piket, forKey: .jenis_piket)
-        try container.encode(status, forKey: .status)
-        try container.encode(token, forKey: .token)
-        try container.encode(tanggal_piket, forKey: .tanggal_piket)
-        try container.encode(diperiksa_oleh, forKey: .diperiksa_oleh)
-    }
+//    init(from decoder: Decoder) throws {
+//        let container = try! decoder.container(keyedBy: CodingKeys.self)
+//        
+//        id = try container.decode(Int.self, forKey: .id)
+//        nama_anggota = try container.decode(String.self, forKey: .nama_anggota)
+//        jenis_piket = try container.decode(String.self, forKey: .jenis_piket)
+//        status = try container.decode(String.self, forKey: .status)
+//        token = try container.decode(String.self, forKey: .token)
+//        tanggal_piket = try container.decode(String.self, forKey: .tanggal_piket)
+//        diperiksa_oleh = try container.decodeIfPresent(String.self, forKey: .diperiksa_oleh)
+//    }
+//    
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//        
+//        try container.encode(id, forKey: .id)
+//        try container.encode(nama_anggota, forKey: .nama_anggota)
+//        try container.encode(jenis_piket, forKey: .jenis_piket)
+//        try container.encode(status, forKey: .status)
+//        try container.encode(token, forKey: .token)
+//        try container.encode(tanggal_piket, forKey: .tanggal_piket)
+//        try container.encode(diperiksa_oleh, forKey: .diperiksa_oleh)
+//    }
     
 }
 
