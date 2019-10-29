@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import FSCalendar
 
-class ListPiketHariIniViewController: UIViewController {
-    let api = APIManager()
+class ListPiketHariIniViewController: UIViewController {    
     
+    @IBOutlet weak var calendarWeekPiket: FSCalendar!{
+        didSet{
+            calendarWeekPiket.scope = .week
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     

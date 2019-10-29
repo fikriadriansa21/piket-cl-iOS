@@ -32,10 +32,6 @@ class LoginViewController: UIViewController {
         labelKeteranganPassword.text = responseText
         
         self.hideKeyboardWhenTappedAround()
-        
-        api.getListPiket(){(success) in
-            print("harusnya disini keluar object list piket hari ini")
-        }
     }
     
     @IBAction func loginAction(_ sender: UIButton) {
@@ -48,7 +44,10 @@ class LoginViewController: UIViewController {
         
             api.loginUser(nim: finalNimText, password: passwordText){(success) in
                 self.performSegue(withIdentifier: "sendPassword", sender: self)
-            }        
+            }
+            api.getListPiket(){(success) in
+                print("list piket")
+            }
         
     }
     

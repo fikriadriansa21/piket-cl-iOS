@@ -16,9 +16,8 @@ class APIManager{
     let piketHariIni: String = "https://absensi-codelabs.herokuapp.com/mobile/piket-hari-ini"
     var detailText = ""
     var status: Bool = false
-    var tokenText = ""
-    var tokenVal = [Token]()
     var dataVal = [Piket]()
+    var tokenValue: String = ""
     
     
     public func checkPassword(nim: String, completion: @escaping (Bool) -> Void) {
@@ -37,8 +36,7 @@ class APIManager{
         }
     }
     
-    public func loginUser(nim: String,password: String, completion: @escaping ([Token]) -> Void){
-        
+    public func loginUser(nim: String,password: String, completion: @escaping (String) -> Void){
         let param: Parameters = [
             "nim": nim,
             "password": password
@@ -55,9 +53,9 @@ class APIManager{
                     do {
                         let decoder = JSONDecoder()
                         let responseToken = try decoder.decode(ResponseToken.self, from: data)
-                        self.tokenVal = [responseToken.data]
-                        print(self.tokenVal)
-                        completion(self.tokenVal)
+                        print(responseToken.data!)
+                        self.tokenValue = (responseToken.data?.token)!
+                        completion(self.tokenValue)
                     } catch let error {
                         print(error)
                     }
@@ -82,8 +80,10 @@ class APIManager{
                 do {
                     let decoder = JSONDecoder()
                     let responseList = try decoder.decode(Response.self, from: data)
+
                     self.dataVal = responseList.data!
                     print(self.dataVal)
+                    completion(self.dataVal)
                 } catch let error {
                     print(error)
                 }
@@ -97,8 +97,8 @@ class APIManager{
 }
         
 
-
-
+//
+//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiRmlrcmkgQWRyaWFuc2EiLCJuaW0iOiIxMDExNzEyOCIsImJpZGFuZ19yaXNldCI6Ik1vYmlsZSIsImlkX3NpZGlramFyaSI6IjEwIiwiaWF0IjoxNTcyMDExMzIxfQ.HlQhGxcN2cAksciBiIbeh5Z7bgYf8plHV5K7W5-KVHM"
 
 
 

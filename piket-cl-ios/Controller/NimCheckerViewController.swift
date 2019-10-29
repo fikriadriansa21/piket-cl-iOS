@@ -15,7 +15,6 @@ class NimCheckerViewController: UIViewController {
     @IBOutlet weak var textFieldNim: UITextField!
     var nimText = ""
     var textBuatAddPassword = ""
-//    var detailText: String = ""
     let api = APIManager()
     
     
@@ -52,9 +51,15 @@ class NimCheckerViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vcLogin = segue.destination as! LoginViewController
-        vcLogin.finalNimText = self.nimText
-        vcLogin.responseText = api.detailText        
+        if (segue.identifier == "sendNim"){
+            let vcLogin = segue.destination as! LoginViewController
+            vcLogin.finalNimText = self.nimText
+            vcLogin.responseText = api.detailText
+        }
+//        if(segue.identifier == "dontHavePassword"){
+//            let vcAddPassword = segue.destination as! AddNewViewController
+//            vcAddPassword.textAddPassword = self.nimText
+//        }
     }
     
 }

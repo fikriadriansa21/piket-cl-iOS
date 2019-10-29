@@ -10,11 +10,13 @@ import UIKit
 
 class AddNewViewController: UIViewController {
 
-    @IBOutlet weak var textVcAddPassword: UILabel!
-    var textDisini = ""
+    @IBOutlet weak var textNimAddPassword: UILabel!
+    
+    var textAddPassword: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        textVcAddPassword.text = textDisini
+        
+        textNimAddPassword.text = textAddPassword
         // Do any additional setup after loading the view.
     }
     
