@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pyv-ky-UsK">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--NimCheckerViewController-->
+        <scene sceneID="6dZ-uG-4eu">
+            <objects>
+                <viewController id="pyv-ky-UsK" userLabel="NimCheckerViewController" customClass="NimCheckerViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A2v-ci-w6d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97M-oi-n14" userLabel="top container">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="289"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cl-logo-name" translatesAutoresizingMaskIntoConstraints="NO" id="aYG-H3-5AP">
+                                        <rect key="frame" x="107.5" y="104.5" width="160" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="Wp5-Ed-yQI"/>
+                                            <constraint firstAttribute="height" constant="80" id="w5G-ZV-jm4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login Piket" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVz-O0-3a2">
+                                        <rect key="frame" x="113" y="228" width="149" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="149" id="5dg-nG-ZJS"/>
+                                            <constraint firstAttribute="height" constant="23" id="ggs-9f-4n6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="aYG-H3-5AP" firstAttribute="centerY" secondItem="97M-oi-n14" secondAttribute="centerY" id="0If-o7-hir"/>
+                                    <constraint firstItem="eVz-O0-3a2" firstAttribute="top" secondItem="aYG-H3-5AP" secondAttribute="bottom" constant="43.5" id="4jN-8I-f9v"/>
+                                    <constraint firstItem="aYG-H3-5AP" firstAttribute="centerX" secondItem="97M-oi-n14" secondAttribute="centerX" id="Ocq-gG-7DB"/>
+                                    <constraint firstItem="eVz-O0-3a2" firstAttribute="centerX" secondItem="97M-oi-n14" secondAttribute="centerX" id="Zgd-e2-UY6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUK-qM-5fa" userLabel="bottom container">
+                                <rect key="frame" x="0.0" y="378" width="375" height="289"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O67-hv-RrC" customClass="RoundButton" customModule="piket_cl_ios" customModuleProvider="target">
+                                        <rect key="frame" x="68" y="124.5" width="239" height="40"/>
+                                        <color key="backgroundColor" red="0.34901960784313724" green="0.83921568627450982" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="239" id="Qr0-lh-AFT"/>
+                                            <constraint firstAttribute="height" constant="40" id="a31-rR-2n4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <state key="normal" title="CHECK">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonCheckPassword:" destination="pyv-ky-UsK" eventType="touchUpInside" id="lB0-rs-8n2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="O67-hv-RrC" firstAttribute="centerY" secondItem="GUK-qM-5fa" secondAttribute="centerY" id="BKB-sW-2ik"/>
+                                    <constraint firstItem="O67-hv-RrC" firstAttribute="centerX" secondItem="GUK-qM-5fa" secondAttribute="centerX" id="CLF-r3-IO5"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8TG-oI-7TX" userLabel="middle container">
+                                <rect key="frame" x="50.5" y="289" width="274" height="89"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nim" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b6z-6K-2bm" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="-0.5" y="20.5" width="275" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="275" id="5eF-Xo-CDd"/>
+                                            <constraint firstAttribute="height" constant="48" id="hPv-Ng-QEF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="274" id="67W-YC-xod"/>
+                                    <constraint firstItem="b6z-6K-2bm" firstAttribute="centerX" secondItem="8TG-oI-7TX" secondAttribute="centerX" id="B4Q-5Z-Nj2"/>
+                                    <constraint firstAttribute="height" constant="89" id="Vzx-9z-0fU"/>
+                                    <constraint firstItem="b6z-6K-2bm" firstAttribute="centerY" secondItem="8TG-oI-7TX" secondAttribute="centerY" id="ZoS-XY-evo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GUK-qM-5fa" firstAttribute="leading" secondItem="GWb-Ax-uxI" secondAttribute="leading" id="2Qz-Ul-34A"/>
+                            <constraint firstItem="8TG-oI-7TX" firstAttribute="top" secondItem="97M-oi-n14" secondAttribute="bottom" id="4KU-mb-2U8"/>
+                            <constraint firstItem="GUK-qM-5fa" firstAttribute="trailing" secondItem="GWb-Ax-uxI" secondAttribute="trailing" id="7hR-DE-BHN"/>
+                            <constraint firstItem="GWb-Ax-uxI" firstAttribute="bottom" secondItem="GUK-qM-5fa" secondAttribute="bottom" id="HCz-rs-IMd"/>
+                            <constraint firstItem="GUK-qM-5fa" firstAttribute="top" secondItem="8TG-oI-7TX" secondAttribute="bottom" id="JfM-vI-krn"/>
+                            <constraint firstItem="8TG-oI-7TX" firstAttribute="centerY" secondItem="A2v-ci-w6d" secondAttribute="centerY" id="Vvg-qO-0Lp"/>
+                            <constraint firstItem="97M-oi-n14" firstAttribute="top" secondItem="GWb-Ax-uxI" secondAttribute="top" id="Yog-DG-eYy"/>
+                            <constraint firstItem="97M-oi-n14" firstAttribute="trailing" secondItem="GWb-Ax-uxI" secondAttribute="trailing" id="euQ-4O-zJc"/>
+                            <constraint firstItem="8TG-oI-7TX" firstAttribute="centerX" secondItem="A2v-ci-w6d" secondAttribute="centerX" id="fsM-xm-fyF"/>
+                            <constraint firstItem="97M-oi-n14" firstAttribute="leading" secondItem="GWb-Ax-uxI" secondAttribute="leading" id="hsz-jd-DkR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GWb-Ax-uxI"/>
+                    </view>
+                    <connections>
+                        <outlet property="textFieldNim" destination="b6z-6K-2bm" id="wCp-FA-Msr"/>
+                        <segue destination="5Am-4T-6HA" kind="presentation" identifier="sendNim" id="rvj-4a-ESS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Mf-Ss-Gqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-559" y="549"/>
+        </scene>
+        <!--LoginViewController-->
+        <scene sceneID="duB-SZ-zLw">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="5Am-4T-6HA" userLabel="LoginViewController" customClass="LoginViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9ix-U6-RvO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3E-e8-Z5I">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="289"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keterangan Cek Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oM-6c-9Lb">
+                                        <rect key="frame" x="76" y="191" width="223" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0d-3F-n6x">
+                                        <rect key="frame" x="162" y="130" width="51" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="Mxn-Jh-TU3"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="51" id="nhv-qJ-kka"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="t0d-3F-n6x" firstAttribute="centerX" secondItem="g3E-e8-Z5I" secondAttribute="centerX" id="3uf-kw-cFX"/>
+                                    <constraint firstItem="6oM-6c-9Lb" firstAttribute="leading" secondItem="g3E-e8-Z5I" secondAttribute="leading" constant="76" id="6KZ-A2-0gk"/>
+                                    <constraint firstItem="6oM-6c-9Lb" firstAttribute="centerX" secondItem="g3E-e8-Z5I" secondAttribute="centerX" id="UAb-F2-2qy"/>
+                                    <constraint firstItem="6oM-6c-9Lb" firstAttribute="top" secondItem="t0d-3F-n6x" secondAttribute="bottom" constant="32" id="dDI-Ai-Bnu"/>
+                                    <constraint firstItem="6oM-6c-9Lb" firstAttribute="centerX" secondItem="t0d-3F-n6x" secondAttribute="centerX" id="fH0-4D-T6J"/>
+                                    <constraint firstAttribute="trailing" secondItem="6oM-6c-9Lb" secondAttribute="trailing" constant="76" id="txg-PK-cWx"/>
+                                    <constraint firstItem="t0d-3F-n6x" firstAttribute="centerY" secondItem="g3E-e8-Z5I" secondAttribute="centerY" id="wKB-8f-cLg"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8y5-FJ-dCh">
+                                <rect key="frame" x="0.0" y="378" width="375" height="289"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXj-0t-wEa" customClass="RoundButton" customModule="piket_cl_ios" customModuleProvider="target">
+                                        <rect key="frame" x="68" y="124.5" width="239" height="40"/>
+                                        <color key="backgroundColor" red="0.34901960780000002" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="LP0-OM-jiR"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="239" id="aZb-pR-2O4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <state key="normal" title="LOGIN">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginAction:" destination="5Am-4T-6HA" eventType="touchUpInside" id="HNQ-Jg-Hjw"/>
+                                            <segue destination="DuP-uc-Kql" kind="show" identifier="sendPassword" id="B1V-g1-E69"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="gXj-0t-wEa" firstAttribute="centerY" secondItem="8y5-FJ-dCh" secondAttribute="centerY" id="W8H-om-b9U"/>
+                                    <constraint firstItem="gXj-0t-wEa" firstAttribute="centerX" secondItem="8y5-FJ-dCh" secondAttribute="centerX" id="qsU-O9-oyD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSf-Qe-3hn">
+                                <rect key="frame" x="50.5" y="289" width="274" height="89"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2d-8s-hX8" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="-0.5" y="20.5" width="275" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="GPZ-RS-esb"/>
+                                            <constraint firstAttribute="width" constant="275" id="Xyh-K2-QuK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="b2d-8s-hX8" firstAttribute="centerY" secondItem="eSf-Qe-3hn" secondAttribute="centerY" id="9bi-bu-OpH"/>
+                                    <constraint firstItem="b2d-8s-hX8" firstAttribute="centerX" secondItem="eSf-Qe-3hn" secondAttribute="centerX" id="Exe-NZ-6Ic"/>
+                                    <constraint firstAttribute="width" constant="274" id="i0p-yI-t6E"/>
+                                    <constraint firstAttribute="height" constant="89" id="rkY-hd-oeh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="eSf-Qe-3hn" firstAttribute="top" secondItem="g3E-e8-Z5I" secondAttribute="bottom" id="3H3-xK-3QD"/>
+                            <constraint firstItem="g3E-e8-Z5I" firstAttribute="top" secondItem="wRN-JU-xsq" secondAttribute="top" id="8Yc-vH-G0Q"/>
+                            <constraint firstItem="g3E-e8-Z5I" firstAttribute="trailing" secondItem="wRN-JU-xsq" secondAttribute="trailing" id="GvW-RS-URs"/>
+                            <constraint firstItem="eSf-Qe-3hn" firstAttribute="centerX" secondItem="9ix-U6-RvO" secondAttribute="centerX" id="LmZ-ax-lXC"/>
+                            <constraint firstItem="8y5-FJ-dCh" firstAttribute="trailing" secondItem="wRN-JU-xsq" secondAttribute="trailing" id="Wbb-Cf-c3l"/>
+                            <constraint firstItem="eSf-Qe-3hn" firstAttribute="centerY" secondItem="9ix-U6-RvO" secondAttribute="centerY" id="WcW-Jq-Iwi"/>
+                            <constraint firstItem="8y5-FJ-dCh" firstAttribute="top" secondItem="eSf-Qe-3hn" secondAttribute="bottom" id="kA7-T6-aUB"/>
+                            <constraint firstItem="8y5-FJ-dCh" firstAttribute="leading" secondItem="wRN-JU-xsq" secondAttribute="leading" id="p0U-28-sAf"/>
+                            <constraint firstItem="g3E-e8-Z5I" firstAttribute="leading" secondItem="wRN-JU-xsq" secondAttribute="leading" id="qBz-AU-ZgS"/>
+                            <constraint firstItem="8y5-FJ-dCh" firstAttribute="bottom" secondItem="wRN-JU-xsq" secondAttribute="bottom" id="wGZ-dT-Mhb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wRN-JU-xsq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UIt-o6-4ua"/>
+                    <connections>
+                        <outlet property="labelKeteranganPassword" destination="6oM-6c-9Lb" id="O2N-by-Wbz"/>
+                        <outlet property="labelNim" destination="t0d-3F-n6x" id="b7E-eK-dse"/>
+                        <outlet property="textFieldPassword" destination="b2d-8s-hX8" id="5Hc-CA-Kcj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qh0-H7-VfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="584.79999999999995" y="133.5832083958021"/>
+        </scene>
+        <!--Data Source-->
+        <scene sceneID="J0c-ib-BVN">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="IQ0-HE-RIE" customClass="ListPiketHariIniViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CSw-0J-vP8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AhY-CO-gj1" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="108" width="375" height="197"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IQ0-HE-RIE" id="qfc-1e-pS2"/>
+                                    <outlet property="delegate" destination="IQ0-HE-RIE" id="If1-VW-wnk"/>
+                                </connections>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EOp-fd-a9C">
+                                <rect key="frame" x="0.0" y="305" width="375" height="342"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="81" id="563-6X-fR8" customClass="ListPiketHariIniTableViewCell" customModule="piket_cl_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="563-6X-fR8" id="bYL-eF-NCh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="dS2-Zc-IIm" userLabel="User Container">
+                                                    <rect key="frame" x="15" y="11" width="227" height="59"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nama Orang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrD-5p-4Sk">
+                                                            <rect key="frame" x="0.0" y="0.0" width="105.5" height="35"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" fixedFrame="YES" text="job piket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TY-xz-Djk">
+                                                            <rect key="frame" x="0.0" y="39" width="62" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Hx-tM-p7H" userLabel="Button Container">
+                                                    <rect key="frame" x="250" y="11" width="110" height="59"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9j-9P-1xc" customClass="RoundButton" customModule="piket_cl_ios" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="13" width="71" height="33"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.34901960780000002" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <state key="normal" title="Selesai">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="8"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <segue destination="KSq-Ff-dMc" kind="showDetail" id="UuR-VR-fdC"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelJobPiket" destination="0TY-xz-Djk" id="4tI-e5-Ciq"/>
+                                            <outlet property="labelNama" destination="lrD-5p-4Sk" id="WMr-xG-Y8r"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="oQa-Zv-6dX"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Jadwal Piket" id="zUm-eN-yg2"/>
+                    <connections>
+                        <outlet property="calendarWeekPiket" destination="AhY-CO-gj1" id="Ct2-9Q-RAE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IeG-g9-3gG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2565.5999999999999" y="133.5832083958021"/>
+        </scene>
+        <!--PicketAssignmentViewController-->
+        <scene sceneID="Gyj-eK-yFJ">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="KSq-Ff-dMc" userLabel="PicketAssignmentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hTZ-7w-qJd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFz-5h-ZpY">
+                                <rect key="frame" x="0.0" y="108" width="375" height="199"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSy-Pa-kMF">
+                                        <rect key="frame" x="147" y="21" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nama Orang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsT-rx-JW1">
+                                        <rect key="frame" x="122" y="137" width="131" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3o-5Z-cZA">
+                                <rect key="frame" x="0.0" y="315" width="375" height="121"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&quot;Peryataan sudah piket&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7p-1V-uwS">
+                                        <rect key="frame" x="85" y="49" width="205" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALL-8o-uwi">
+                                <rect key="frame" x="0.0" y="444" width="375" height="203"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dG-YV-Es2" customClass="RoundButton" customModule="piket_cl_ios" customModuleProvider="target">
+                                        <rect key="frame" x="67" y="77" width="240" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.34901960780000002" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="CONFIRM">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ehJ-qP-BOx"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CM5-98-4NN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPF-Np-NSa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3560.8000000000002" y="133.5832083958021"/>
+        </scene>
+        <!--Jadwal Piket-->
+        <scene sceneID="pUE-iK-07M">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="DuP-uc-Kql" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Jadwal Piket" largeTitleDisplayMode="always" id="ntM-wX-sgt"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="xvd-Qo-9X7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IQ0-HE-RIE" kind="relationship" relationship="rootViewController" id="BCh-l4-JSq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JNs-Bd-hEm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1558" y="134"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cl-logo-name" width="134" height="38"/>
+    </resources>
+</document>

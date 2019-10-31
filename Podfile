@@ -5,6 +5,7 @@ target 'piket-cl-ios' do
   pod 'JVFloatLabeledTextField'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'FSCalendar'
 
 #  target 'piket-cl-iosTests' do
 #    inherit! :search_paths

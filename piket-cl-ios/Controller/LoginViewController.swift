@@ -7,24 +7,48 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var textFieldPassword: UITextField!{
+        didSet {
+            textFieldPassword.tintColor = UIColor.lightGray
+            textFieldPassword.setIcon(#imageLiteral(resourceName: "remove_red_eye-24px"))
+            textFieldPassword.isSecureTextEntry = true
+        }
+    }
+    @IBOutlet weak var labelKeteranganPassword: UILabel!
+    @IBOutlet weak var labelNim: UILabel!
+    var finalNimText = ""
+    var responseText = ""
+    var passwordText = ""
+    let api = APIManager()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        labelNim.text = finalNimText
+        labelKeteranganPassword.text = responseText
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
+    @IBAction func loginAction(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Warning", message: "Password must be filled", preferredStyle: .actionSheet)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            print("Silahkan isi Password-mu")
+        }))  
+        passwordText = textFieldPassword.text!
+        
+            api.loginUser(nim: finalNimText, password: passwordText){(success) in
+                self.performSegue(withIdentifier: "sendPassword", sender: self)
+            }
+            api.getListPiket(){(success) in
+                print("list piket")
+            }
+        
     }
-    */
-
+    
 }
