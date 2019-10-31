@@ -117,7 +117,7 @@
                     <connections>
                         <outlet property="textFieldNim" destination="b6z-6K-2bm" id="wCp-FA-Msr"/>
                         <segue destination="5Am-4T-6HA" kind="presentation" identifier="sendNim" id="rvj-4a-ESS"/>
-                        <segue destination="tBO-Ip-gBV" kind="presentation" id="o1w-za-p8A"/>
+                        <segue destination="tBO-Ip-gBV" kind="presentation" identifier="dontHavePassword" id="o1w-za-p8A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Mf-Ss-Gqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -170,6 +170,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="textfieldAddPassword:" destination="l6g-mn-fuR" eventType="editingDidEnd" id="ryZ-e7-hD4"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Konfirmasi Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h8u-Oe-fWz" customClass="JVFloatLabeledTextField">
                                         <rect key="frame" x="50" y="112" width="275" height="48"/>
@@ -180,6 +183,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="textfieldConfirmPassword:" destination="l6g-mn-fuR" eventType="editingDidEnd" id="xvl-em-1Gn"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -211,6 +217,9 @@
                                                 <real key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonSavePassword:" destination="l6g-mn-fuR" eventType="touchUpInside" id="wM2-oB-dHG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -247,6 +256,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKE-YI-TRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="l6g-mn-fuR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="584.79999999999995" y="1136.5817091454273"/>
         </scene>

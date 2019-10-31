@@ -55,11 +55,10 @@ class NimCheckerViewController: UIViewController {
             let vcLogin = segue.destination as! LoginViewController
             vcLogin.finalNimText = self.nimText
 //            vcLogin.responseText = api.detailText
+        }else if(segue.identifier == "dontHavePassword"){
+            let vcAddPassword = segue.destination as? AddNewViewController
+            vcAddPassword?.textAddPassword = self.nimText
         }
-//        if(segue.identifier == "dontHavePassword"){
-//            let vcAddPassword = segue.destination as! AddNewViewController
-//            vcAddPassword.textAddPassword = self.nimText
-//        }
     }
     
 }

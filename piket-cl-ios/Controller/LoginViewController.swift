@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var labelKeteranganPassword: UILabel!
     @IBOutlet weak var labelNim: UILabel!
     var finalNimText = ""
-    var responseText = ""
+//    var responseText = ""
     var passwordText = ""
     let api = APIManager()
     
