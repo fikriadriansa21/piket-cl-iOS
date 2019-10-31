@@ -17,9 +17,9 @@
 		A74E105E2345AD84008E08F4 /* piket_cl_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E105D2345AD84008E08F4 /* piket_cl_iosTests.swift */; };
 		A74E10692345AD84008E08F4 /* piket_cl_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E10682345AD84008E08F4 /* piket_cl_iosUITests.swift */; };
 		A74E107D23487F24008E08F4 /* DataPiket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E107C23487F24008E08F4 /* DataPiket.swift */; };
-		A79CD98F236356C200695AF9 /* ListPiketHariIniTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79CD98E236356C200695AF9 /* ListPiketHariIniTableViewCell.swift */; };
 		A7A1F45F2351868D003546F0 /* ImageTextfieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1F45E2351868D003546F0 /* ImageTextfieldExtension.swift */; };
 		A7A1F4612351B3D9003546F0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1F4602351B3D9003546F0 /* RoundButton.swift */; };
+		A7BC4F372369489E003BB4E8 /* LisPiketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BC4F362369489E003BB4E8 /* LisPiketTableViewCell.swift */; };
 		A7BEDE13234C76BE0006826E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEDE12234C76BE0006826E /* LoginViewController.swift */; };
 		A7C06074235DF31300FB7877 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C06073235DF31300FB7877 /* APIManager.swift */; };
 		A7C06078235EB65400FB7877 /* ListPiketHariIniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C06077235EB65400FB7877 /* ListPiketHariIniViewController.swift */; };
@@ -61,9 +61,9 @@
 		A74E10682345AD84008E08F4 /* piket_cl_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piket_cl_iosUITests.swift; sourceTree = "<group>"; };
 		A74E106A2345AD84008E08F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A74E107C23487F24008E08F4 /* DataPiket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPiket.swift; sourceTree = "<group>"; };
-		A79CD98E236356C200695AF9 /* ListPiketHariIniTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPiketHariIniTableViewCell.swift; sourceTree = "<group>"; };
 		A7A1F45E2351868D003546F0 /* ImageTextfieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextfieldExtension.swift; sourceTree = "<group>"; };
 		A7A1F4602351B3D9003546F0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		A7BC4F362369489E003BB4E8 /* LisPiketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LisPiketTableViewCell.swift; sourceTree = "<group>"; };
 		A7BEDE12234C76BE0006826E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A7C06073235DF31300FB7877 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A7C06077235EB65400FB7877 /* ListPiketHariIniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPiketHariIniViewController.swift; sourceTree = "<group>"; };
@@ -177,11 +177,10 @@
 		A74E107823486D2E008E08F4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A7BC4F38236949AD003BB4E8 /* ListPiketHariIni */,
 				A74E104A2345AD7F008E08F4 /* NimCheckerViewController.swift */,
 				A7BEDE12234C76BE0006826E /* LoginViewController.swift */,
-				A7C06077235EB65400FB7877 /* ListPiketHariIniViewController.swift */,
 				A7C0607A2360265C00FB7877 /* AddNewViewController.swift */,
-				A79CD98E236356C200695AF9 /* ListPiketHariIniTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -192,6 +191,15 @@
 				A74E107C23487F24008E08F4 /* DataPiket.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A7BC4F38236949AD003BB4E8 /* ListPiketHariIni */ = {
+			isa = PBXGroup;
+			children = (
+				A7C06077235EB65400FB7877 /* ListPiketHariIniViewController.swift */,
+				A7BC4F362369489E003BB4E8 /* LisPiketTableViewCell.swift */,
+			);
+			path = ListPiketHariIni;
 			sourceTree = "<group>";
 		};
 		A7C06075235E038500FB7877 /* View */ = {
@@ -394,13 +402,13 @@
 				A7C06078235EB65400FB7877 /* ListPiketHariIniViewController.swift in Sources */,
 				A7C06074235DF31300FB7877 /* APIManager.swift in Sources */,
 				A7BEDE13234C76BE0006826E /* LoginViewController.swift in Sources */,
-				A79CD98F236356C200695AF9 /* ListPiketHariIniTableViewCell.swift in Sources */,
 				A74E107D23487F24008E08F4 /* DataPiket.swift in Sources */,
 				A7A1F4612351B3D9003546F0 /* RoundButton.swift in Sources */,
 				A7C0607B2360265C00FB7877 /* AddNewViewController.swift in Sources */,
 				A74E104B2345AD7F008E08F4 /* NimCheckerViewController.swift in Sources */,
 				A7A1F45F2351868D003546F0 /* ImageTextfieldExtension.swift in Sources */,
 				A74E10472345AD7F008E08F4 /* AppDelegate.swift in Sources */,
+				A7BC4F372369489E003BB4E8 /* LisPiketTableViewCell.swift in Sources */,
 				A74E10492345AD7F008E08F4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

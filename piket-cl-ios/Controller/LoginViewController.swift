@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         labelNim.text = finalNimText
-        labelKeteranganPassword.text = responseText
+//        labelKeteranganPassword.text = responseText
         
         self.hideKeyboardWhenTappedAround()
     }
