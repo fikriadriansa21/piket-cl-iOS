@@ -1,17 +1,19 @@
 //
-//  ListPiketHariIniTableViewCell.swift
+//  LisPiketTableViewCell.swift
 //  piket-cl-ios
 //
-//  Created by Fikri Adriansa Yudha on 25/10/19.
+//  Created by Fikri Adriansa Yudha on 30/10/19.
 //  Copyright © 2019 Unikom Codelabs. All rights reserved.
 //
 
 import UIKit
 
-class ListPiketHariIniTableViewCell: UITableViewCell {
-
+class LisPiketTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var labelJobPiket: UILabel!
     @IBOutlet weak var labelNama: UILabel!
+    @IBOutlet weak var buttonSelesaiPiket: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +24,5 @@ class ListPiketHariIniTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-        
 
 }
