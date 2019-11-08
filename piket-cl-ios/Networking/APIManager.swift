@@ -14,6 +14,7 @@ class APIManager{
     let urlCheck: String = "https://absensi-codelabs.herokuapp.com/mobile/login/check-password"
     let urlLogin: String = "https://absensi-codelabs.herokuapp.com/mobile/login"
     let piketHariIni: String = "https://absensi-codelabs.herokuapp.com/mobile/piket-hari-ini"
+    let urlAddPass: String = "https://absensi-codelabs.herokuapp.com/mobile/login/add-password"
 //    var detailText = ""
     var status: Bool = false
     var dataVal = [Piket]()
@@ -62,6 +63,22 @@ class APIManager{
                 }else{
                     print("gabisa login")
                 }
+        }
+    }
+    
+    public func addPassword(nim: String,password: String, completion: @escaping (String) -> Void){
+        let param: Parameters = [
+            "nim": nim,
+            "password": password
+        ]
+        Alamofire.request(urlAddPass, method: .post, parameters: param)
+        .validate().responseJSON{
+            response in
+            if(response.response?.statusCode == 200) {
+                print("Mengirim Data Berhasil")
+            }else{
+                print("Gagal Mengirim Data")
+            }
         }
     }
     

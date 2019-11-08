@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="-559" y="549"/>
         </scene>
-        <!--View Controller-->
+        <!--Add New View Controller-->
         <scene sceneID="3kD-9U-adk">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="tBO-Ip-gBV" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="tBO-Ip-gBV" customClass="AddNewViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Bc-0c-hCr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,7 +218,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="buttonSavePassword:" destination="l6g-mn-fuR" eventType="touchUpInside" id="wM2-oB-dHG"/>
+                                            <action selector="buttonSave:" destination="tBO-Ip-gBV" eventType="touchUpInside" id="nr9-r0-4uP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -254,6 +254,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pEW-UC-nBH"/>
                     </view>
+                    <connections>
+                        <outlet property="tfAddPassword" destination="dQD-VQ-SEK" id="B5I-TX-c7M"/>
+                        <outlet property="tfConfirmPass" destination="h8u-Oe-fWz" id="Hc4-eU-iie"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKE-YI-TRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="l6g-mn-fuR" userLabel="Exit" sceneMemberID="exit"/>
