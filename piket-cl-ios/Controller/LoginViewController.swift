@@ -45,9 +45,9 @@ class LoginViewController: UIViewController {
             api.loginUser(nim: finalNimText, password: passwordText){(success) in
                 self.performSegue(withIdentifier: "sendPassword", sender: self)
             }
-            api.getListPiket(){(success) in
-                print("list piket")
-            }
+//            api.getListPiket(){(success) in
+//                print("list piket")
+//            }
         
     }
     
