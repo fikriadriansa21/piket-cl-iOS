@@ -3,9 +3,9 @@
 target 'piket-cl-ios' do
   use_frameworks!
   pod 'JVFloatLabeledTextField'
-  pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'FSCalendar'
+  pod 'Moya', '~> 13.0'
 
 #  target 'piket-cl-iosTests' do
 #    inherit! :search_paths

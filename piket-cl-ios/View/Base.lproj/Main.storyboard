@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pyv-ky-UsK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7rX-Ta-1T7">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
@@ -16,17 +16,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97M-oi-n14" userLabel="top container">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="289"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="245"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cl-logo-name" translatesAutoresizingMaskIntoConstraints="NO" id="aYG-H3-5AP">
-                                        <rect key="frame" x="107.5" y="104.5" width="160" height="80"/>
+                                        <rect key="frame" x="107.5" y="82.5" width="160" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="Wp5-Ed-yQI"/>
                                             <constraint firstAttribute="height" constant="80" id="w5G-ZV-jm4"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selamat Datang !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yil-13-ZUy">
-                                        <rect key="frame" x="103" y="223" width="169" height="26"/>
+                                        <rect key="frame" x="103" y="201" width="169" height="26"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -108,6 +108,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GWb-Ax-uxI"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vuc-V2-qFu"/>
                     <connections>
                         <outlet property="textFieldNim" destination="b6z-6K-2bm" id="wCp-FA-Msr"/>
                         <segue destination="5Am-4T-6HA" kind="presentation" identifier="sendNim" id="rvj-4a-ESS"/>
@@ -116,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Mf-Ss-Gqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559" y="549"/>
+            <point key="canvasLocation" x="380" y="548.27586206896558"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3kD-9U-adk">
@@ -240,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKE-YI-TRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="584.79999999999995" y="1136.5817091454273"/>
+            <point key="canvasLocation" x="1524" y="1136.5817091454273"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="duB-SZ-zLw">
@@ -348,13 +349,13 @@
                     <navigationItem key="navigationItem" id="UIt-o6-4ua"/>
                     <connections>
                         <outlet property="labelKeteranganPassword" destination="6oM-6c-9Lb" id="O2N-by-Wbz"/>
-                        <outlet property="labelNim" destination="t0d-3F-n6x" id="b7E-eK-dse"/>
+                        <outlet property="labelNim" destination="t0d-3F-n6x" id="aam-2z-iQ6"/>
                         <outlet property="textFieldPassword" destination="b2d-8s-hX8" id="5Hc-CA-Kcj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh0-H7-VfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="584.79999999999995" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1524" y="133.5832083958021"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="J0c-ib-BVN">
@@ -492,7 +493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IeG-g9-3gG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2565.5999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="3504.8000000000002" y="133.5832083958021"/>
         </scene>
         <!--PicketAssignmentViewController-->
         <scene sceneID="Gyj-eK-yFJ">
@@ -598,7 +599,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPF-Np-NSa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3560.8000000000002" y="133.5832083958021"/>
+            <point key="canvasLocation" x="4500" y="133.5832083958021"/>
         </scene>
         <!--Jadwal Piket-->
         <scene sceneID="pUE-iK-07M">
@@ -617,7 +618,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNs-Bd-hEm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1558" y="134"/>
+            <point key="canvasLocation" x="2496.8000000000002" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KXv-bH-tSJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7rX-Ta-1T7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QuK-1I-SuO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pyv-ky-UsK" kind="relationship" relationship="rootViewController" id="ddP-oR-2sj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ANi-FK-CoB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-559.20000000000005" y="548.27586206896558"/>
         </scene>
     </scenes>
     <resources>

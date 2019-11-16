@@ -15,8 +15,7 @@ class NimCheckerViewController: UIViewController {
     @IBOutlet weak var textFieldNim: UITextField!
     var nimText = ""
     var textBuatAddPassword = ""
-    let api = APIManager()
-    
+    var networkManager = NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,29 +24,19 @@ class NimCheckerViewController: UIViewController {
     }
     
     @IBAction func buttonCheckPassword(_ sender: UIButton) {
-        let nim: String = textFieldNim.text!
-        let alert = UIAlertController(title: "Warning", message: "NIM must be filled", preferredStyle: .actionSheet)
-
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            print("Silahkan isi NIM-mu")
-        }))
-                
-        nimText = textFieldNim.text!
-        
-        api.checkPassword(nim: nimText) { (success) in
-            if nim.isEmpty {
-                self.present(alert, animated: true)
-                print("nim harus diisi")
-            }
-            if (self.api.status == true){
-                self.performSegue(withIdentifier: "sendNim", sender: nil)
-            }
-            else{
-                self.performSegue(withIdentifier: "dontHavePassword", sender: nil)
-            }
+        guard let nim = textFieldNim.text, !nim.isEmpty else {
+            self.alertEmptyNim()
+            return
         }
         
-        
+        networkManager.checkPassword(nim: nimText) { (isRegistered) in
+            if isRegistered {
+                self.nimText = nim
+                self.performSegue(withIdentifier: "sendNim", sender: nil)
+            } else {
+                //Do what u want when user not exist
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,6 +51,14 @@ class NimCheckerViewController: UIViewController {
 //        }
     }
     
+    private func alertEmptyNim() {
+        let alert = UIAlertController(title: "Warning", message: "NIM must be filled", preferredStyle: .actionSheet)
+
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            print("Silahkan isi NIM-mu")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 

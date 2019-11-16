@@ -14,7 +14,7 @@ import Alamofire
 class ListPiketHariIniViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView?
-    let api = APIManager()
+//    let api = APIManager()
     @IBOutlet weak var calendarWeekPiket: FSCalendar!{
         didSet{
             calendarWeekPiket.scope = .week
@@ -24,24 +24,24 @@ class ListPiketHariIniViewController: UIViewController, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        api.getListPiket(){(success) in
-            self.tableView?.reloadData()
-            print(self.api.piket)
-        }
+//        api.getListPiket(){(success) in
+//            self.tableView?.reloadData()
+//            print(self.api.piket)
+//        }
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.api.piket.count
+        return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
       let cell = tableView.dequeueReusableCell(withIdentifier: "cellJadwalPiket", for: indexPath) as! LisPiketTableViewCell
-        if self.api.piket.count > 0 {
-            let eachPiket = self.api.piket[indexPath.row]
-            cell.labelNama?.text = eachPiket["nama_anggota"] as? String
-            cell.labelJobPiket?.text = eachPiket["jenis_piket"] as? String
-        }
+//        if self.api.piket.count > 0 {
+//            let eachPiket = self.api.piket[indexPath.row]
+//            cell.labelNama?.text = eachPiket["nama_anggota"] as? String
+//            cell.labelJobPiket?.text = eachPiket["jenis_piket"] as? String
+//        }
       return cell
     }
 
