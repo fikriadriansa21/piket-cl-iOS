@@ -46,8 +46,6 @@ class NimCheckerViewController: UIViewController {
                 self.performSegue(withIdentifier: "dontHavePassword", sender: nil)
             }
         }
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
