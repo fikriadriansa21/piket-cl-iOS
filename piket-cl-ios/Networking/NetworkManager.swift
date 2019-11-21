@@ -7,3 +7,19 @@
 //
 
 import Foundation
+import Moya
+
+struct NetworkManager {
+    let provider: MoyaProvider<APIManager> = MoyaProvider<APIManager>()
+    
+    func checkPassword(nim: String, completion: @escaping (Bool) -> Void) {
+        provider.request(.checkPassword(nim: nim)){(response) in
+            switch response{
+            case .success(let result):
+                completion(true)
+            case .failure(let error):
+                completion(false)
+            }
+        }
+    }
+}
