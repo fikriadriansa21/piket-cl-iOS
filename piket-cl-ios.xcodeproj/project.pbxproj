@@ -25,6 +25,7 @@
 		A7C06078235EB65400FB7877 /* ListPiketHariIniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C06077235EB65400FB7877 /* ListPiketHariIniViewController.swift */; };
 		A7C0607B2360265C00FB7877 /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0607A2360265C00FB7877 /* AddNewViewController.swift */; };
 		AD8814F323864BB0009AC9A8 /* APIManager1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8814F223864BB0009AC9A8 /* APIManager1.swift */; };
+		AD8814F523864C54009AC9A8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8814F423864C54009AC9A8 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		A7C06077235EB65400FB7877 /* ListPiketHariIniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPiketHariIniViewController.swift; sourceTree = "<group>"; };
 		A7C0607A2360265C00FB7877 /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
 		AD8814F223864BB0009AC9A8 /* APIManager1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager1.swift; sourceTree = "<group>"; };
+		AD8814F423864C54009AC9A8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CC2C7F269A168C8EB2EC0568 /* Pods-piket-cl-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piket-cl-ios.release.xcconfig"; path = "Target Support Files/Pods-piket-cl-ios/Pods-piket-cl-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 			children = (
 				A7C06073235DF31300FB7877 /* APIManager.swift */,
 				AD8814F223864BB0009AC9A8 /* APIManager1.swift */,
+				AD8814F423864C54009AC9A8 /* NetworkManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				A7C06078235EB65400FB7877 /* ListPiketHariIniViewController.swift in Sources */,
 				A7C06074235DF31300FB7877 /* APIManager.swift in Sources */,
 				A7BEDE13234C76BE0006826E /* LoginViewController.swift in Sources */,
+				AD8814F523864C54009AC9A8 /* NetworkManager.swift in Sources */,
 				A74E107D23487F24008E08F4 /* DataPiket.swift in Sources */,
 				A7A1F4612351B3D9003546F0 /* RoundButton.swift in Sources */,
 				A7C0607B2360265C00FB7877 /* AddNewViewController.swift in Sources */,
