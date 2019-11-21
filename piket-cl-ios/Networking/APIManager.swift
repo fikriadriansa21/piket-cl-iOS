@@ -7,113 +7,71 @@
 //
 
 import Foundation
-import Alamofire
-import SwiftyJSON
+import Moya
 
-class APIManager{
-    let urlCheck: String = "https://absensi-codelabs.herokuapp.com/mobile/login/check-password"
-    let urlLogin: String = "https://absensi-codelabs.herokuapp.com/mobile/login"
-    let piketHariIni: String = "https://absensi-codelabs.herokuapp.com/mobile/piket-hari-ini"
-    let urlAddPass: String = "https://absensi-codelabs.herokuapp.com/mobile/login/add-password"
-//    var detailText = ""
-    var status: Bool = false
-    var dataVal = [Piket]()
-    var tokenValue: String = ""
-        
-    
-    public func checkPassword(nim: String, completion: @escaping (Bool) -> Void) {
-        Alamofire.request(urlCheck, method: .post, parameters: ["nim": nim]).validate().responseJSON { response in
-            if(response.response?.statusCode == 200){
-                self.status = true
-//                self.detailText = "Silahkan login"
-                completion(true)
-                
-            }else{
-//                self.detailText = "Anda belum punya password"
-                self.status = false
-                completion(false)
-            }
-            print(response.response?.statusCode as Any)
-        }
-    }
-    
-    public func loginUser(nim: String,password: String, completion: @escaping (String) -> Void){
-        let param: Parameters = [
-            "nim": nim,
-            "password": password
-        ]
-        Alamofire.request(
-            urlLogin, method: .post, parameters: param)
-            .validate().responseJSON{ response in
-                if(response.response?.statusCode == 200){
-                    print("boleh login")
-                    
-                    guard let data = response.data else {
-                        return
-                    }                    
-                    do {
-                        let decoder = JSONDecoder()
-                        let responseToken = try decoder.decode(ResponseToken.self, from: data)
-                        print(responseToken.data!)
-                        self.tokenValue = (responseToken.data?.token)!
-                        completion(self.tokenValue)
-                    } catch let error {
-                        print(error)
-                    }
-                }else{
-                    print("gabisa login")
-                }
-        }
-    }
-    
-    public func addPassword(nim: String,password: String, completion: @escaping (String) -> Void){
-        let param: Parameters = [
-            "nim": nim,
-            "password": password
-        ]
-        Alamofire.request(urlAddPass, method: .post, parameters: param)
-        .validate().responseJSON{
-            response in
-            if(response.response?.statusCode == 200) {
-                print("Mengirim Data Berhasil")
-            }else{
-                print("Gagal Mengirim Data")
-            }
-        }
-    }
-    
-    public func getListPiket(completion: @escaping ([Piket]) -> Void) {
-//        let getTokenValue: String = self.lo
-        let headers = [
-            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiRmlrcmkgQWRyaWFuc2EiLCJuaW0iOiIxMDExNzEyOCIsImJpZGFuZ19yaXNldCI6Ik1vYmlsZSIsImlkX3NpZGlramFyaSI6IjEwIiwiaWF0IjoxNTcyMDExMzIxfQ.HlQhGxcN2cAksciBiIbeh5Z7bgYf8plHV5K7W5-KVHM"
-        ]
-        Alamofire.request(piketHariIni, method: .get, headers: headers).validate().responseJSON { response in
-            
-            if(response.response?.statusCode == 200){
-                print("boleh dapet akses token")
-                
-                guard let data = response.data else {
-                    return
-                }
-                do {
-                    let decoder = JSONDecoder()
-                    let responseList = try decoder.decode(Response.self, from: data)
-
-                    self.dataVal = responseList.data!
-                    print(self.dataVal)
-                    completion(self.dataVal)
-                } catch let error {
-                    print(error)
-                }
-            }else{
-                print("gabisa dapet akses token")
-            }
-        }
-    }
-    
-    
+enum APIManager{
+    case checkPassword(nim: String)
+    case login(nim: String, password: String)
+    case listPiket
 }
-        
+
+extension APIManager: TargetType{
+    var baseURL: URL {
+        guard let url = URL(string: "https://absensi-codelabs.herokuapp.com/") else {
+            fatalError("Base url not configured properly")
+        }
+        return url
+    }
+    
+    var path: String {
+        switch self {
+        case .checkPassword:
+            return "mobile/login/check-password"
+        case .login:
+            return "mobile/login"
+        case .listPiket:
+            return "mobile/piket-hari-ini"
+        }
+    }
+    
+    var method: Moya.Method {
+        switch self {
+        case .checkPassword:
+            return .post
+        case .login:
+            return .post
+        case .listPiket:
+            return .get
+        }
+    }
+    
+    var sampleData: Data {
+        return Data()
+    }
+    
+    var task: Task {
+        switch self {
+        case .checkPassword(let nim):
+            let param = [
+                "nim": nim
+            ] as [String: Any]
+            return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
+        case .login(let nim, let password):
+            let param = [
+                "nim": nim,
+                "password": password
+            ] as [String: Any]
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .listPiket:
+            return .requestPlain
+        }
+    }
+    
+    var headers: [String : String]? {
+        return nil
+    }
+            
+}
 
 //
 //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiRmlrcmkgQWRyaWFuc2EiLCJuaW0iOiIxMDExNzEyOCIsImJpZGFuZ19yaXNldCI6Ik1vYmlsZSIsImlkX3NpZGlramFyaSI6IjEwIiwiaWF0IjoxNTcyMDExMzIxfQ.HlQhGxcN2cAksciBiIbeh5Z7bgYf8plHV5K7W5-KVHM"
