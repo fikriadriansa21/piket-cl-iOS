@@ -24,6 +24,7 @@
 		A7C06074235DF31300FB7877 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C06073235DF31300FB7877 /* APIManager.swift */; };
 		A7C06078235EB65400FB7877 /* ListPiketHariIniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C06077235EB65400FB7877 /* ListPiketHariIniViewController.swift */; };
 		A7C0607B2360265C00FB7877 /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0607A2360265C00FB7877 /* AddNewViewController.swift */; };
+		AD8814F323864BB0009AC9A8 /* APIManager1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8814F223864BB0009AC9A8 /* APIManager1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		A7C06073235DF31300FB7877 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A7C06077235EB65400FB7877 /* ListPiketHariIniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPiketHariIniViewController.swift; sourceTree = "<group>"; };
 		A7C0607A2360265C00FB7877 /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
+		AD8814F223864BB0009AC9A8 /* APIManager1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager1.swift; sourceTree = "<group>"; };
 		CC2C7F269A168C8EB2EC0568 /* Pods-piket-cl-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piket-cl-ios.release.xcconfig"; path = "Target Support Files/Pods-piket-cl-ios/Pods-piket-cl-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				A7C06073235DF31300FB7877 /* APIManager.swift */,
+				AD8814F223864BB0009AC9A8 /* APIManager1.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				A7A1F45F2351868D003546F0 /* ImageTextfieldExtension.swift in Sources */,
 				A74E10472345AD7F008E08F4 /* AppDelegate.swift in Sources */,
 				A7BC4F372369489E003BB4E8 /* LisPiketTableViewCell.swift in Sources */,
+				AD8814F323864BB0009AC9A8 /* APIManager1.swift in Sources */,
 				A74E10492345AD7F008E08F4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
