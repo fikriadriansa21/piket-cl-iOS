@@ -31,7 +31,8 @@ extension APIManager: TargetType{
             return "mobile/login"
         case .listPiket:
             return "mobile/piket-hari-ini"
-        }    }
+        }
+    }
     
     var method: Moya.Method {
         switch self {
@@ -60,7 +61,7 @@ extension APIManager: TargetType{
                 "nim": nim,
                 "password": password
             ] as [String: Any]
-            return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
         case .listPiket:
             return .requestPlain
         }
@@ -69,6 +70,5 @@ extension APIManager: TargetType{
     var headers: [String : String]? {
         return nil
     }
-        
-    
+            
 }

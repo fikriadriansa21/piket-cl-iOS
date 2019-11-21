@@ -34,6 +34,8 @@ class NimCheckerViewController: UIViewController {
             if isRegistered{
                 self.nimText = nim
                 self.performSegue(withIdentifier: "sendNim", sender: nil)
+            }else{
+                
             }
         }
     }
@@ -51,7 +53,7 @@ class NimCheckerViewController: UIViewController {
         if (segue.identifier == "sendNim"){
             let vcLogin = segue.destination as! LoginViewController
             vcLogin.finalNimText = self.nimText
-//            vcLogin.responseText = api.detailText
+            print("ngirim nim")
         }
 //        if(segue.identifier == "dontHavePassword"){
 //            let vcAddPassword = segue.destination as! AddNewViewController

@@ -20,21 +20,46 @@ class LoginViewController: UIViewController {
     }
     @IBOutlet weak var labelKeteranganPassword: UILabel!
     @IBOutlet weak var labelNim: UILabel!
-    var finalNimText = ""
+    var finalNimText: String = ""
     var responseText = ""
     var passwordText = ""
-    
+    var networkManager = NetworkManager()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        labelNim.text = finalNimText
-        
         self.hideKeyboardWhenTappedAround()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.labelNim.text = finalNimText
+    }
+    
+    
     @IBAction func loginAction(_ sender: UIButton) {
-        passwordText = textFieldPassword.text!
+        
+        guard let password = textFieldPassword.text, !password.isEmpty else {
+            self.alertEmptyPassword()
+            return
+        }
+        networkManager.login(nim: finalNimText, password: passwordText){
+            (canLogin) in
+//            if canLogin {
+            self.passwordText = password
+            self.performSegue(withIdentifier: "sendPassword", sender: nil)
+            print("lanjut logiinn")
+        }
+        
+    }
+    
+    public func alertEmptyPassword(){
+        let alert = UIAlertController(title: "Warning", message: "Password must be filled", preferredStyle: .actionSheet)
+
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            print("Silahkan isi Password-mu")
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

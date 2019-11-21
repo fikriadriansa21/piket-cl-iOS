@@ -19,15 +19,18 @@ class ListPiketHariIniViewController: UIViewController, UITableViewDataSource, U
             calendarWeekPiket.scope = .week
         }
     }
+    var networkManager = NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        api.getListPiket(){(success) in
+        loadDataTable()
+    }
+    
+    public func loadDataTable(){
+//        networkManager.getListPiket(){(listPiket) in
 //            self.tableView?.reloadData()
-//            print(self.api.piket)
+//            print("disini buat reload data api tablenya")
 //        }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

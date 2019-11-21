@@ -245,7 +245,7 @@
         <!--LoginViewController-->
         <scene sceneID="duB-SZ-zLw">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="5Am-4T-6HA" userLabel="LoginViewController" customClass="LoginViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="&quot;Login&quot;" modalPresentationStyle="fullScreen" id="5Am-4T-6HA" userLabel="LoginViewController" customClass="LoginViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ix-U6-RvO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,8 +298,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="loginAction:" destination="5Am-4T-6HA" eventType="touchUpInside" id="HNQ-Jg-Hjw"/>
-                                            <segue destination="DuP-uc-Kql" kind="show" identifier="sendPassword" id="B1V-g1-E69"/>
+                                            <action selector="loginAction:" destination="5Am-4T-6HA" eventType="touchUpInside" id="RAX-UF-2hN"/>
+                                            <segue destination="DuP-uc-Kql" kind="presentation" identifier="sendPassword" id="B1V-g1-E69"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -361,11 +361,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="IQ0-HE-RIE" customClass="ListPiketHariIniViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CSw-0J-vP8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhY-CO-gj1" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="108" width="375" height="197"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="229"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
@@ -384,7 +384,7 @@
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EOp-fd-a9C">
-                                <rect key="frame" x="0.0" y="305" width="375" height="342"/>
+                                <rect key="frame" x="0.0" y="325" width="375" height="342"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="342" id="UIy-Vn-rSs"/>
