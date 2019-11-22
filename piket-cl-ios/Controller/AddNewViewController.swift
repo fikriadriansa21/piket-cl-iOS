@@ -11,73 +11,55 @@ import SwiftyJSON
 import Alamofire
 
 class AddNewViewController: UIViewController {
+
+    @IBOutlet weak var tfAddPassword: UITextField!{
+        didSet {
+            tfAddPassword.tintColor = UIColor.lightGray
+            tfAddPassword.setIcon(#imageLiteral(resourceName: "remove_red_eye-24px"))
+            tfAddPassword.isSecureTextEntry = true
+        }
+    }
+    @IBOutlet weak var tfConfirmPass: UITextField!{
+        didSet {
+            tfConfirmPass.tintColor = UIColor.lightGray
+            tfConfirmPass.setIcon(#imageLiteral(resourceName: "remove_red_eye-24px"))
+            tfConfirmPass.isSecureTextEntry = true
+        }
+    }
     
-    let api = APIManager()
-    var textAddPassword: String = ""
-    var pass = ""
-    
-    @IBOutlet weak var tfAddPassword: UITextField!
-    @IBOutlet weak var tfConfirmPass: UITextField!
-    
+    var networkManager = NetworkManager()
+    var finalNimText: String = ""
+    var passwordText = ""
+//    var textAddPassword: String = ""
+//    var pass = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func buttonSave(_ sender: UIButton) {
-        let password: String = tfAddPassword.text!
-        let confirmPass: String = tfConfirmPass.text!
-        let alert = UIAlertController(title: "Warning", message: "Silahkan masukkan password dan konfirmasi password", preferredStyle: .actionSheet)
-        let alert2 = UIAlertController(title: "Warning", message: "Password dan Konfirmasi Password tidak sama", preferredStyle: .actionSheet)
+        
+        guard let password = tfAddPassword.text, !password.isEmpty
+            else {
+                self.alertEmptyPassword()
+                return
+        }
+        networkManager.addPassword(nim: finalNimText, password: password){
+            (canLogin) in
+            self.passwordText = password
+            self.performSegue(withIdentifier: "pass_baru", sender: nil)
+            print("Kembali ke halaman sebelumnya")
+        }
 
+    }
+    
+    public func alertEmptyPassword(){
+        let alert = UIAlertController(title: "Warning", message: "Password must be filled", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
             print("Silahkan isi Password-mu")
         }))
-        alert2.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            print("Silahkan masukan ulang password")
-        }))
-        let nim = textAddPassword
-        pass = tfAddPassword.text!
-        
-        if password.isEmpty {
-            self.present(alert, animated: true)
-            print("Password harus diisi")
-        } else if confirmPass.isEmpty {
-            self.present(alert, animated: true)
-            print("Konfirmasi password harus diisi")
-        } else {
-            if password != confirmPass {
-                self.present(alert2, animated: true)
-            } else {
-                api.addPassword(nim: nim, password: pass){
-                    (success) in
-                    print("Moving")
-                    let navigationController = self.presentingViewController as? UINavigationController
-
-                    self.dismiss(animated: true) {
-                        let _ = navigationController?.popToRootViewController(animated: true)
-                    }
-                }
-            
-            }
-
-        }
-        
-        
+        self.present(alert, animated: true, completion: nil)
     }
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -10,7 +10,7 @@
 		00AA3E92D5189000B7CEFDE6 /* Pods_piket_cl_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4F3F9EE842BA7AC45C2DD8 /* Pods_piket_cl_ios.framework */; };
 		A74E10472345AD7F008E08F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E10462345AD7F008E08F4 /* AppDelegate.swift */; };
 		A74E10492345AD7F008E08F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E10482345AD7F008E08F4 /* SceneDelegate.swift */; };
-		A74E104B2345AD7F008E08F4 /* NimCheckerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E104A2345AD7F008E08F4 /* NimCheckerViewController.swift */; };
+		A74E104B2345AD7F008E08F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74E104A2345AD7F008E08F4 /* LoginViewController.swift */; };
 		A74E104E2345AD7F008E08F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74E104C2345AD7F008E08F4 /* Main.storyboard */; };
 		A74E10502345AD84008E08F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A74E104F2345AD84008E08F4 /* Assets.xcassets */; };
 		A74E10532345AD84008E08F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74E10512345AD84008E08F4 /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		A7A1F45F2351868D003546F0 /* ImageTextfieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1F45E2351868D003546F0 /* ImageTextfieldExtension.swift */; };
 		A7A1F4612351B3D9003546F0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A1F4602351B3D9003546F0 /* RoundButton.swift */; };
 		A7BC4F372369489E003BB4E8 /* LisPiketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BC4F362369489E003BB4E8 /* LisPiketTableViewCell.swift */; };
-		A7BEDE13234C76BE0006826E /* NimCheckerViewController in Sources */ = {isa = PBXBuildFile; fileRef = A7BEDE12234C76BE0006826E /* NimCheckerViewController */; };
+		A7BEDE13234C76BE0006826E /* NimCheckerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BEDE12234C76BE0006826E /* NimCheckerViewController.swift */; };
 		A7C06074235DF31300FB7877 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C06073235DF31300FB7877 /* APIManager.swift */; };
 		A7C06078235EB65400FB7877 /* ListPiketHariIniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C06077235EB65400FB7877 /* ListPiketHariIniViewController.swift */; };
 		A7C0607B2360265C00FB7877 /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0607A2360265C00FB7877 /* AddNewViewController.swift */; };
@@ -51,7 +51,7 @@
 		A74E10432345AD7F008E08F4 /* piket-cl-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "piket-cl-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74E10462345AD7F008E08F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A74E10482345AD7F008E08F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A74E104A2345AD7F008E08F4 /* NimCheckerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimCheckerViewController.swift; sourceTree = "<group>"; };
+		A74E104A2345AD7F008E08F4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A74E104D2345AD7F008E08F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A74E104F2345AD84008E08F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A74E10522345AD84008E08F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		A7A1F45E2351868D003546F0 /* ImageTextfieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextfieldExtension.swift; sourceTree = "<group>"; };
 		A7A1F4602351B3D9003546F0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		A7BC4F362369489E003BB4E8 /* LisPiketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LisPiketTableViewCell.swift; sourceTree = "<group>"; };
-		A7BEDE12234C76BE0006826E /* NimCheckerViewController */ = {isa = PBXFileReference; lastKnownFileType = text; path = NimCheckerViewController; sourceTree = "<group>"; };
+		A7BEDE12234C76BE0006826E /* NimCheckerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimCheckerViewController.swift; sourceTree = "<group>"; };
 		A7C06073235DF31300FB7877 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A7C06077235EB65400FB7877 /* ListPiketHariIniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPiketHariIniViewController.swift; sourceTree = "<group>"; };
 		A7C0607A2360265C00FB7877 /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
@@ -184,8 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				A7BC4F38236949AD003BB4E8 /* ListPiketHariIni */,
-				A74E104A2345AD7F008E08F4 /* NimCheckerViewController.swift */,
-				A7BEDE12234C76BE0006826E /* NimCheckerViewController */,
+				A74E104A2345AD7F008E08F4 /* LoginViewController.swift */,
+				A7BEDE12234C76BE0006826E /* NimCheckerViewController.swift */,
 				A7C0607A2360265C00FB7877 /* AddNewViewController.swift */,
 			);
 			path = Controller;
@@ -407,12 +407,12 @@
 			files = (
 				A7C06078235EB65400FB7877 /* ListPiketHariIniViewController.swift in Sources */,
 				A7C06074235DF31300FB7877 /* APIManager.swift in Sources */,
-				A7BEDE13234C76BE0006826E /* NimCheckerViewController in Sources */,
+				A7BEDE13234C76BE0006826E /* NimCheckerViewController.swift in Sources */,
 				AD8814F523864C54009AC9A8 /* NetworkManager.swift in Sources */,
 				A74E107D23487F24008E08F4 /* DataPiket.swift in Sources */,
 				A7A1F4612351B3D9003546F0 /* RoundButton.swift in Sources */,
 				A7C0607B2360265C00FB7877 /* AddNewViewController.swift in Sources */,
-				A74E104B2345AD7F008E08F4 /* NimCheckerViewController.swift in Sources */,
+				A74E104B2345AD7F008E08F4 /* LoginViewController.swift in Sources */,
 				A7A1F45F2351868D003546F0 /* ImageTextfieldExtension.swift in Sources */,
 				A74E10472345AD7F008E08F4 /* AppDelegate.swift in Sources */,
 				A7BC4F372369489E003BB4E8 /* LisPiketTableViewCell.swift in Sources */,

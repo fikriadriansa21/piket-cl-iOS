@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  NimCheckerViewController.swift
 //  piket-cl-ios
 //
-//  Created by Fikri Adriansa Yudha on 03/10/19.
+//  Created by Fikri Adriansa Yudha on 08/10/19.
 //  Copyright © 2019 Unikom Codelabs. All rights reserved.
 //
 
@@ -15,7 +15,7 @@ class NimCheckerViewController: UIViewController {
     @IBOutlet weak var textFieldNim: UITextField!
     var nimText = ""
     var textBuatAddPassword = ""
-    let api = APIManager()
+    var networkManager = NetworkManager()
     
     
     override func viewDidLoad() {
@@ -25,38 +25,41 @@ class NimCheckerViewController: UIViewController {
     }
     
     @IBAction func buttonCheckPassword(_ sender: UIButton) {
-        let nim: String = textFieldNim.text!
+        guard let nim = textFieldNim.text, !nim.isEmpty else {
+            self.alertEmptyNim()
+            return
+        }
+        
+        networkManager.checkPassword(nim: nimText){(isRegistered) in
+            if isRegistered{
+                self.nimText = nim
+                self.performSegue(withIdentifier: "sendNim", sender: nil)
+            }else{
+                self.nimText = nim
+                self.performSegue(withIdentifier: "pass_baru", sender: nil)
+            }
+        }
+    }
+    
+    private func alertEmptyNim(){
         let alert = UIAlertController(title: "Warning", message: "NIM must be filled", preferredStyle: .actionSheet)
 
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
             print("Silahkan isi NIM-mu")
         }))
-                
-        nimText = textFieldNim.text!
-        
-        api.checkPassword(nim: nimText) { (success) in
-            if nim.isEmpty {
-                self.present(alert, animated: true)
-                print("nim harus diisi")
-            }
-            if (self.api.status == true){
-                self.performSegue(withIdentifier: "sendNim", sender: nil)
-            }
-            else{
-                self.performSegue(withIdentifier: "dontHavePassword", sender: nil)
-            }
-        }
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "sendNim"){
             let vcLogin = segue.destination as! LoginViewController
             vcLogin.finalNimText = self.nimText
-//            vcLogin.responseText = api.detailText
-        }else if(segue.identifier == "dontHavePassword"){
-            let vcAddPassword = segue.destination as? AddNewViewController
-            vcAddPassword?.textAddPassword = self.nimText
-            textFieldNim.text! = ""
+            print("ngirim nim")
+        }
+        if(segue.identifier == "pass_baru"){
+            let vcAddPassword = segue.destination as! AddNewViewController
+            vcAddPassword.finalNimText = self.nimText
+            print("Masuk View Add Password")
         }
     }
     

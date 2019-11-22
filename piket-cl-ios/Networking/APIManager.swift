@@ -12,6 +12,7 @@ import Moya
 enum APIManager{
     case checkPassword(nim: String)
     case login(nim: String, password: String)
+    case addPassword(nim: String, password: String)
     case listPiket
 }
 
@@ -29,6 +30,8 @@ extension APIManager: TargetType{
             return "mobile/login/check-password"
         case .login:
             return "mobile/login"
+        case .addPassword:
+            return "mobile/login/add-password"
         case .listPiket:
             return "mobile/piket-hari-ini"
         }
@@ -39,6 +42,8 @@ extension APIManager: TargetType{
         case .checkPassword:
             return .post
         case .login:
+            return .post
+        case .addPassword:
             return .post
         case .listPiket:
             return .get
@@ -57,6 +62,12 @@ extension APIManager: TargetType{
             ] as [String: Any]
             return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
         case .login(let nim, let password):
+            let param = [
+                "nim": nim,
+                "password": password
+            ] as [String: Any]
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .addPassword(let nim, let password):
             let param = [
                 "nim": nim,
                 "password": password
