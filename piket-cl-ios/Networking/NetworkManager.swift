@@ -11,16 +11,25 @@ import Foundation
 import Moya
 
 struct NetworkManager {
-    let provider: MoyaProvider<APIManager> = MoyaProvider<APIManager>()
+//    let provider: MoyaProvider<APIManager> = MoyaProvider<APIManager>()
+    let provider = MoyaProvider<APIManager.MyProvider>()
     
-    func checkPassword(nim: String, completion: @escaping (Bool) -> Void) {
-        provider.request(.checkPassword(nim: nim)){(response) in
-            switch response{
-            case .success(_):
-                completion(true)
-            case .failure(_):
+    public func checkPassword(nim: String, completion: @escaping (Bool) -> Void) {
+        provider.request(.checkPassword(nim: nim)){result in
+            switch result{
+            case .success(let response):
+                if response.statusCode == 200 {
+                    completion(true)
+                    print("Berhasil request")
+                } else {
+                    print(try? JSONSerialization.jsonObject(with: response.data, options: []))
+                }
+//                print(try? JSONSerialization.jsonObject(with: response.data, options: []))
+            case .failure(let error):
                 completion(false)
+                print("Error: \(error)")
             }
+        
         }
     }
     

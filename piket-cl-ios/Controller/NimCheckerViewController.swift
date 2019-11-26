@@ -25,13 +25,24 @@ class NimCheckerViewController: UIViewController {
     }
     
     @IBAction func buttonCheckPassword(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Warning", message: "NIM must be filled", preferredStyle: .actionSheet)
+
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            print("Silahkan isi NIM-mu")
+        }))
+        
         guard let nim = textFieldNim.text, !nim.isEmpty else {
             self.alertEmptyNim()
             return
         }
         
-        networkManager.checkPassword(nim: nimText){(isRegistered) in
-            if isRegistered{
+        networkManager.checkPassword(nim: nim){(success) in
+            if nim.isEmpty {
+                self.present(alert, animated: true)
+                print("nim harus diisi")
+            }
+            if success{
                 self.nimText = nim
                 self.performSegue(withIdentifier: "sendNim", sender: nil)
             }else{
@@ -54,7 +65,7 @@ class NimCheckerViewController: UIViewController {
         if (segue.identifier == "sendNim"){
             let vcLogin = segue.destination as! LoginViewController
             vcLogin.finalNimText = self.nimText
-            print("ngirim nim")
+            print("ngirim nim \"\(nimText)\"")
         }
         if(segue.identifier == "pass_baru"){
             let vcAddPassword = segue.destination as! AddNewViewController
