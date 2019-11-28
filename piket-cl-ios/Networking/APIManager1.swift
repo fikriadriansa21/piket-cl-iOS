@@ -15,7 +15,7 @@ class APIManager1{
     let urlLogin: String = "https://absensi-codelabs.herokuapp.com/mobile/login"
     let piketHariIni: String = "https://absensi-codelabs.herokuapp.com/mobile/piket-hari-ini"
     var status: Bool = false
-    var dataVal = [Piket]()
+//    var dataVal = [Piket]()
     var tokenValue: String = ""
     var piket:[[String:Any]] = [[String:Any]]()
         
@@ -38,8 +38,8 @@ class APIManager1{
     
     public func loginUser(nim: String,password: String, completion: @escaping (String) -> Void){
         let param: Parameters = [
-            "nim": nim,
-            "password": password
+            "nim": "10117128",
+            "password": "alhamdu"
         ]
         Alamofire.request(
             urlLogin, method: .post, parameters: param)
@@ -53,8 +53,8 @@ class APIManager1{
                     do {
                         let decoder = JSONDecoder()
                         let responseToken = try decoder.decode(ResponseToken.self, from: data)
-                        print(responseToken.data!)
-                        self.tokenValue = (responseToken.data?.token)!
+//                        print(responseToken.data!)
+//                        self.tokenValue = (responseToken.data?.token)!
                         completion(self.tokenValue)
                     } catch let error {
                         print(error)

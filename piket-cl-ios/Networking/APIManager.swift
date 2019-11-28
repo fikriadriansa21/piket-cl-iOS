@@ -14,10 +14,19 @@ enum APIManager{
     case login(nim: String, password: String)
     case listPiket
 }
-
+//enum APIManager {
+//    enum PiketProvider:TargetType {
+//
+//
+//
+//    }
+//}
+var networkManager = NetworkManager()
 extension APIManager: TargetType{
+    
+    
     var baseURL: URL {
-        guard let url = URL(string: "https://absensi-codelabs.herokuapp.com/") else {
+        guard let url = URL(string: "https://absensi-codelabs.herokuapp.com") else {
             fatalError("Base url not configured properly")
         }
         return url
@@ -26,11 +35,11 @@ extension APIManager: TargetType{
     var path: String {
         switch self {
         case .checkPassword:
-            return "mobile/login/check-password"
+            return "/mobile/login/check-password"
         case .login:
-            return "mobile/login"
+            return "/mobile/login"
         case .listPiket:
-            return "mobile/piket-hari-ini"
+            return "/mobile/piket-hari-ini"
         }
     }
     
@@ -55,7 +64,7 @@ extension APIManager: TargetType{
             let param = [
                 "nim": nim
             ] as [String: Any]
-            return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
         case .login(let nim, let password):
             let param = [
                 "nim": nim,
@@ -68,7 +77,12 @@ extension APIManager: TargetType{
     }
     
     var headers: [String : String]? {
-        return nil
+        switch self {
+        case .listPiket:
+            return ["token": networkManager.stringToken]
+        default:
+            return ["Content-type": "application/json; charset=UTF-8"]
+        }
     }
-            
+
 }

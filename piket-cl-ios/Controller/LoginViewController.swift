@@ -39,16 +39,15 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginAction(_ sender: UIButton) {
         
-        guard let password = textFieldPassword.text, !password.isEmpty else {
+        guard let passwordString = textFieldPassword.text, !passwordString.isEmpty else {
             self.alertEmptyPassword()
             return
         }
-        networkManager.login(nim: finalNimText, password: passwordText){
+        networkManager.login(nim: finalNimText, password: passwordString){
             (canLogin) in
-//            if canLogin {
-            self.passwordText = password
-            self.performSegue(withIdentifier: "sendPassword", sender: nil)
-            print("lanjut logiinn")
+                self.passwordText = passwordString
+                self.performSegue(withIdentifier: "sendPassword", sender: nil)
+                print("lanjut logiinn")
         }
         
     }
@@ -63,3 +62,10 @@ class LoginViewController: UIViewController {
     }
     
 }
+
+//            if let error = error {
+//                print(error)
+//                return
+//            }
+//            dump(canLogin)
+//            print("gas atuh login coi")

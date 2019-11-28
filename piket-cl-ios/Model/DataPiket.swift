@@ -8,19 +8,58 @@
 
 import Foundation
 
+//struct ResponseToken {
+//    let status: Int?
+//    let message: String?
+//    let data: Token?
+//}
+//
+//extension ResponseToken: Codable{
+//    private enum ResponseCodingKey: String, CodingKey{
+//        case status
+//        case message
+//        case data = "data"
+//    }
+//
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: ResponseCodingKey.self)
+//
+//        status = try container.decode(Int.self, forKey: .status)
+//        message = try container.decode(String.self, forKey: .message)
+//        data = try container.decode(Token.self, forKey: .data)
+//    }
+//
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: ResponseCodingKey.self)
+//
+//        try container.encode(status, forKey: .status)
+//        try container.encode(message, forKey: .message)
+//        try container.encode(data, forKey: .data)
+//    }
+//}
+//
+//struct Token {
+//    let token: String?
+//}
+//
+//extension Token: Codable{
+//    enum TokenCodingKey: String, CodingKey {
+//        case token = "token"
+//    }
+//}
 struct ResponseToken: Codable {
     let status: Int?
     let message: String?
     let data: Token?
-    
-    enum CodingKeys: String, CodingKey {
+
+    enum TokenCodingKeys: String, CodingKey {
         case status
         case message
         case data = "data"
     }
-    
+
     init(from decoder: Decoder) throws {
-        let container = try! decoder.container(keyedBy: CodingKeys.self)
+        let container = try! decoder.container(keyedBy: TokenCodingKeys.self)
 
         status = try container.decode(Int.self, forKey: .status)
         message = try container.decode(String.self, forKey: .message)
@@ -28,7 +67,7 @@ struct ResponseToken: Codable {
     }
 
     func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
+        var container = encoder.container(keyedBy: TokenCodingKeys.self)
 
         try container.encode(status, forKey: .status)
         try container.encode(message, forKey: .message)
@@ -48,13 +87,13 @@ struct Response: Codable {
     let status: Int?
     let message: String?
     let data: [Piket]?
-    
+
     enum CodingKeys: String, CodingKey {
         case status
         case message
         case data = "data"
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try! decoder.container(keyedBy: CodingKeys.self)
 
@@ -80,8 +119,8 @@ struct Piket: Codable {
     let token: String?
     let tanggal_piket: String?
     let diperiksa_oleh: String?
-    
-    
+
+
     enum CodingKeys: String, CodingKey {
         case id
         case nama_anggota
@@ -91,7 +130,7 @@ struct Piket: Codable {
         case tanggal_piket
         case diperiksa_oleh
     }
-    
+
 }
 
 

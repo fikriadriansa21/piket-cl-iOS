@@ -13,7 +13,7 @@ import Alamofire
 class NimCheckerViewController: UIViewController {
     
     @IBOutlet weak var textFieldNim: UITextField!
-    var nimText = ""
+    var nimText:String = ""
     var textBuatAddPassword = ""
     var networkManager = NetworkManager()
     
@@ -25,17 +25,18 @@ class NimCheckerViewController: UIViewController {
     }
     
     @IBAction func buttonCheckPassword(_ sender: UIButton) {
-        guard let nim = textFieldNim.text, !nim.isEmpty else {
+        guard let nimString = textFieldNim.text, !nimString.isEmpty else {
             self.alertEmptyNim()
             return
         }
         
-        networkManager.checkPassword(nim: nimText){(isRegistered) in
+        networkManager.checkPassword(nim: nimString){(isRegistered) in
             if isRegistered{
-                self.nimText = nim
-                self.performSegue(withIdentifier: "sendNim", sender: nil)
+                self.nimText = nimString
+                self.performSegue(withIdentifier: "sendNim", sender: nil)                
+                print(self.nimText)
             }else{
-                
+                print("belum terdaftar")
             }
         }
     }
