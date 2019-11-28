@@ -20,7 +20,7 @@ struct NetworkManager {
             case .success(let response):
                 if response.statusCode == 200 {
                     completion(true)
-                    print("Berhasil request")
+                    print(try? JSONSerialization.jsonObject(with: response.data, options: []))
                 } else {
                     print(try? JSONSerialization.jsonObject(with: response.data, options: []))
                 }
