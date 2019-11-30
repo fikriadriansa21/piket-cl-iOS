@@ -62,10 +62,3 @@ class LoginViewController: UIViewController {
     }
     
 }
-
-//            if let error = error {
-//                print(error)
-//                return
-//            }
-//            dump(canLogin)
-//            print("gas atuh login coi")

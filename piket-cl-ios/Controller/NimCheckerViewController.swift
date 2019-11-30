@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-import Alamofire
+
 
 class NimCheckerViewController: UIViewController {
     
@@ -56,10 +56,6 @@ class NimCheckerViewController: UIViewController {
             vcLogin.finalNimText = self.nimText
             print("ngirim nim")
         }
-//        if(segue.identifier == "dontHavePassword"){
-//            let vcAddPassword = segue.destination as! AddNewViewController
-//            vcAddPassword.textAddPassword = self.nimText
-//        }
     }
     
 }

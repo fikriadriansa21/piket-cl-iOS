@@ -7,6 +7,7 @@ target 'piket-cl-ios' do
   pod 'SwiftyJSON'
   pod 'FSCalendar'
   pod 'Moya', '~> 13.0'
+  pod 'Heimdall'
 
 #  target 'piket-cl-iosTests' do
 #    inherit! :search_paths

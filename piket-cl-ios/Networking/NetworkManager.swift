@@ -9,23 +9,10 @@
 import Foundation
 import Moya
 
-//protocol Networkable {
-//    var provider: MoyaProvider<APIManager> { get }
-//
-//    func checkPassword(nim : String, completion: @escaping (Bool) -> Void)
-//    func login(nim: String, password: String, completion: @escaping(Bool) -> Void)
-//    func getListPiket(completion: @escaping (Piket?)->Void)
-//
-//}
+var stringToken: String = ""
+let provider = MoyaProvider<APIManager>()
 
-struct storeKeys {
-    static let tokenUser = ""
-}
 class NetworkManager{
-//    var provider = MoyaProvider<APIManager>(plugins: [NetworkLoggerPlugin(verbose: true)])
-    let provider = MoyaProvider<APIManager>()
-    var stringToken: String = ""
-    let defaults = UserDefaults.standard
     
     func checkPassword(nim: String, completion: @escaping (Bool) -> Void) {
         provider.request(.checkPassword(nim: nim)){(response) in
@@ -50,23 +37,22 @@ class NetworkManager{
                     let post = try decoder.decode(ResponseToken.self, from: value.data)
                     print(post.data?.token as Any)                    
                     completion(post.data?.token)
-                    self.stringToken = (post.data?.token)!
-                    
+                    stringToken = (post.data?.token)!
                 } catch (let error) {
                     print("error \(error)")
                 }
-                
-                self.defaults.set(self.stringToken, forKey: storeKeys.tokenUser)
             case .failure( _):
                 print("gabisa bisa dapet token")
             }
         }
     }
     
+    
     func getListPiket(completion: @escaping (Piket?)->Void){
-        provider.request(.listPiket){(response)in
+        provider.request(.listPiket){(response) in
             switch response{
             case .success(let response):
+                print(response.statusCode)
                  do {
                    // 4
                    print(try response.mapJSON())
@@ -76,8 +62,8 @@ class NetworkManager{
             case .failure( _):
                  print("gagal dalam menampilkan data")
              }
-          
+
             }
-    
+
     }
 }

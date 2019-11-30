@@ -83,7 +83,7 @@ struct Token: Codable {
     }
 }
 
-struct Response: Codable {
+struct ResponsePiket: Codable {
     let status: Int?
     let message: String?
     let data: [Piket]?

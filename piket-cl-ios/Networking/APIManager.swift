@@ -14,16 +14,19 @@ enum APIManager{
     case login(nim: String, password: String)
     case listPiket
 }
-//enum APIManager {
-//    enum PiketProvider:TargetType {
-//
-//
-//
-//    }
-//}
-var networkManager = NetworkManager()
-extension APIManager: TargetType{
-    
+
+extension APIManager: TargetType, AccessTokenAuthorizable{
+    var authorizationType: AuthorizationType {
+        switch self {
+        case .login:
+            return .bearer
+        case .checkPassword( _):
+            return .none
+        case .listPiket:
+            return .none
+        }
+        
+    }
     
     var baseURL: URL {
         guard let url = URL(string: "https://absensi-codelabs.herokuapp.com") else {
@@ -77,12 +80,7 @@ extension APIManager: TargetType{
     }
     
     var headers: [String : String]? {
-        switch self {
-        case .listPiket:
-            return ["token": networkManager.stringToken]
-        default:
-            return ["Content-type": "application/json; charset=UTF-8"]
-        }
+            return ["Content-Type": "application/json"]
     }
 
 }
