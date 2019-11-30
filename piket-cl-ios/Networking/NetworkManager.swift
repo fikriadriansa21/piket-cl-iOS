@@ -10,6 +10,8 @@ import Foundation
 import Moya
 
 var stringToken: String = ""
+let defaultsToken = UserDefaults.standard
+
 let provider = MoyaProvider<APIManager>()
 
 class NetworkManager{
@@ -38,6 +40,7 @@ class NetworkManager{
                     print(post.data?.token as Any)                    
                     completion(post.data?.token)
                     stringToken = (post.data?.token)!
+                    defaultsToken.set(stringToken, forKey: "token")                    
                 } catch (let error) {
                     print("error \(error)")
                 }
@@ -54,7 +57,6 @@ class NetworkManager{
             case .success(let response):
                 print(response.statusCode)
                  do {
-                   // 4
                    print(try response.mapJSON())
                  } catch {
                    print("data tidak ditampilkan")
