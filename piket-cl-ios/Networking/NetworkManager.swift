@@ -9,12 +9,14 @@
 import Foundation
 import Moya
 
-var stringToken: String = ""
 let defaultsToken = UserDefaults.standard
-
-let provider = MoyaProvider<APIManager>()
+let dataStringToken = defaultsToken.string(forKey: "token")
+let authPlugin = AccessTokenPlugin { dataStringToken! }
+let provider = MoyaProvider<APIManager>(plugins: [authPlugin])
 
 class NetworkManager{
+    var stringToken: String = ""
+    var tokenString: String = ""
     
     func checkPassword(nim: String, completion: @escaping (Bool) -> Void) {
         provider.request(.checkPassword(nim: nim)){(response) in
@@ -31,19 +33,21 @@ class NetworkManager{
     }
     
     public func login(nim: String, password: String, completion: @escaping (String?) -> Void){
+        
         provider.request(.login(nim: nim, password: password)){(response) in
             switch response.result{
             case .success(let value):
                 do {
                     let decoder = JSONDecoder()
                     let post = try decoder.decode(ResponseToken.self, from: value.data)
-                    print(post.data?.token as Any)                    
                     completion(post.data?.token)
-                    stringToken = (post.data?.token)!
-                    defaultsToken.set(stringToken, forKey: "token")                    
+                    self.stringToken = (post.data?.token)!
+                    defaultsToken.set(self.stringToken, forKey: "token")
+                    self.tokenString = defaultsToken.string(forKey: "token")!
                 } catch (let error) {
                     print("error \(error)")
                 }
+                print(self.tokenString)
             case .failure( _):
                 print("gabisa bisa dapet token")
             }
@@ -54,10 +58,12 @@ class NetworkManager{
     func getListPiket(completion: @escaping (Piket?)->Void){
         provider.request(.listPiket){(response) in
             switch response{
-            case .success(let response):
-                print(response.statusCode)
+            case .success(let value):
+                print(value.statusCode)
                  do {
-                   print(try response.mapJSON())
+                    let decoder = JSONDecoder()
+                    let post = try decoder.decode(ResponsePiket.self, from: value.data)
+                    print(post)
                  } catch {
                    print("data tidak ditampilkan")
                 }

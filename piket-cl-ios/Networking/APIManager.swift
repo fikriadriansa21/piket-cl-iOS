@@ -18,15 +18,15 @@ enum APIManager{
 extension APIManager: TargetType, AccessTokenAuthorizable{
     var authorizationType: AuthorizationType {
         switch self {
-        case .login:
-            return .bearer
-        case .checkPassword( _):
-            return .none
-        case .listPiket:
-            return .none
-        }
-        
+            case .checkPassword:
+                return .none
+            case .login:
+                return .bearer
+            case .listPiket:
+                return .basic
+            }
     }
+            
     
     var baseURL: URL {
         guard let url = URL(string: "https://absensi-codelabs.herokuapp.com") else {
