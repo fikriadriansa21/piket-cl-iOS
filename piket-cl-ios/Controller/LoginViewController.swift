@@ -39,16 +39,16 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginAction(_ sender: UIButton) {
         
-        guard let password = textFieldPassword.text, !password.isEmpty else {
+        guard let passwordString = textFieldPassword.text, !passwordString.isEmpty else {
             self.alertEmptyPassword()
             return
         }
-        networkManager.login(nim: finalNimText, password: password){
-            (canLogin) in
-            //            if canLogin {
-                        self.passwordText = password
-                        self.performSegue(withIdentifier: "sendPassword", sender: nil)
-                        print("lanjut logiinn")
+        print(finalNimText+" - "+passwordString)
+        networkManager.login(nim: finalNimText, password: passwordString){
+            (success) in
+            print(self.finalNimText+" & "+passwordString)
+//                self.performSegue(withIdentifier: "sendPassword", sender: nil)
+//                print("lanjut logiinn")
         }
         
     }

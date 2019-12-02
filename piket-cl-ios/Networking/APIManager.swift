@@ -12,149 +12,86 @@ import Moya
 private let apiKey = ""
 
 enum APIManager{
-    enum MyProvider: TargetType {
-        
-        case checkPassword(nim: String)
-        case login(nim: String, password: String)
-        case addPassword(nim: String, password: String)
-        case listPiket
-        
-        var baseURL: URL {
-            return URL(string: "http://103.112.189.132:5227/")!
+    case checkPassword(nim: String)
+    case login(nim: String, password: String)
+    case addPassword(nim: String, password: String)
+    case listPiket
+    
+}
+extension APIManager: TargetType, AccessTokenAuthorizable {
+    var authorizationType: AuthorizationType{
+        switch self {
+        case .checkPassword:
+            return .none
+        case .login:
+            return .bearer
+        case .listPiket:
+            return .basic
+        case .addPassword:
+            return .none
         }
+    }
         
-        var path: String {
-            switch self {
-            case .checkPassword:
-                return "mobile/login/check-password"
-            case .login:
-                return "mobile/login"
-            case .addPassword:
-                return "mobile/login/add-password"
-            case .listPiket:
-                return "mobile/piket-hari-ini"
-            }
-        }
+    var baseURL: URL {
+        return URL(string: "http://103.112.189.132:5227/")!
+    }
         
-        var method: Moya.Method {
-            switch self {
-                case .checkPassword:
-                    return .post
-                case .login:
-                    return .post
-                case .addPassword:
-                    return .post
-                case .listPiket:
-                    return .get
-            }
-        }
-        
-        var sampleData: Data {
-            return Data()
-        }
-        
-        var task: Task {
-            switch self {
-                case .checkPassword(let nim):
-                    let param = [
-                        "nim": nim
-                        ] as [String : Any]
-                    return .requestParameters(parameters: param, encoding: URLEncoding.default)
-                case .login(let nim, let password):
-                    let param = [
-                        "nim": nim,
-                        "password": password
-                    ] as [String: Any]
-                    return .requestParameters(parameters: param, encoding: JSONEncoding.default)
-                case .addPassword(let nim, let password):
-                    let param = [
-                        "nim": nim,
-                        "password": password
-                    ] as [String: Any]
-                    return .requestParameters(parameters: param, encoding: JSONEncoding.default)
-                case .listPiket:
-                    return .requestPlain
-                }
-        }
-        
-        var headers: [String : String]? {
-            return ["token": "Bearer \(apiKey)"]
+    var path: String {
+        switch self {
+        case .checkPassword:
+            return "mobile/login/check-password"
+        case .login:
+            return "login"
+        case .addPassword:
+            return "mobile/login/add-password"
+        case .listPiket:
+            return "mobile/piket-hari-ini"
         }
     }
     
+    var method: Moya.Method {
+        switch self {
+            case .checkPassword:
+                return .post
+            case .login:
+                return .post
+            case .addPassword:
+                return .post
+            case .listPiket:
+                return .get
+        }
+    }
+    
+    var sampleData: Data {
+        return Data()
+    }
+    
+    var task: Task {
+        switch self {
+            case .checkPassword(let nim):
+                let param = [
+                    "nim": nim
+                    ] as [String : Any]
+                return .requestParameters(parameters: param, encoding: URLEncoding.default)
+            case .login(let nim, let password):
+                let param = [
+                    "nim": nim,
+                    "password": password
+                ] as [String: Any]
+                return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+            case .addPassword(let nim, let password):
+                let param = [
+                    "nim": nim,
+                    "password": password
+                ] as [String: Any]
+                return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+            case .listPiket:
+                return .requestPlain
+            }
+    }
+    
+    var headers: [String : String]? {
+        return ["token": "Bearer \(apiKey)"]
+    }
+    
 }
-
-//extension APIManager: TargetType{
-//    var baseURL: URL {
-//        guard let url = URL(string: "http://103.112.189.132:5227/")
-//        else {
-//            fatalError("Base url not configured properly")
-//        }
-//        return url
-//    }
-//
-//    var path: String {
-//        switch self {
-//        case .checkPassword:
-//            return "mobile/login/check-password"
-//        case .login:
-//            return "mobile/login"
-//        case .addPassword:
-//            return "mobile/login/add-password"
-//        case .listPiket:
-//            return "mobile/piket-hari-ini"
-//        }
-//    }
-//
-//    var method: Moya.Method {
-//        switch self {
-//        case .checkPassword:
-//            return .post
-//        case .login:
-//            return .post
-//        case .addPassword:
-//            return .post
-//        case .listPiket:
-//            return .get
-//        }
-//    }
-//
-//    var sampleData: Data {
-//        return Data()
-//    }
-//
-//    var task: Task {
-//        switch self {
-//        case .checkPassword(let nim):
-//            let param = [
-//                "nim": nim
-//            ] as [String: Any]
-//            return .requestParameters(parameters: param, encoding: URLEncoding.default)
-//        case .login(let nim, let password):
-//            let param = [
-//                "nim": nim,
-//                "password": password
-//            ] as [String: Any]
-//            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
-//        case .addPassword(let nim, let password):
-//            let param = [
-//                "nim": nim,
-//                "password": password
-//            ] as [String: Any]
-//            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
-//        case .listPiket:
-//            return .requestPlain
-//        }
-//    }
-//
-//    var headers: [String : String]? {
-//        return nil
-//    }
-//
-//}
-
-//
-//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1hIjoiRmlrcmkgQWRyaWFuc2EiLCJuaW0iOiIxMDExNzEyOCIsImJpZGFuZ19yaXNldCI6Ik1vYmlsZSIsImlkX3NpZGlramFyaSI6IjEwIiwiaWF0IjoxNTcyMDExMzIxfQ.HlQhGxcN2cAksciBiIbeh5Z7bgYf8plHV5K7W5-KVHM"
-
-
-

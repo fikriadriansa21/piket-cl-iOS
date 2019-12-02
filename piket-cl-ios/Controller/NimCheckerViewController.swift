@@ -30,19 +30,24 @@ class NimCheckerViewController: UIViewController {
             return
         }
         
-        networkManager.checkPassword(nim: nim){(success) in
-            if success{
+        networkManager.checkPassword(nim: nim){result in
+            if result == 200 {
                 self.nimText = nim
                 self.performSegue(withIdentifier: "sendNim", sender: nil)
-            }else {
+                print(nim)
+            } else if result == 401 {
                 self.nimText = nim
                 self.performSegue(withIdentifier: "pass_baru", sender: nil)
+                print(nim+" - ")
+            } else {
+                self.alertEmptyNim()
             }
         }
+        
     }
     
     private func alertEmptyNim(){
-        let alert = UIAlertController(title: "Warning", message: "NIM must be filled", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Warning", message: "NIM must be filled or Your NIM is not registered ", preferredStyle: .actionSheet)
 
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
         }))

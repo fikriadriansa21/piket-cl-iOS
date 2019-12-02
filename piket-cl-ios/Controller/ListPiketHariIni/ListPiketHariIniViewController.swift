@@ -27,10 +27,10 @@ class ListPiketHariIniViewController: UIViewController, UITableViewDataSource, U
     }
     
     public func loadDataTable(){
-//        networkManager.getListPiket(){(listPiket) in
-//            self.tableView?.reloadData()
-//            print("disini buat reload data api tablenya")
-//        }
+        networkManager.getListPiket(){(listPiket) in
+            self.tableView?.reloadData()
+            print("disini buat reload data api tablenya")
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
