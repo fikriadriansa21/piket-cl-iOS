@@ -29,9 +29,8 @@ class AddNewViewController: UIViewController {
     
     var networkManager = NetworkManager()
     var finalNimText: String = ""
-    var passwordText = ""
-//    var textAddPassword: String = ""
-//    var pass = ""
+    var password = ""
+    var nim = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,19 +44,37 @@ class AddNewViewController: UIViewController {
                 self.alertEmptyPassword()
                 return
         }
-        networkManager.addPassword(nim: finalNimText, password: password){
-            (canLogin) in
-            self.passwordText = password
-            self.performSegue(withIdentifier: "pass_baru", sender: nil)
-            print("Kembali ke halaman sebelumnya")
+        guard let confirmPass = tfConfirmPass.text, !confirmPass.isEmpty
+            else {
+                self.alertEmptyPassword()
+                return
         }
+        let alert2 = UIAlertController(title: "Warning", message: "Password and Password Confirmation are not the same", preferredStyle: .actionSheet)
+        alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            print("")
+        }))
+
+        if password != confirmPass {
+            self.present(alert2, animated: true)
+        } else {
+            self.nim = finalNimText
+            self.password = password
+            networkManager.addPassword(nim: nim, password: password){
+                (success) in
+                print("Moving")
+                let navigationController = self.presentingViewController as? UINavigationController
+                self.dismiss(animated: true) {
+                    let _ = navigationController?.popToRootViewController(animated: true)
+                }
+            }
+        }
+        
 
     }
     
     public func alertEmptyPassword(){
         let alert = UIAlertController(title: "Warning", message: "Password must be filled", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            print("Silahkan isi Password-mu")
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
         }))
         self.present(alert, animated: true, completion: nil)
     }

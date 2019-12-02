@@ -21,16 +21,9 @@ class NimCheckerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        
     }
     
     @IBAction func buttonCheckPassword(_ sender: UIButton) {
-        
-        let alert = UIAlertController(title: "Warning", message: "NIM must be filled", preferredStyle: .actionSheet)
-
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            print("Silahkan isi NIM-mu")
-        }))
         
         guard let nim = textFieldNim.text, !nim.isEmpty else {
             self.alertEmptyNim()
@@ -38,14 +31,10 @@ class NimCheckerViewController: UIViewController {
         }
         
         networkManager.checkPassword(nim: nim){(success) in
-            if nim.isEmpty {
-                self.present(alert, animated: true)
-                print("nim harus diisi")
-            }
             if success{
                 self.nimText = nim
                 self.performSegue(withIdentifier: "sendNim", sender: nil)
-            }else{
+            }else {
                 self.nimText = nim
                 self.performSegue(withIdentifier: "pass_baru", sender: nil)
             }
@@ -55,8 +44,7 @@ class NimCheckerViewController: UIViewController {
     private func alertEmptyNim(){
         let alert = UIAlertController(title: "Warning", message: "NIM must be filled", preferredStyle: .actionSheet)
 
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            print("Silahkan isi NIM-mu")
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -65,12 +53,11 @@ class NimCheckerViewController: UIViewController {
         if (segue.identifier == "sendNim"){
             let vcLogin = segue.destination as! LoginViewController
             vcLogin.finalNimText = self.nimText
-            print("ngirim nim \"\(nimText)\"")
         }
         if(segue.identifier == "pass_baru"){
             let vcAddPassword = segue.destination as! AddNewViewController
             vcAddPassword.finalNimText = self.nimText
-            print("Masuk View Add Password")
+            textFieldNim.text = ""
         }
     }
     

@@ -19,10 +19,11 @@ struct NetworkManager {
             switch result{
             case .success(let response):
                 if response.statusCode == 200 {
-                    completion(true)
                     print(try? JSONSerialization.jsonObject(with: response.data, options: []))
+                    completion(true)
                 } else {
                     print(try? JSONSerialization.jsonObject(with: response.data, options: []))
+                    completion(false)
                 }
 //                print(try? JSONSerialization.jsonObject(with: response.data, options: []))
             case .failure(let error):
@@ -38,15 +39,24 @@ struct NetworkManager {
     }
     }
 
-    func addPassword(nim: String, password: String, completion: @escaping (String) -> Void){
-        provider.request(.addPassword(nim: nim, password: password)){
-            (response) in
-            switch response{
-                case .success(_):
-                    print("Sukses add password")
-                case .failure(_):
-                    print("Gagal add password")
-            }
+    func addPassword(nim: String, password: String, completion: @escaping (Bool) -> Void){
+        provider.request(.addPassword(nim: nim, password: password)){result in
+            switch result{
+                case .success(let response):
+                if response.statusCode == 200 {
+                    print(nim+" - "+password)
+                    print(try? JSONSerialization.jsonObject(with: response.data, options: []))
+                    completion(true)
+                } else {
+                    print(nim+" & "+password)
+                    print(try? JSONSerialization.jsonObject(with: response.data, options: []))
+                    completion(false)
+                }
+            //                print(try? JSONSerialization.jsonObject(with: response.data, options: []))
+                case .failure(let error):
+                            completion(false)
+                    print("Error: \(error)")
+                }
         }
     }
 
