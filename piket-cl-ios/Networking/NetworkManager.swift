@@ -10,9 +10,26 @@ import Foundation
 import Moya
 
 let defaultsToken = UserDefaults.standard
-let dataStringToken = defaultsToken.string(forKey: "token")
-let authPlugin = AccessTokenPlugin { dataStringToken! }
+let dataStringToken: String = defaultsToken.string(forKey: "token")!
+let authPlugin = AccessTokenPlugin { dataStringToken }
 let provider = MoyaProvider<APIManager>(plugins: [authPlugin])
+//let endpointClosure = { (target: APIManager) -> Endpoint in
+//    let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
+//
+//    // Sign all non-authenticating requests
+//    switch target {
+//    case .listPiket:
+//        return defaultEndpoint
+//    case .checkPassword(let nim):
+//        return defaultEndpoint
+//    case .login(let nim, let password):
+//        return defaultEndpoint
+//    default:
+//        return defaultEndpoint.adding(newHTTPHeaderFields: ["token": dataStringToken])
+//    }
+//}
+//
+//let provider = MoyaProvider<APIManager>(endpointClosure: endpointClosure)
 
 class NetworkManager{
     var stringToken: String = ""
@@ -47,7 +64,6 @@ class NetworkManager{
                 } catch (let error) {
                     print("error \(error)")
                 }
-                print(self.tokenString)
             case .failure( _):
                 print("gabisa bisa dapet token")
             }
@@ -55,15 +71,14 @@ class NetworkManager{
     }
     
     
-    func getListPiket(completion: @escaping (Piket?)->Void){
+    func getListPiket(completion: @escaping ([Piket]?)->Void){
         provider.request(.listPiket){(response) in
             switch response{
             case .success(let value):
-                print(value.statusCode)
                  do {
                     let decoder = JSONDecoder()
                     let post = try decoder.decode(ResponsePiket.self, from: value.data)
-                    print(post)
+                    completion(post.data)
                  } catch {
                    print("data tidak ditampilkan")
                 }

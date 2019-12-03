@@ -364,30 +364,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhY-CO-gj1" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="96" width="375" height="229"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fakeEventDots" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="useVeryShortWeekdaySymbols" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="headerMinimumDissolvedAlpha">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="headerDateFormat" value="Tanggal"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="dataSource" destination="IQ0-HE-RIE" id="qfc-1e-pS2"/>
-                                    <outlet property="delegate" destination="IQ0-HE-RIE" id="If1-VW-wnk"/>
-                                </connections>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EOp-fd-a9C">
-                                <rect key="frame" x="0.0" y="325" width="375" height="342"/>
+                                <rect key="frame" x="0.0" y="271" width="375" height="396"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="342" id="UIy-Vn-rSs"/>
+                                    <constraint firstAttribute="height" constant="396" id="zIy-8p-7pa"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellJadwalPiket" rowHeight="81" id="563-6X-fR8" customClass="LisPiketTableViewCell" customModule="piket_cl_ios" customModuleProvider="target">
@@ -403,6 +384,9 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama Orang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrD-5p-4Sk">
                                                             <rect key="frame" x="8" y="8" width="105.5" height="19"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="19" id="h0O-PG-gfG"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -416,23 +400,25 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="0TY-xz-Djk" firstAttribute="leading" secondItem="dS2-Zc-IIm" secondAttribute="leadingMargin" id="6VS-Me-nG6"/>
-                                                        <constraint firstItem="lrD-5p-4Sk" firstAttribute="top" secondItem="dS2-Zc-IIm" secondAttribute="topMargin" id="6jn-N0-yPE"/>
-                                                        <constraint firstItem="lrD-5p-4Sk" firstAttribute="leading" secondItem="dS2-Zc-IIm" secondAttribute="leadingMargin" id="BeF-9M-Bgn"/>
-                                                        <constraint firstAttribute="trailing" secondItem="lrD-5p-4Sk" secondAttribute="trailing" constant="113.5" id="EK7-Sp-E0W"/>
-                                                        <constraint firstAttribute="trailing" secondItem="0TY-xz-Djk" secondAttribute="trailing" constant="157" id="EV6-hL-wTp"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="0TY-xz-Djk" secondAttribute="bottom" id="IYd-kF-iZN"/>
-                                                        <constraint firstItem="0TY-xz-Djk" firstAttribute="top" secondItem="lrD-5p-4Sk" secondAttribute="bottom" constant="4" id="NB0-mJ-X6h"/>
-                                                        <constraint firstItem="0TY-xz-Djk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lrD-5p-4Sk" secondAttribute="leading" id="NH8-vq-GWX"/>
-                                                        <constraint firstItem="0TY-xz-Djk" firstAttribute="top" secondItem="lrD-5p-4Sk" secondAttribute="bottom" constant="4" id="lMG-gk-aUk"/>
+                                                        <constraint firstItem="lrD-5p-4Sk" firstAttribute="top" secondItem="dS2-Zc-IIm" secondAttribute="topMargin" id="Fu1-dk-wNy"/>
+                                                        <constraint firstItem="0TY-xz-Djk" firstAttribute="leading" secondItem="lrD-5p-4Sk" secondAttribute="leading" id="R8u-uT-rs0"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0TY-xz-Djk" secondAttribute="trailing" constant="20" symbolic="YES" id="d8T-fX-H9B"/>
+                                                        <constraint firstItem="0TY-xz-Djk" firstAttribute="leading" secondItem="lrD-5p-4Sk" secondAttribute="leading" id="fv9-wD-rgl"/>
+                                                        <constraint firstItem="0TY-xz-Djk" firstAttribute="top" secondItem="lrD-5p-4Sk" secondAttribute="bottom" constant="4" id="xE3-fJ-vFj"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lrD-5p-4Sk" secondAttribute="trailing" constant="20" symbolic="YES" id="ydb-ln-rpC"/>
+                                                        <constraint firstItem="lrD-5p-4Sk" firstAttribute="leading" secondItem="dS2-Zc-IIm" secondAttribute="leadingMargin" id="yiP-ZK-GVn"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hx-tM-p7H" userLabel="Button Container">
                                                     <rect key="frame" x="250" y="11" width="110" height="59"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9j-9P-1xc" customClass="RoundButton" customModule="piket_cl_ios" customModuleProvider="target">
-                                                            <rect key="frame" x="20" y="13" width="71" height="33"/>
+                                                            <rect key="frame" x="17" y="12" width="76" height="34"/>
                                                             <color key="backgroundColor" red="0.34901960780000002" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="76" id="03U-Hh-mRZ"/>
+                                                                <constraint firstAttribute="height" constant="34" id="Hyc-Cv-Hg8"/>
+                                                            </constraints>
                                                             <state key="normal" title="Selesai">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
@@ -445,18 +431,20 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="R9j-9P-1xc" firstAttribute="leading" secondItem="5Hx-tM-p7H" secondAttribute="leadingMargin" constant="12" id="4Tj-GJ-GzH"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="R9j-9P-1xc" secondAttribute="trailing" constant="11" id="dfY-DU-rzK"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="R9j-9P-1xc" secondAttribute="bottom" constant="5" id="rYE-Ze-fY8"/>
-                                                        <constraint firstItem="R9j-9P-1xc" firstAttribute="top" secondItem="5Hx-tM-p7H" secondAttribute="topMargin" constant="5" id="vuD-P0-SmH"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="R9j-9P-1xc" secondAttribute="trailing" constant="9" id="6va-08-9kC"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="R9j-9P-1xc" secondAttribute="bottom" constant="5" id="dko-M1-NY3"/>
+                                                        <constraint firstItem="R9j-9P-1xc" firstAttribute="top" secondItem="5Hx-tM-p7H" secondAttribute="topMargin" constant="4" id="izK-TX-Myr"/>
+                                                        <constraint firstItem="R9j-9P-1xc" firstAttribute="leading" secondItem="5Hx-tM-p7H" secondAttribute="leadingMargin" constant="9" id="xDV-Ks-5bl"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="5Hx-tM-p7H" firstAttribute="leading" secondItem="dS2-Zc-IIm" secondAttribute="trailing" constant="8" id="GmR-Lb-koD"/>
-                                                <constraint firstItem="5Hx-tM-p7H" firstAttribute="trailing" secondItem="bYL-eF-NCh" secondAttribute="trailingMargin" id="N5v-nX-WRx"/>
-                                                <constraint firstItem="5Hx-tM-p7H" firstAttribute="bottom" secondItem="bYL-eF-NCh" secondAttribute="bottomMargin" id="Olt-Ah-YVf"/>
-                                                <constraint firstItem="5Hx-tM-p7H" firstAttribute="top" secondItem="bYL-eF-NCh" secondAttribute="topMargin" id="deN-Eg-C0n"/>
+                                                <constraint firstItem="5Hx-tM-p7H" firstAttribute="top" secondItem="bYL-eF-NCh" secondAttribute="topMargin" id="0xo-US-KCF"/>
+                                                <constraint firstItem="5Hx-tM-p7H" firstAttribute="bottom" secondItem="bYL-eF-NCh" secondAttribute="bottomMargin" id="5pp-0H-mRh"/>
+                                                <constraint firstItem="5Hx-tM-p7H" firstAttribute="leading" secondItem="dS2-Zc-IIm" secondAttribute="trailing" constant="8" id="96B-8g-rl1"/>
+                                                <constraint firstItem="5Hx-tM-p7H" firstAttribute="leading" secondItem="dS2-Zc-IIm" secondAttribute="trailing" constant="8" id="h18-TM-bc8"/>
+                                                <constraint firstItem="5Hx-tM-p7H" firstAttribute="trailing" secondItem="bYL-eF-NCh" secondAttribute="trailingMargin" id="j0b-OR-F5m"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -467,17 +455,49 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhY-CO-gj1" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="96" width="375" height="175"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fakeEventDots" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="useVeryShortWeekdaySymbols" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="headerMinimumDissolvedAlpha">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                                        <color key="value" red="0.34901960780000002" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                        <color key="value" red="0.34901960780000002" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rowHeight">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fakeSubtitles" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsBoundingRectWhenChangingMonths" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IQ0-HE-RIE" id="qfc-1e-pS2"/>
+                                    <outlet property="delegate" destination="IQ0-HE-RIE" id="If1-VW-wnk"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="AhY-CO-gj1" firstAttribute="trailing" secondItem="oQa-Zv-6dX" secondAttribute="trailing" id="3ul-7Z-8km"/>
-                            <constraint firstItem="EOp-fd-a9C" firstAttribute="top" secondItem="AhY-CO-gj1" secondAttribute="bottom" id="FBR-82-RPE"/>
-                            <constraint firstItem="EOp-fd-a9C" firstAttribute="leading" secondItem="oQa-Zv-6dX" secondAttribute="leading" id="FhR-RB-jRo"/>
-                            <constraint firstItem="EOp-fd-a9C" firstAttribute="trailing" secondItem="oQa-Zv-6dX" secondAttribute="trailing" id="GgO-ry-aUv"/>
-                            <constraint firstItem="EOp-fd-a9C" firstAttribute="top" secondItem="AhY-CO-gj1" secondAttribute="bottom" id="LRm-Mq-FwI"/>
-                            <constraint firstItem="AhY-CO-gj1" firstAttribute="leading" secondItem="oQa-Zv-6dX" secondAttribute="leading" id="YZ8-Ec-KiL"/>
-                            <constraint firstItem="EOp-fd-a9C" firstAttribute="bottom" secondItem="oQa-Zv-6dX" secondAttribute="bottom" id="i8E-iW-AfO"/>
-                            <constraint firstItem="AhY-CO-gj1" firstAttribute="top" secondItem="oQa-Zv-6dX" secondAttribute="top" id="mdA-iX-KV0"/>
+                            <constraint firstItem="EOp-fd-a9C" firstAttribute="leading" secondItem="AhY-CO-gj1" secondAttribute="leading" id="2zh-dp-nYb"/>
+                            <constraint firstItem="EOp-fd-a9C" firstAttribute="top" secondItem="AhY-CO-gj1" secondAttribute="bottom" id="5mB-fD-dWa"/>
+                            <constraint firstItem="AhY-CO-gj1" firstAttribute="top" secondItem="oQa-Zv-6dX" secondAttribute="top" id="Cfk-A0-jP1"/>
+                            <constraint firstItem="EOp-fd-a9C" firstAttribute="trailing" secondItem="AhY-CO-gj1" secondAttribute="trailing" id="SJf-I6-3qd"/>
+                            <constraint firstItem="EOp-fd-a9C" firstAttribute="trailing" secondItem="oQa-Zv-6dX" secondAttribute="trailing" id="Szs-Fa-RlY"/>
+                            <constraint firstItem="EOp-fd-a9C" firstAttribute="leading" secondItem="oQa-Zv-6dX" secondAttribute="leading" id="UCZ-09-5aA"/>
+                            <constraint firstItem="EOp-fd-a9C" firstAttribute="top" secondItem="AhY-CO-gj1" secondAttribute="bottom" id="VWx-YU-JxU"/>
+                            <constraint firstItem="AhY-CO-gj1" firstAttribute="leading" secondItem="oQa-Zv-6dX" secondAttribute="leading" id="ctW-5x-gZ5"/>
+                            <constraint firstItem="EOp-fd-a9C" firstAttribute="bottom" secondItem="oQa-Zv-6dX" secondAttribute="bottom" id="s70-we-GVz"/>
+                            <constraint firstItem="AhY-CO-gj1" firstAttribute="trailing" secondItem="oQa-Zv-6dX" secondAttribute="trailing" id="uRx-Yj-e1p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oQa-Zv-6dX"/>
                     </view>

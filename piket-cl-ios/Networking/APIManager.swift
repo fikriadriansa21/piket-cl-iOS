@@ -9,6 +9,9 @@
 import Foundation
 import Moya
 
+let defToken = UserDefaults.standard
+//let netManager = NetworkManager()
+
 enum APIManager{
     case checkPassword(nim: String)
     case login(nim: String, password: String)
@@ -16,15 +19,16 @@ enum APIManager{
 }
 
 extension APIManager: TargetType, AccessTokenAuthorizable{
+    
     var authorizationType: AuthorizationType {
         switch self {
             case .checkPassword:
                 return .none
             case .login:
-                return .bearer
+                return .none
             case .listPiket:
-                return .basic
-            }
+                return .bearer
+        }
     }
             
     
@@ -80,7 +84,17 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
     }
     
     var headers: [String : String]? {
-            return ["Content-Type": "application/json"]
+        switch self {
+        case .listPiket:
+            return [
+                "token" : "\(defToken.string(forKey: "token") ?? "")"
+            ]
+        default:
+            return nil
+        }
+
     }
+    
 
 }
+
