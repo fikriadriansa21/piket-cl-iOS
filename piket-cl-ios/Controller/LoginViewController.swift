@@ -45,10 +45,10 @@ class LoginViewController: UIViewController {
         }
         print(finalNimText+" - "+passwordString)
         networkManager.login(nim: finalNimText, password: passwordString){
-            (success) in
-            print(self.finalNimText+" & "+passwordString)
-//                self.performSegue(withIdentifier: "sendPassword", sender: nil)
-//                print("lanjut logiinn")
+            (canLogin) in
+                self.passwordText = passwordString
+                self.performSegue(withIdentifier: "sendPassword", sender: nil)
+                print("lanjut logiinn")
         }
         
     }

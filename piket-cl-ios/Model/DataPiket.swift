@@ -12,15 +12,15 @@ struct ResponseToken: Codable {
     let status: Int?
     let message: String?
     let data: Token?
-    
-    enum CodingKeys: String, CodingKey {
+
+    enum TokenCodingKeys: String, CodingKey {
         case status
         case message
         case data = "data"
     }
-    
+
     init(from decoder: Decoder) throws {
-        let container = try! decoder.container(keyedBy: CodingKeys.self)
+        let container = try! decoder.container(keyedBy: TokenCodingKeys.self)
 
         status = try container.decode(Int.self, forKey: .status)
         message = try container.decode(String.self, forKey: .message)
@@ -28,7 +28,7 @@ struct ResponseToken: Codable {
     }
 
     func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
+        var container = encoder.container(keyedBy: TokenCodingKeys.self)
 
         try container.encode(status, forKey: .status)
         try container.encode(message, forKey: .message)
@@ -44,17 +44,17 @@ struct Token: Codable {
     }
 }
 
-struct Response: Codable {
+struct ResponsePiket: Codable {
     let status: Int?
     let message: String?
     let data: [Piket]?
-    
+
     enum CodingKeys: String, CodingKey {
         case status
         case message
         case data = "data"
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try! decoder.container(keyedBy: CodingKeys.self)
 
@@ -74,24 +74,40 @@ struct Response: Codable {
 
 struct Piket: Codable {
     let id: Int?
+    let nim: String?
     let nama_anggota: String?
     let jenis_piket: String?
     let status: String?
-    let token: String?
-    let tanggal_piket: String?
-    let diperiksa_oleh: String?
-    
-    
+
     enum CodingKeys: String, CodingKey {
-        case id
-        case nama_anggota
-        case jenis_piket
-        case status
-        case token
-        case tanggal_piket
-        case diperiksa_oleh
+        case id = "id"
+        case nim = "nim"
+        case namaAnggota = "nama_anggota"
+        case jenisPiket = "jenis_piket"
+        case status = "status"
     }
     
+    init(from decoder: Decoder) throws {
+        let container = try! decoder.container(keyedBy: CodingKeys.self)
+
+        id = try container.decode(Int.self, forKey: .id)
+        nim = try container.decode(String.self, forKey: .nim)
+        nama_anggota = try container.decode(String.self, forKey: .namaAnggota)
+        jenis_piket = try container.decode(String.self, forKey: .jenisPiket)
+        status = try container.decode(String.self, forKey: .status)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(id, forKey: .id)
+        try container.encode(nim, forKey: .nim)
+        try container.encode(nama_anggota, forKey: .namaAnggota)
+        try container.encode(jenis_piket, forKey: .jenisPiket)
+        try container.encode(status, forKey: .status)
+
+    }
+
 }
 
 

@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftyJSON
-import Alamofire
 
 class NimCheckerViewController: UIViewController {
     
@@ -16,7 +15,6 @@ class NimCheckerViewController: UIViewController {
     var nimText = ""
     var textBuatAddPassword = ""
     var networkManager = NetworkManager()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +32,13 @@ class NimCheckerViewController: UIViewController {
             if result == 200 {
                 self.nimText = nim
                 self.performSegue(withIdentifier: "sendNim", sender: nil)
-                print(nim)
             } else if result == 401 {
                 self.nimText = nim
                 self.performSegue(withIdentifier: "pass_baru", sender: nil)
-                print(nim+" - ")
             } else {
                 self.alertEmptyNim()
             }
         }
-        
     }
     
     private func alertEmptyNim(){
@@ -68,14 +63,12 @@ class NimCheckerViewController: UIViewController {
     
 }
 
-
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }

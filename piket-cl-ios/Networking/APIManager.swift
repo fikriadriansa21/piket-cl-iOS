@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-private let apiKey = ""
+let defToken = UserDefaults.standard
 
 enum APIManager{
     case checkPassword(nim: String)
@@ -24,7 +24,7 @@ extension APIManager: TargetType, AccessTokenAuthorizable {
         case .checkPassword:
             return .none
         case .login:
-            return .bearer
+            return .none
         case .listPiket:
             return .basic
         case .addPassword:
@@ -33,7 +33,10 @@ extension APIManager: TargetType, AccessTokenAuthorizable {
     }
         
     var baseURL: URL {
-        return URL(string: "http://103.112.189.132:5227/")!
+        guard let url = URL(string: "https://absensi-codelabs.herokuapp.com") else {
+            fatalError("Base url not configured properly")
+        }
+        return url
     }
         
     var path: String {
@@ -91,7 +94,13 @@ extension APIManager: TargetType, AccessTokenAuthorizable {
     }
     
     var headers: [String : String]? {
-        return ["token": "Bearer \(apiKey)"]
+        switch self {
+        case .listPiket:
+            return [
+                "token" : "\(defToken.string(forKey: "token") ?? "")"
+            ]
+        default:
+            return nil
+        }
     }
-    
 }

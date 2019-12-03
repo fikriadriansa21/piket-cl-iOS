@@ -44,11 +44,13 @@ class AddNewViewController: UIViewController {
                 self.alertEmptyPassword()
                 return
         }
+        
         guard let confirmPass = tfConfirmPass.text, !confirmPass.isEmpty
             else {
                 self.alertEmptyPassword()
                 return
         }
+        
         let alert2 = UIAlertController(title: "Warning", message: "Password and Password Confirmation are not the same", preferredStyle: .actionSheet)
         alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             print("")
@@ -61,15 +63,12 @@ class AddNewViewController: UIViewController {
             self.password = password
             networkManager.addPassword(nim: nim, password: password){
                 (success) in
-                print("Moving")
                 let navigationController = self.presentingViewController as? UINavigationController
                 self.dismiss(animated: true) {
                     let _ = navigationController?.popToRootViewController(animated: true)
                 }
             }
         }
-        
-
     }
     
     public func alertEmptyPassword(){
@@ -78,5 +77,4 @@ class AddNewViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-
 }
