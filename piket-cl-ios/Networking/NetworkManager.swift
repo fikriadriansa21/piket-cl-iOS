@@ -10,26 +10,9 @@ import Foundation
 import Moya
 
 let defaultsToken = UserDefaults.standard
-let dataStringToken: String = defaultsToken.string(forKey: "token")!
+let dataStringToken: String = defaultsToken.string(forKey: "token") ?? ""
 let authPlugin = AccessTokenPlugin { dataStringToken }
 let provider = MoyaProvider<APIManager>(plugins: [authPlugin])
-//let endpointClosure = { (target: APIManager) -> Endpoint in
-//    let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
-//
-//    // Sign all non-authenticating requests
-//    switch target {
-//    case .listPiket:
-//        return defaultEndpoint
-//    case .checkPassword(let nim):
-//        return defaultEndpoint
-//    case .login(let nim, let password):
-//        return defaultEndpoint
-//    default:
-//        return defaultEndpoint.adding(newHTTPHeaderFields: ["token": dataStringToken])
-//    }
-//}
-//
-//let provider = MoyaProvider<APIManager>(endpointClosure: endpointClosure)
 
 class NetworkManager{
     var stringToken: String = ""

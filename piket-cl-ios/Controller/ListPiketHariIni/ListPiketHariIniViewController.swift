@@ -30,8 +30,8 @@ class ListPiketHariIniViewController: UIViewController, UITableViewDataSource, U
     public func loadDataTable(){
         networkManager.getListPiket(){(listPiket) in
             self.piket = listPiket!
+            print(self.piket as Any)
             self.tableView?.reloadData()
-            print("disini buat reload data api tablenya")
         }
     }
     
@@ -39,14 +39,15 @@ class ListPiketHariIniViewController: UIViewController, UITableViewDataSource, U
         return self.piket!.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
-      let cell = tableView.dequeueReusableCell(withIdentifier: "cellJadwalPiket", for: indexPath) as! LisPiketTableViewCell
-        if self.piket!.count > 0 {
-            let eachPiket = piket![indexPath.row]
-            cell.labelNama?.text = eachPiket.nama_anggota
-            cell.labelJobPiket?.text = eachPiket.jenis_piket
-        }
-      return cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     let cell = tableView.dequeueReusableCell(withIdentifier: "cellJadwalPiket", for: indexPath) as! LisPiketTableViewCell
+        
+        let eachPiket = piket![indexPath.row]
+        cell.labelNama?.text = eachPiket.nama_anggota
+        cell.labelJobPiket?.text = eachPiket.jenis_piket
+        cell.buttonSelesaiPiket.titleLabel?.text = eachPiket.status
+     return cell
     }
+   
 
 }

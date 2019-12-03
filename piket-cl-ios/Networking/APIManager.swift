@@ -10,7 +10,6 @@ import Foundation
 import Moya
 
 let defToken = UserDefaults.standard
-//let netManager = NetworkManager()
 
 enum APIManager{
     case checkPassword(nim: String)
