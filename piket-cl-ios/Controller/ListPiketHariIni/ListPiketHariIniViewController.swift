@@ -26,18 +26,18 @@ class ListPiketHariIniViewController: UIViewController, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDataTable()
-        self.tableView?.reloadData()
     }
     
-    func getDataFromClosure(dataPiket: [Piket]?){
-        self.piket = dataPiket!
+    func getDataFromClosure(dataPiket: [Piket]){
+        self.piket = dataPiket
     }
     
     public func loadDataTable(){
         networkManager.getListPiket(){(listPiket) in
             if let data = listPiket{
                 self.getDataFromClosure(dataPiket: data)
-            }
+                self.tableView?.reloadData()
+            }            
         }
     }
     
