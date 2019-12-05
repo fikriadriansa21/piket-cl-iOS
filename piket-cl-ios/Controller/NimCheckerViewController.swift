@@ -34,7 +34,6 @@ class NimCheckerViewController: UIViewController {
             if isRegistered{
                 self.nimText = nimString
                 self.performSegue(withIdentifier: "sendNim", sender: nil)                
-                print(self.nimText)
             }else{
                 print("belum terdaftar")
             }
