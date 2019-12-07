@@ -13,18 +13,21 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var textFieldPassword: UITextField!{
         didSet {
-            textFieldPassword.tintColor = UIColor.lightGray
-            textFieldPassword.setIcon(#imageLiteral(resourceName: "remove_red_eye-24px"))
-            textFieldPassword.isSecureTextEntry = true
+        textFieldPassword.isSecureTextEntry = true
+//            textFieldPassword
+//            textFieldPassword.tintColor = UIColor.lightGray
+//            textFieldPassword.setIcon(#imageLiteral(resourceName: "remove_red_eye-24px"))
+//            textFieldPassword.isSecureTextEntry = true
+//            textFieldPassword.isSecureTextEntry.toggle()
         }
     }
+    
     @IBOutlet weak var labelKeteranganPassword: UILabel!
     @IBOutlet weak var labelNim: UILabel!
     var finalNimText: String = ""
     var responseText = ""
     var passwordText = ""
     var networkManager = NetworkManager()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,14 +46,12 @@ class LoginViewController: UIViewController {
             self.alertEmptyPassword()
             return
         }
-        print(finalNimText+" - "+passwordString)
         networkManager.login(nim: finalNimText, password: passwordString){
             (canLogin) in
                 self.passwordText = passwordString
                 self.performSegue(withIdentifier: "sendPassword", sender: nil)
                 print("lanjut logiinn")
         }
-        
     }
     
     public func alertEmptyPassword(){

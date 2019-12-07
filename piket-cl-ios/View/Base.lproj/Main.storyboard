@@ -365,10 +365,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EOp-fd-a9C">
-                                <rect key="frame" x="0.0" y="271" width="375" height="396"/>
+                                <rect key="frame" x="0.0" y="226" width="375" height="441"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="396" id="zIy-8p-7pa"/>
+                                    <constraint firstAttribute="height" constant="441" id="zIy-8p-7pa"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellJadwalPiket" rowHeight="81" id="563-6X-fR8" customClass="LisPiketTableViewCell" customModule="piket_cl_ios" customModuleProvider="target">
@@ -419,7 +419,7 @@
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="76" id="03U-Hh-mRZ"/>
                                                                 <constraint firstAttribute="height" constant="34" id="Hyc-Cv-Hg8"/>
                                                             </constraints>
-                                                            <state key="normal" title="Selesai">
+                                                            <state key="normal">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <userDefinedRuntimeAttributes>
@@ -438,7 +438,6 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="5Hx-tM-p7H" firstAttribute="top" secondItem="bYL-eF-NCh" secondAttribute="topMargin" id="0xo-US-KCF"/>
                                                 <constraint firstItem="5Hx-tM-p7H" firstAttribute="bottom" secondItem="bYL-eF-NCh" secondAttribute="bottomMargin" id="5pp-0H-mRh"/>
@@ -454,9 +453,13 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IQ0-HE-RIE" id="XBE-Fa-yat"/>
+                                    <outlet property="delegate" destination="IQ0-HE-RIE" id="yah-6s-E2q"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhY-CO-gj1" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="96" width="375" height="175"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="182"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="fakeEventDots" value="NO"/>
@@ -471,13 +474,19 @@
                                         <color key="value" red="0.34901960780000002" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rowHeight">
-                                        <real key="value" value="50"/>
+                                        <real key="value" value="100"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="fakeSubtitles" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsBoundingRectWhenChangingMonths" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="NO"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
                                         <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="weekdayHeight">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="headerHeight">
+                                        <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -488,16 +497,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="EOp-fd-a9C" firstAttribute="leading" secondItem="AhY-CO-gj1" secondAttribute="leading" id="2zh-dp-nYb"/>
-                            <constraint firstItem="EOp-fd-a9C" firstAttribute="top" secondItem="AhY-CO-gj1" secondAttribute="bottom" id="5mB-fD-dWa"/>
-                            <constraint firstItem="AhY-CO-gj1" firstAttribute="top" secondItem="oQa-Zv-6dX" secondAttribute="top" id="Cfk-A0-jP1"/>
-                            <constraint firstItem="EOp-fd-a9C" firstAttribute="trailing" secondItem="AhY-CO-gj1" secondAttribute="trailing" id="SJf-I6-3qd"/>
+                            <constraint firstItem="AhY-CO-gj1" firstAttribute="leading" secondItem="oQa-Zv-6dX" secondAttribute="leading" id="192-id-jgc"/>
+                            <constraint firstItem="AhY-CO-gj1" firstAttribute="top" secondItem="oQa-Zv-6dX" secondAttribute="top" id="55i-Ry-XJY"/>
                             <constraint firstItem="EOp-fd-a9C" firstAttribute="trailing" secondItem="oQa-Zv-6dX" secondAttribute="trailing" id="Szs-Fa-RlY"/>
                             <constraint firstItem="EOp-fd-a9C" firstAttribute="leading" secondItem="oQa-Zv-6dX" secondAttribute="leading" id="UCZ-09-5aA"/>
-                            <constraint firstItem="EOp-fd-a9C" firstAttribute="top" secondItem="AhY-CO-gj1" secondAttribute="bottom" id="VWx-YU-JxU"/>
-                            <constraint firstItem="AhY-CO-gj1" firstAttribute="leading" secondItem="oQa-Zv-6dX" secondAttribute="leading" id="ctW-5x-gZ5"/>
+                            <constraint firstItem="EOp-fd-a9C" firstAttribute="top" secondItem="AhY-CO-gj1" secondAttribute="bottom" id="q33-hf-JDj"/>
                             <constraint firstItem="EOp-fd-a9C" firstAttribute="bottom" secondItem="oQa-Zv-6dX" secondAttribute="bottom" id="s70-we-GVz"/>
-                            <constraint firstItem="AhY-CO-gj1" firstAttribute="trailing" secondItem="oQa-Zv-6dX" secondAttribute="trailing" id="uRx-Yj-e1p"/>
+                            <constraint firstItem="AhY-CO-gj1" firstAttribute="trailing" secondItem="oQa-Zv-6dX" secondAttribute="trailing" id="uqc-Md-cUX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oQa-Zv-6dX"/>
                     </view>

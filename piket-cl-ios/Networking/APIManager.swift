@@ -44,7 +44,7 @@ extension APIManager: TargetType, AccessTokenAuthorizable {
         case .checkPassword:
             return "mobile/login/check-password"
         case .login:
-            return "login"
+            return "mobile/login"
         case .addPassword:
             return "mobile/login/add-password"
         case .listPiket:
@@ -75,7 +75,7 @@ extension APIManager: TargetType, AccessTokenAuthorizable {
                 let param = [
                     "nim": nim
                     ] as [String : Any]
-                return .requestParameters(parameters: param, encoding: URLEncoding.default)
+                return .requestParameters(parameters: param, encoding: JSONEncoding.default)
             case .login(let nim, let password):
                 let param = [
                     "nim": nim,

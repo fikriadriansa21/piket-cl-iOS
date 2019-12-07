@@ -11,8 +11,8 @@ import Foundation
 import Moya
 
 let defaultsToken = UserDefaults.standard
-let dataStringToken = defaultsToken.string(forKey: "token")
-let authPlugin = AccessTokenPlugin { dataStringToken! }
+var dataStringToken: String? =  defaultsToken.string(forKey: "token")
+let authPlugin = AccessTokenPlugin{ (dataStringToken ?? "") }
 let provider = MoyaProvider<APIManager>(plugins: [authPlugin])
 
 class NetworkManager {
@@ -35,6 +35,7 @@ class NetworkManager {
     public func login(nim: String, password: String, completion: @escaping (String?) -> Void){
         
         provider.request(.login(nim: nim, password: password)){(response) in
+            print(nim+" - "+password)
             switch response.result{
             case .success(let value):
                 do {

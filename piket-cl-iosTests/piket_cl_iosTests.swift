@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import piket_cl_ios
+import piket_cl_ios
 
 class piket_cl_iosTests: XCTestCase {
 
