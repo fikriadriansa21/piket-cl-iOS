@@ -17,17 +17,16 @@ let provider = MoyaProvider<APIManager>(plugins: [authPlugin])
 class NetworkManager{
     var stringToken: String = ""
     var tokenString: String = ""
+    var status: Int = 0
     
-    func checkPassword(nim: String, completion: @escaping (Bool) -> Void) {
-        provider.request(.checkPassword(nim: nim)){(response) in
-            switch response{
-            case .success(let value):
-                if value.statusCode == 200 {
-                    completion(true)
-                }
+    func checkPassword(nim: String, completion: @escaping (Int) -> Void) {
+        provider.request(.checkPassword(nim: nim)){result in
+            switch result{
+            case .success(let response):
+                self.status = response.statusCode
+                completion(response.statusCode)
             case .failure(let error):
-                print(error)
-                completion(false)
+                print("Error: \(error)")
             }
         }
     }
@@ -54,6 +53,22 @@ class NetworkManager{
     }
     
     
+    func addPassword(nim: String, password: String, completion: @escaping (Bool) -> Void){
+        provider.request(.addPassword(nim: nim, password: password)){result in
+            switch result{
+                case .success(let response):
+                if response.statusCode == 200 {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+                case .failure(let error):
+                    completion(false)
+                    print("Error: \(error)")
+            }
+        }
+    }
+    
     func getListPiket(completion: @escaping ([Piket]?)->Void){
         provider.request(.listPiket){(response) in
             switch response{
@@ -69,7 +84,42 @@ class NetworkManager{
                  print("gagal dalam menampilkan data")
              }
 
-            }
+        }
+    }
+    
+    func getSudahPiketHariIni(completion: @escaping ([SudahPiket]?)->Void){
+        provider.request(.sudahPiketHariIni){(response) in
+            switch response{
+            case .success(let value):
+                 do {
+                    let decoder = JSONDecoder()
+                    let post = try decoder.decode(ResponseSudahPiket.self, from: value.data)
+                    completion(post.data)
+                 } catch {
+                   print("data tidak ditampilkan")
+                }
+            case .failure( _):
+                 print("gagal dalam menampilkan data")
+             }
 
+        }
+    }
+    
+    func getBelumPiketBulanan(completion: @escaping ([BelumPiket]?)->Void){
+        provider.request(.belumPiketBulanan){(response) in
+            switch response{
+            case .success(let value):
+                 do {
+                    let decoder = JSONDecoder()
+                    let post = try decoder.decode(ResponseBelumPiket.self, from: value.data)
+                    completion(post.data)
+                 } catch {
+                   print("data tidak ditampilkan")
+                }
+            case .failure( _):
+                 print("gagal dalam menampilkan data")
+             }
+
+        }
     }
 }

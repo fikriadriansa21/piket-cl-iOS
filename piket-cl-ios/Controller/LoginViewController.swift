@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     }
     @IBOutlet weak var labelKeteranganPassword: UILabel!
     @IBOutlet weak var labelNim: UILabel!
+    var sendNimText:String = ""
     var finalNimText: String = ""
     var responseText = ""
     var passwordText = ""
@@ -29,6 +30,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        self.sendNimText = self.finalNimText
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,11 +47,20 @@ class LoginViewController: UIViewController {
         }
         networkManager.login(nim: finalNimText, password: passwordString){
             (canLogin) in
+                self.sendNimText = self.finalNimText
                 self.passwordText = passwordString
                 self.performSegue(withIdentifier: "sendPassword", sender: nil)
                 print("lanjut logiinn")
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "sendPassword"){
+            let nav = segue.destination as! UINavigationController
+            let vcListPiket = nav.topViewController as! ListPiketHariIniViewController
+            vcListPiket.nimAuth = self.finalNimText
+        }
     }
     
     public func alertEmptyPassword(){

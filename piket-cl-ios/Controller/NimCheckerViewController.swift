@@ -30,12 +30,18 @@ class NimCheckerViewController: UIViewController {
             return
         }
         
-        networkManager.checkPassword(nim: nimString){(isRegistered) in
-            if isRegistered{
+        networkManager.checkPassword(nim: nimString){(statusCode) in
+            if statusCode == 200{
+                print(statusCode)
                 self.nimText = nimString
                 self.performSegue(withIdentifier: "sendNim", sender: nil)                
-            }else{
-                print("belum terdaftar")
+            }else if statusCode == 401{
+                print(statusCode)
+                self.nimText = nimString
+                self.performSegue(withIdentifier: "pass_baru", sender: nil)
+            }else {
+                print(statusCode)
+                self.alertNotFound()
             }
         }
     }
@@ -49,15 +55,28 @@ class NimCheckerViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    private func alertNotFound(){
+        let alert = UIAlertController(title: "Warning", message: "Pengguna ini ga ada di Codelabs loh!!", preferredStyle: .actionSheet)
+
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            print("Pengguna ini ga ada di Codelabs loh!!")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "sendNim"){
             let vcLogin = segue.destination as! LoginViewController
             vcLogin.finalNimText = self.nimText
             print("ngirim nim")
+        }else if(segue.identifier == "pass_baru"){
+                let vcAddPassword = segue.destination as! AddNewViewController
+                vcAddPassword.finalNimText = self.nimText
+                textFieldNim.text = ""
+            }
         }
     }
     
-}
 
 
 extension UIViewController {

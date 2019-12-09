@@ -11,13 +11,19 @@ import Foundation
 import FSCalendar
 import Alamofire
 
-class ListPiketHariIniViewController: UIViewController {
-    enum TableSection: Int {
-      case belumPiketHarian = 0, sudahPiket, belumPiketBulanan
-    }
-    var data = [TableSection: [Piket]]()
+enum LoadDataPiket: Int {
+    case PiketHariIni = 0,
+    SudahPiketHariIni = 1,
+    BelumPiketBulanan = 2
+}
+
+class ListPiketHariIniViewController: UIViewController {    
     var networkManager = NetworkManager()
     var piket = [Piket]()
+    var sudahPiket = [SudahPiket]()
+    var belumPiketBulanan = [BelumPiket]()
+    let defToken = UserDefaults.standard
+    var nimAuth:String = ""
     
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var calendarWeekPiket: FSCalendar!{
@@ -29,21 +35,44 @@ class ListPiketHariIniViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDataTable()          
+        loadDataPiket()
     }
     
-    func getDataFromClosure(dataPiket: [Piket]){
+    func getDataPiket(dataPiket: [Piket]){
         self.piket = dataPiket
     }
     
-    public func loadDataTable(){
+    func getDataSudah(dataPiket: [SudahPiket]){
+        self.sudahPiket = dataPiket
+    }
+    
+    func getDataBelum(dataPiket: [BelumPiket]){
+        self.belumPiketBulanan = dataPiket
+    }
+    
+    public func loadDataPiket(){
         networkManager.getListPiket(){(listPiket) in
             if let data = listPiket{
-                self.getDataFromClosure(dataPiket: data)
+                self.getDataPiket(dataPiket: data)
+                self.tableView?.reloadData()
+            }
+        }
+        
+        networkManager.getSudahPiketHariIni{(listSudahPiket) in
+            if let data = listSudahPiket{
+                self.getDataSudah(dataPiket: data)
+                self.tableView?.reloadData()
+            }
+        }
+        
+        networkManager.getBelumPiketBulanan{(belumPiketBulanan) in
+            if let data = belumPiketBulanan{
+                self.getDataBelum(dataPiket: data)
                 self.tableView?.reloadData()
             }
         }
     }
+    
 }
 
 extension ListPiketHariIniViewController: UITableViewDataSource, UITableViewDelegate{
@@ -54,7 +83,7 @@ extension ListPiketHariIniViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.backgroundColor = .gray
+        label.backgroundColor = .lightGray
             if section == 0 {
                 label.text = "Belum Piket"
             }else if section == 1{
@@ -72,12 +101,12 @@ extension ListPiketHariIniViewController: UITableViewDataSource, UITableViewDele
       let cell = tableView.dequeueReusableCell(withIdentifier: "cellJadwalPiket", for: indexPath) as! LisPiketTableViewCell
         
         let eachPiket = piket[indexPath.row]
-         
-        if indexPath.section == 0 && eachPiket.status == "Belum"{
+        
+        if indexPath.section == LoadDataPiket.PiketHariIni.rawValue{
             cell.backgroundColor = .green
-        }else if indexPath.section == 1{
+        }else if indexPath.section == LoadDataPiket.SudahPiketHariIni.rawValue{
             cell.backgroundColor = .blue
-        }else if indexPath.section == 2 {
+        }else if indexPath.section == LoadDataPiket.BelumPiketBulanan.rawValue {
             cell.backgroundColor = .red
         }else{
             cell.backgroundColor = .white
@@ -85,15 +114,14 @@ extension ListPiketHariIniViewController: UITableViewDataSource, UITableViewDele
         
         cell.labelNama?.text = eachPiket.nama_anggota
         cell.labelJobPiket?.text = eachPiket.jenis_piket
-                
-//        cell.buttonSelesaiPiket.setTitle(eachPiket.status, for: .normal)
-         
+        
+        if(eachPiket.nim == nimAuth){
+            print(defToken.string(forKey: "token") as Any)
+            cell.buttonSelesaiPiket.setTitle(eachPiket.status, for: .normal)
+            cell.buttonSelesaiPiket.isHidden = false
+        }else{
+            cell.buttonSelesaiPiket.isHidden = true
+        }
       return cell
      }
-}
-
-extension ListPiketHariIniViewController: FSCalendarDelegate{
-    func calendar(calendar: FSCalendar!, didSelectDate date: NSDate!) {
-        loadDataTable()
-    }
 }
