@@ -366,7 +366,7 @@
         <!--Data Source-->
         <scene sceneID="J0c-ib-BVN">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="IQ0-HE-RIE" customClass="ListPiketHariIniViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="IQ0-HE-RIE" customClass="ListPiketViewController" customModule="piket_cl_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CSw-0J-vP8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -378,7 +378,7 @@
                                     <constraint firstAttribute="height" constant="441" id="zIy-8p-7pa"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellJadwalPiket" rowHeight="81" id="563-6X-fR8" customClass="LisPiketTableViewCell" customModule="piket_cl_ios" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellHariIni" rowHeight="81" id="563-6X-fR8" customClass="ListHariIniTableViewCell" customModule="piket_cl_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="563-6X-fR8" id="bYL-eF-NCh">
@@ -457,6 +457,132 @@
                                             <outlet property="buttonSelesaiPiket" destination="R9j-9P-1xc" id="Bmr-EV-6sq"/>
                                             <outlet property="labelJobPiket" destination="0TY-xz-Djk" id="ESK-p4-x81"/>
                                             <outlet property="labelNama" destination="lrD-5p-4Sk" id="Hmg-Xh-Fqi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellSudahPiket" rowHeight="81" id="nYa-sh-gUE" customClass="ListSudahPiketTableViewCell" customModule="piket_cl_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="109" width="375" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nYa-sh-gUE" id="MJ6-HS-JZv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="hK5-7u-J21" userLabel="User Container">
+                                                    <rect key="frame" x="15" y="11" width="227" height="59"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama Orang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wB-tt-feG">
+                                                            <rect key="frame" x="8" y="8" width="105.5" height="19"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="19" id="Vgk-nW-ydy"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="job piket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEu-DG-oPJ">
+                                                            <rect key="frame" x="8" y="31" width="62" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="3wB-tt-feG" firstAttribute="leading" secondItem="hK5-7u-J21" secondAttribute="leadingMargin" id="3c7-fP-Bc8"/>
+                                                        <constraint firstItem="KEu-DG-oPJ" firstAttribute="leading" secondItem="3wB-tt-feG" secondAttribute="leading" id="95w-ml-nvC"/>
+                                                        <constraint firstItem="3wB-tt-feG" firstAttribute="top" secondItem="hK5-7u-J21" secondAttribute="topMargin" id="JRh-52-f9s"/>
+                                                        <constraint firstItem="KEu-DG-oPJ" firstAttribute="leading" secondItem="3wB-tt-feG" secondAttribute="leading" id="Sod-LQ-m8y"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KEu-DG-oPJ" secondAttribute="trailing" constant="20" symbolic="YES" id="Wvq-8v-DrA"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3wB-tt-feG" secondAttribute="trailing" constant="20" symbolic="YES" id="ed2-oo-OH0"/>
+                                                        <constraint firstItem="KEu-DG-oPJ" firstAttribute="top" secondItem="3wB-tt-feG" secondAttribute="bottom" constant="4" id="hf6-sI-1Md"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBB-aK-EDd" userLabel="Button Container">
+                                                    <rect key="frame" x="250" y="11" width="110" height="59"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJt-LK-U7b" customClass="RoundButton" customModule="piket_cl_ios" customModuleProvider="target">
+                                                            <rect key="frame" x="17" y="12" width="76" height="34"/>
+                                                            <color key="backgroundColor" red="0.34901960780000002" green="0.83921568629999999" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="34" id="CdJ-6w-tPU"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="76" id="YCb-7H-brx"/>
+                                                            </constraints>
+                                                            <state key="normal">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="8"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="nJt-LK-U7b" secondAttribute="bottom" constant="5" id="Dls-cs-Nhu"/>
+                                                        <constraint firstItem="nJt-LK-U7b" firstAttribute="top" secondItem="zBB-aK-EDd" secondAttribute="topMargin" constant="4" id="HRz-YE-Io6"/>
+                                                        <constraint firstItem="nJt-LK-U7b" firstAttribute="leading" secondItem="zBB-aK-EDd" secondAttribute="leadingMargin" constant="9" id="NPL-zA-3en"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="nJt-LK-U7b" secondAttribute="trailing" constant="9" id="bQu-Dz-aeb"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zBB-aK-EDd" firstAttribute="leading" secondItem="hK5-7u-J21" secondAttribute="trailing" constant="8" id="7g6-WW-Rfq"/>
+                                                <constraint firstItem="zBB-aK-EDd" firstAttribute="trailing" secondItem="MJ6-HS-JZv" secondAttribute="trailingMargin" id="8Ql-zd-ayF"/>
+                                                <constraint firstItem="zBB-aK-EDd" firstAttribute="bottom" secondItem="MJ6-HS-JZv" secondAttribute="bottomMargin" id="9vO-Lh-Feg"/>
+                                                <constraint firstItem="zBB-aK-EDd" firstAttribute="leading" secondItem="hK5-7u-J21" secondAttribute="trailing" constant="8" id="StE-40-6yr"/>
+                                                <constraint firstItem="zBB-aK-EDd" firstAttribute="top" secondItem="MJ6-HS-JZv" secondAttribute="topMargin" id="dey-Nd-BEp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="buttonKonfirmasi" destination="nJt-LK-U7b" id="UML-2e-hL5"/>
+                                            <outlet property="labelJenisPiket" destination="KEu-DG-oPJ" id="Jzs-6A-Frm"/>
+                                            <outlet property="labelNama" destination="3wB-tt-feG" id="T1V-I7-YsT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellBelum" rowHeight="81" id="aRr-dV-0Ma" customClass="ListBelumPiketTableViewCell" customModule="piket_cl_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="190" width="375" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aRr-dV-0Ma" id="Nu0-GW-0lA">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="xaO-88-OxY" userLabel="User Container">
+                                                    <rect key="frame" x="15" y="11" width="227" height="59"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama Orang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAe-QN-9nx">
+                                                            <rect key="frame" x="8" y="8" width="105.5" height="19"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="19" id="sbY-08-qhj"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="job piket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSW-Md-3Be">
+                                                            <rect key="frame" x="8" y="31" width="62" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="MAe-QN-9nx" firstAttribute="leading" secondItem="xaO-88-OxY" secondAttribute="leadingMargin" id="1Uc-yx-Jlz"/>
+                                                        <constraint firstItem="eSW-Md-3Be" firstAttribute="top" secondItem="MAe-QN-9nx" secondAttribute="bottom" constant="4" id="8M7-Ko-jDc"/>
+                                                        <constraint firstItem="eSW-Md-3Be" firstAttribute="leading" secondItem="MAe-QN-9nx" secondAttribute="leading" id="Hbo-ri-eOb"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MAe-QN-9nx" secondAttribute="trailing" constant="20" symbolic="YES" id="JPF-GD-iwC"/>
+                                                        <constraint firstItem="eSW-Md-3Be" firstAttribute="leading" secondItem="MAe-QN-9nx" secondAttribute="leading" id="Zko-T2-8Du"/>
+                                                        <constraint firstItem="MAe-QN-9nx" firstAttribute="top" secondItem="xaO-88-OxY" secondAttribute="topMargin" id="pbc-iC-9Su"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eSW-Md-3Be" secondAttribute="trailing" constant="20" symbolic="YES" id="qM5-vQ-lnR"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelJenisPiket" destination="eSW-Md-3Be" id="22m-VS-bl2"/>
+                                            <outlet property="labelNama" destination="MAe-QN-9nx" id="vDZ-LZ-kQp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

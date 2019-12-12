@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "sendPassword"){
             let nav = segue.destination as! UINavigationController
-            let vcListPiket = nav.topViewController as! ListPiketHariIniViewController
+            let vcListPiket = nav.topViewController as! ListPiketViewController
             vcListPiket.nimAuth = self.finalNimText
         }
     }
