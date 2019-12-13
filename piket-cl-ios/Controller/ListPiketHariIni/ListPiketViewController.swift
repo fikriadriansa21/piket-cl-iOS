@@ -98,45 +98,37 @@ extension ListPiketViewController: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-
+    
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let piketData = piket[indexPath.row]
-        let sudah = sudahPiket[indexPath.row]
-        let belum = belumPiketBulanan[indexPath.row]
-        var cells = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
-        
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellHariIni", for: indexPath) as! ListHariIniTableViewCell
 
-            if(piketData?.nim == nimAuth){
+            if(piket[indexPath.row]?.nim == nimAuth){
                 print(defToken.string(forKey: "token") as Any)
-                cell.buttonSelesaiPiket.setTitle(piketData?.status, for: .normal)
+                cell.buttonSelesaiPiket.setTitle(piket[indexPath.row]?.status, for: .normal)
                 cell.buttonSelesaiPiket.isHidden = false
             }else{
                 cell.buttonSelesaiPiket.isHidden = true
             }
             cell.backgroundColor = .green
-            cell.labelNama?.text = piketData?.nama_anggota
-            cell.labelJobPiket?.text = piketData?.jenis_piket
-            cells = cell        
+            cell.labelNama?.text = piket[indexPath.row]?.nama_anggota
+            cell.labelJobPiket?.text = piket[indexPath.row]?.jenis_piket
+            return cell
         }else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellSudahPiket", for: indexPath) as! ListSudahPiketTableViewCell
 
             cell.backgroundColor = .blue
-            cell.labelNama?.text = sudah?.nama_anggota
-            cell.labelJenisPiket?.text = sudah?.jenis_piket
-
-            cells = cell
-        }else if indexPath.section == 2{
+            cell.labelNama?.text = sudahPiket[indexPath.row]?.nama_anggota
+            cell.labelJenisPiket?.text = sudahPiket[indexPath.row]?.jenis_piket
+            return cell
+        }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellBelum", for: indexPath) as! ListBelumPiketTableViewCell
 
             cell.backgroundColor = .red
-            cell.labelNama?.text = belum?.nama_anggota
-            cell.labelJenisPiket?.text = belum?.jenis_piket
-
-            cells = cell
+            cell.labelNama?.text = belumPiketBulanan[indexPath.row]?.nama_anggota
+            cell.labelJenisPiket?.text = belumPiketBulanan[indexPath.row]?.jenis_piket
+            return cell
         }
-        return cells
     }
 }
 
