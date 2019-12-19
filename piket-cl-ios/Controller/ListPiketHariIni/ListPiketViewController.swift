@@ -12,14 +12,21 @@ import FSCalendar
 import Alamofire
 
 
-class ListPiketViewController: UIViewController {    
+class ListPiketViewController: UIViewController {
+    let defToken = UserDefaults.standard
+    var nimAuth:String = ""
     var networkManager = NetworkManager()
     var piket = [Piket?]()
     var sudahPiket = [SudahPiket?]()
     var belumPiketBulanan = [BelumPiket?]()
-    
-    let defToken = UserDefaults.standard
-    var nimAuth:String = ""
+    let image = UIImage(imageLiteralResourceName: "checklist.png")
+    lazy var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .black
+        refreshControl.addTarget(self, action: #selector(loadDataPiket), for: .valueChanged)
+        
+        return refreshControl
+    }()
     
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var calendarWeekPiket: FSCalendar!{
@@ -31,7 +38,19 @@ class ListPiketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDataPiket()
+        
+        if #available(iOS 10.0, *) {
+            tableView?.refreshControl = refresher
+        }else{
+            tableView?.addSubview(refresher)
+        }
+        
+        
+        let timeDelay = DispatchTime.now() + .milliseconds(200)
+        DispatchQueue.main.asyncAfter(deadline: timeDelay){
+            self.refresher.endRefreshing()
+            self.loadDataPiket()
+        }
     }
     
     func getDataPiket(dataPiket: [Piket]){
@@ -46,7 +65,9 @@ class ListPiketViewController: UIViewController {
         self.belumPiketBulanan = dataPiket
     }
     
-    public func loadDataPiket(){
+    @objc
+    private func loadDataPiket(){
+        
         networkManager.getListPiket(){(listPiket) in
             if let dataHariIni = listPiket{
                 self.getDataPiket(dataPiket: dataHariIni)
@@ -67,7 +88,10 @@ class ListPiketViewController: UIViewController {
                 self.tableView?.reloadData()
             }
         }
+        
+        refresher.endRefreshing()
     }
+    
 
 }
 
@@ -83,7 +107,6 @@ extension ListPiketViewController: UITableViewDataSource, UITableViewDelegate{
         }else{
             return 0
         }
-        
      }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -97,50 +120,69 @@ extension ListPiketViewController: UITableViewDataSource, UITableViewDelegate{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
+    }        
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellHariIni", for: indexPath) as! ListHariIniTableViewCell
+            
+            if(piket[indexPath.row]?.status == "Sudah"){
+                cell.isHidden = true
+            }else if(piket[indexPath.row]?.status == "Belum"){
+                cell.isHidden = false
+            }
 
             if(piket[indexPath.row]?.nim == nimAuth){
-                print(defToken.string(forKey: "token") as Any)
-                cell.buttonSelesaiPiket.setTitle(piket[indexPath.row]?.status, for: .normal)
                 cell.buttonSelesaiPiket.isHidden = false
+                cell.actionBlock = {
+                    self.networkManager.permohonanSelesaiPiket(id: (self.piket[indexPath.row]?.id)!){(response) in
+                        tableView.beginUpdates()
+                        tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+                        tableView.endUpdates()
+                    }
+                }
             }else{
                 cell.buttonSelesaiPiket.isHidden = true
             }
-            cell.backgroundColor = .green
+                        
             cell.labelNama?.text = piket[indexPath.row]?.nama_anggota
             cell.labelJobPiket?.text = piket[indexPath.row]?.jenis_piket
             return cell
         }else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellSudahPiket", for: indexPath) as! ListSudahPiketTableViewCell
+            
+                if sudahPiket[indexPath.row]?.diperiksa_oleh != nil {
+                    cell.buttonKonfirmasi.setImage(self.image, for: .normal)
+                    cell.buttonKonfirmasi.backgroundColor = .white
+                    cell.buttonKonfirmasi.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+                    cell.buttonKonfirmasi.isEnabled = false
+                }
+                if(sudahPiket[indexPath.row]?.nim == nimAuth){
+                    cell.buttonKonfirmasi.isHidden = true
+               }else{
+                    cell.buttonKonfirmasi.isHidden = false
+                    cell.actionKonfirmasi = {
+                        self.networkManager.konfirmasiPiket(id: (self.sudahPiket[indexPath.row]?.id)!){(response) in
+                            cell.buttonKonfirmasi.setImage(self.image, for: .normal)
+                            cell.buttonKonfirmasi.backgroundColor = .white
+                            cell.buttonKonfirmasi.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+                        }
+                    }
+               }
 
-            cell.backgroundColor = .blue
             cell.labelNama?.text = sudahPiket[indexPath.row]?.nama_anggota
             cell.labelJenisPiket?.text = sudahPiket[indexPath.row]?.jenis_piket
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellBelum", for: indexPath) as! ListBelumPiketTableViewCell
 
-            cell.backgroundColor = .red
             cell.labelNama?.text = belumPiketBulanan[indexPath.row]?.nama_anggota
             cell.labelJenisPiket?.text = belumPiketBulanan[indexPath.row]?.jenis_piket
             return cell
         }
-    }
-}
-
-extension Array{
-    subscript(safe index: Index) -> Element? {
-        let isValidIndex = index >= 0 && index < count
-        return isValidIndex ? self[index] : nil
-    }
-}
-
-extension Collection where Indices.Iterator.Element == Index {
-    subscript (safe index: Index) -> Iterator.Element? {
-        return indices.contains(index) ? self[index] : nil
     }
 }

@@ -18,6 +18,8 @@ enum APIManager{
     case sudahPiketHariIni
     case belumPiketBulanan
     case listPiket
+    case permohonanSelesaiPiket(id: Int)
+    case konfirmasiPiket(id: Int)
 }
 
 extension APIManager: TargetType, AccessTokenAuthorizable{
@@ -36,11 +38,15 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
                 return .none
             case .belumPiketBulanan:
                 return .bearer
+            case .permohonanSelesaiPiket:
+                return .bearer
+            case .konfirmasiPiket:
+                return .bearer
         }
     }
             
     var baseURL: URL {
-        guard let url = URL(string: "http://103.112.189.132:5227") else {
+        guard let url = URL(string: "https://absensi-codelabs.herokuapp.com") else {
             fatalError("Base url not configured properly")
         }
         return url
@@ -60,6 +66,10 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
                 return "/mobile/sudah-piket-hari-ini"
             case .belumPiketBulanan:
                 return "/mobile/belum-piket"
+            case .permohonanSelesaiPiket:
+                return "/mobile/selesai-piket"
+            case .konfirmasiPiket:
+                return "/mobile/inspeksi-piket"
         }
     }
     
@@ -77,6 +87,10 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
             return .get
         case .belumPiketBulanan:
             return .get
+        case .permohonanSelesaiPiket:
+            return .post
+        case .konfirmasiPiket:
+            return .post
         }
     }
     
@@ -109,6 +123,16 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
             return .requestPlain
         case .belumPiketBulanan:
             return .requestPlain
+        case .permohonanSelesaiPiket(let id):
+            let param = [
+                "id": id
+            ] as [String: Any]
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .konfirmasiPiket(let id):
+            let param = [
+                "id": id
+            ] as [String: Any]
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
         }
     }
     
@@ -123,6 +147,14 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
                 "token" : "\(defToken.string(forKey: "token") ?? "")"
             ]
         case .belumPiketBulanan:
+            return [
+                "token" : "\(defToken.string(forKey: "token") ?? "")"
+            ]
+        case .permohonanSelesaiPiket:
+            return [
+                "token" : "\(defToken.string(forKey: "token") ?? "")"
+            ]
+        case .konfirmasiPiket:
             return [
                 "token" : "\(defToken.string(forKey: "token") ?? "")"
             ]

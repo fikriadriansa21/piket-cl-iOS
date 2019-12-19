@@ -122,4 +122,35 @@ class NetworkManager{
 
         }
     }
+    
+    func permohonanSelesaiPiket(id: Int, completion: @escaping (Bool) -> Void) {
+        provider.request(.permohonanSelesaiPiket(id: id)){result in
+            switch result{
+            case .success(let response):
+                if response.statusCode == 200 {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    func konfirmasiPiket(id: Int, completion: @escaping (Bool) -> Void) {
+        provider.request(.konfirmasiPiket(id: id)){result in
+            switch result{
+            case .success(let response):
+                print(response.statusCode)
+                if response.statusCode == 200 {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
 }

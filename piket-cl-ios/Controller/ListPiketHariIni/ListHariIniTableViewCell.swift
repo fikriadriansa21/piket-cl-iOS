@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import Moya
 
 class ListHariIniTableViewCell: UITableViewCell {
+    var networkManager = NetworkManager()
     
     @IBOutlet weak var labelJobPiket: UILabel!
     @IBOutlet weak var labelNama: UILabel!
     @IBOutlet weak var buttonSelesaiPiket: UIButton!
+    var actionBlock: (() -> Void)? = nil            
     
+    @IBAction func btnSelesaiInAction(_ sender: UIButton) {        
+        actionBlock?()
+    }
+        
     override func awakeFromNib() {
         super.awakeFromNib()        
     }

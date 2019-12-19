@@ -12,7 +12,13 @@ class ListSudahPiketTableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelNama: UILabel!
     @IBOutlet weak var labelJenisPiket: UILabel!
-    @IBOutlet weak var buttonKonfirmasi: UIButton!    
+    @IBOutlet weak var buttonKonfirmasi: UIButton!
+    var actionKonfirmasi: (() -> Void)? = nil
+    
+    @IBAction func btnActionConfirm(_ sender: UIButton) {
+        actionKonfirmasi?()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
