@@ -1,6 +1,17 @@
 {
   "images" : [
     {
+      "resizing" : {
+        "mode" : "3-part-vertical",
+        "center" : {
+          "mode" : "tile",
+          "height" : 128
+        },
+        "cap-insets" : {
+          "top" : 0,
+          "bottom" : 0
+        }
+      },
       "idiom" : "universal",
       "filename" : "tick.png",
       "scale" : "1x"

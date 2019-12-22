@@ -19,7 +19,7 @@ enum APIManager{
     case belumPiketBulanan
     case listPiket
     case permohonanSelesaiPiket(id: Int)
-    case konfirmasiPiket(id: Int)
+    case konfirmasiPiket(id: Int)    
 }
 
 extension APIManager: TargetType, AccessTokenAuthorizable{
@@ -46,7 +46,7 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
     }
             
     var baseURL: URL {
-        guard let url = URL(string: "https://absensi-codelabs.herokuapp.com") else {
+        guard let url = URL(string: "http://103.112.189.132:5227") else {
             fatalError("Base url not configured properly")
         }
         return url

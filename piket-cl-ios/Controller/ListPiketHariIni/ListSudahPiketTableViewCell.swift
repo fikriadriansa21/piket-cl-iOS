@@ -10,6 +10,7 @@ import UIKit
 
 class ListSudahPiketTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var labelPemeriksa: UILabel!
     @IBOutlet weak var labelNama: UILabel!
     @IBOutlet weak var labelJenisPiket: UILabel!
     @IBOutlet weak var buttonKonfirmasi: UIButton!
