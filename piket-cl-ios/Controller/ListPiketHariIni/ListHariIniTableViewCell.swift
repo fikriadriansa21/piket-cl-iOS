@@ -10,7 +10,7 @@ import UIKit
 import Moya
 
 class ListHariIniTableViewCell: UITableViewCell {
-    var networkManager = NetworkManager()
+    var listTableViewController : ListPiketViewController?
     
     @IBOutlet weak var labelJobPiket: UILabel!
     @IBOutlet weak var labelNama: UILabel!
@@ -19,6 +19,7 @@ class ListHariIniTableViewCell: UITableViewCell {
     
     @IBAction func btnSelesaiInAction(_ sender: UIButton) {        
         actionBlock?()
+        deleteDataInRow()
     }
         
     override func awakeFromNib() {
@@ -29,4 +30,7 @@ class ListHariIniTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    func deleteDataInRow(){
+        listTableViewController!.moveTheCell(cell: self)
+    }
 }

@@ -46,7 +46,9 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
     }
             
     var baseURL: URL {
-        guard let url = URL(string: "http://103.112.189.132:5227") else {
+//        https://absensi-codelabs.herokuapp.com
+//        http://103.112.189.132:5227
+        guard let url = URL(string: "https://absensi-codelabs.herokuapp.com") else {
             fatalError("Base url not configured properly")
         }
         return url
