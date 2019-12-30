@@ -19,10 +19,18 @@ enum APIManager{
     case belumPiketBulanan
     case listPiket
     case permohonanSelesaiPiket(id: Int)
-    case konfirmasiPiket(id: Int)    
+    case konfirmasiPiket(id: Int)
+    case pilihTanggal(tanggal: Date)
+//    case pilihTanggal
 }
 
 extension APIManager: TargetType, AccessTokenAuthorizable{
+//    public var parameters: [String: Any]? {
+//        var params:[String: Any] = [:]
+//        params["query"] = ["access_token"]
+//
+//        return params
+//    }
     
     var authorizationType: AuthorizationType {
         switch self {
@@ -42,13 +50,15 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
                 return .bearer
             case .konfirmasiPiket:
                 return .bearer
-        }
+            case .pilihTanggal:
+                return .bearer
+            }
     }
             
     var baseURL: URL {
 //        https://absensi-codelabs.herokuapp.com
 //        http://103.112.189.132:5227
-        guard let url = URL(string: "https://absensi-codelabs.herokuapp.com") else {
+        guard let url = URL(string: "http://103.112.189.132:5227") else {
             fatalError("Base url not configured properly")
         }
         return url
@@ -72,7 +82,9 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
                 return "/mobile/selesai-piket"
             case .konfirmasiPiket:
                 return "/mobile/inspeksi-piket"
-        }
+            case .pilihTanggal:
+                return "/mobile/cari-piket"
+            }
     }
     
     var method: Moya.Method {
@@ -93,6 +105,8 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
             return .post
         case .konfirmasiPiket:
             return .post
+        case .pilihTanggal:
+            return .get
         }
     }
     
@@ -119,12 +133,6 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
                 "password": password
             ] as [String: Any]
             return .requestParameters(parameters: param, encoding: JSONEncoding.default)
-        case .listPiket:
-            return .requestPlain
-        case .sudahPiketHariIni:
-            return .requestPlain
-        case .belumPiketBulanan:
-            return .requestPlain
         case .permohonanSelesaiPiket(let id):
             let param = [
                 "id": id
@@ -135,6 +143,16 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
                 "id": id
             ] as [String: Any]
             return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .pilihTanggal(let tanggal):
+            var params: [String: Any] = [:]
+            params["tanggal"] = tanggal
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .listPiket:
+            return .requestPlain
+        case .sudahPiketHariIni:
+            return .requestPlain
+        case .belumPiketBulanan:
+            return .requestPlain
         }
     }
     
@@ -160,6 +178,10 @@ extension APIManager: TargetType, AccessTokenAuthorizable{
             return [
                 "token" : "\(defToken.string(forKey: "token") ?? "")"
             ]
+        case .pilihTanggal:
+            return [
+                "token" : "\(defToken.string(forKey: "token") ?? "")"
+        ]
         default:
             return nil
         }

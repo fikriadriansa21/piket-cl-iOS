@@ -153,4 +153,58 @@ class NetworkManager{
             }
         }
     }
+    
+    func pilihTanggalHariIni(tanggal: Date, completion: @escaping ([Piket]?) -> Void){
+        provider.request(.pilihTanggal(tanggal: tanggal)){(response) in
+           switch response{
+            case .success(let value):
+                print(value.statusCode)
+                do {
+                    let decoder = JSONDecoder()
+                    let postHariIni = try decoder.decode(ResponsePiket.self, from: value.data)
+                    completion(postHariIni.data)
+                } catch let error{
+                   print("Error : \(error)")
+                }
+            case .failure( _):
+                 print("gagal dalam menampilkan data")
+             }
+        }
+    }
+    
+    func pilihTanggalSudahPiket(tanggal: Date, completion: @escaping ([SudahPiket]?) -> Void){
+        provider.request(.pilihTanggal(tanggal: tanggal)){(response) in
+           switch response{
+            case .success(let value):
+                print(value.statusCode)
+                do {
+                    let decoder = JSONDecoder()
+                    let postSudah = try decoder.decode(ResponseSudahPiket.self, from: value.data)
+                    completion(postSudah.data)
+                } catch let error{
+                   print("Error : \(error)")
+                }
+            case .failure( _):
+                 print("gagal dalam menampilkan data")
+             }
+        }
+    }
+    
+    func pilihTanggalBelumPiket(tanggal: Date, completion: @escaping ([BelumPiket]?) -> Void){
+        provider.request(.pilihTanggal(tanggal: tanggal)){(response) in
+           switch response{
+            case .success(let value):
+                print(value.statusCode)
+                do {
+                    let decoder = JSONDecoder()
+                    let postBelum = try decoder.decode(ResponseBelumPiket.self, from: value.data)
+                    completion(postBelum.data)
+                } catch let error{
+                   print("Error : \(error)")
+                }
+            case .failure( _):
+                 print("gagal dalam menampilkan data")
+             }
+        }
+    }
 }

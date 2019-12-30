@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HideShowPasswordTextField
 
 class AddNewViewController: UIViewController {
 
@@ -15,7 +16,6 @@ class AddNewViewController: UIViewController {
     @IBOutlet weak var tfAddPassword: UITextField!{
         didSet {
             tfAddPassword.tintColor = UIColor.lightGray
-            tfAddPassword.setIcon(#imageLiteral(resourceName: "remove_red_eye-24px"))
             tfAddPassword.isSecureTextEntry = true
         }
     }

@@ -129,6 +129,30 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		A7469A1223B9D9BC00CC314C /* NimChecker */ = {
+			isa = PBXGroup;
+			children = (
+				A74E104A2345AD7F008E08F4 /* NimCheckerViewController.swift */,
+			);
+			path = NimChecker;
+			sourceTree = "<group>";
+		};
+		A7469A1323B9D9CF00CC314C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A7BEDE12234C76BE0006826E /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A7469A1423B9D9DA00CC314C /* NewPassword */ = {
+			isa = PBXGroup;
+			children = (
+				A7C0607A2360265C00FB7877 /* AddNewViewController.swift */,
+			);
+			path = NewPassword;
+			sourceTree = "<group>";
+		};
 		A74E103A2345AD7F008E08F4 = {
 			isa = PBXGroup;
 			children = (
@@ -184,10 +208,10 @@
 		A74E107823486D2E008E08F4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A7469A1423B9D9DA00CC314C /* NewPassword */,
+				A7469A1323B9D9CF00CC314C /* Login */,
+				A7469A1223B9D9BC00CC314C /* NimChecker */,
 				A7BC4F38236949AD003BB4E8 /* ListPiketHariIni */,
-				A74E104A2345AD7F008E08F4 /* NimCheckerViewController.swift */,
-				A7BEDE12234C76BE0006826E /* LoginViewController.swift */,
-				A7C0607A2360265C00FB7877 /* AddNewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

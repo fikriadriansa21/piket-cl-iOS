@@ -13,6 +13,10 @@ import Alamofire
 
 
 class ListPiketViewController: UIViewController {
+//    let date = Date()
+//    let format = DateFormatter()
+//    var formattedDate = ""
+    
     let defToken = UserDefaults.standard
     var boolDeletedCell = false
     var nimAuth:String = ""
@@ -22,10 +26,6 @@ class ListPiketViewController: UIViewController {
     var belumPiketBulanan = [BelumPiket?]()
     let image = UIImage(imageLiteralResourceName: "checklist")
     var refreshControl: UIRefreshControl?
-//    lazy var refresher: UIRefreshControl = {
-//
-//        return refreshControl
-//    }()
     
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var calendarWeekPiket: FSCalendar!{
@@ -40,7 +40,9 @@ class ListPiketViewController: UIViewController {
         super.viewDidLoad()
         self.loadDataPiket()
         addRefreshControl()
-        
+//        format.dateFormat = "yyyy-MM-dd"
+//        formattedDate = format.string(from: date)
+//        self.navigationController!.navigationBar.topItem?.title = "Hari Ini \(self.formattedDate)"
     }
     
     func addRefreshControl() {
@@ -170,14 +172,10 @@ extension ListPiketViewController: UITableViewDataSource, UITableViewDelegate{
             return cell
         }else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellSudahPiket", for: indexPath) as! ListSudahPiketTableViewCell
-            
-                if sudahPiket[indexPath.row]?.diperiksa_oleh != nil {
-                    self.setButtonWithImage(cellSudah: cell)
-                    cell.buttonKonfirmasi.isHidden = true
-                }else{
-                    cell.labelPemeriksa = nil
-                    cell.buttonKonfirmasi.isHidden = false
-                }
+                                    
+            if cell.labelPemeriksa.text != nil {
+                self.setButtonDisableAndHidden(cellSudah: cell)
+            }
             
             if(sudahPiket[indexPath.row]?.nim == nimAuth){
                 cell.buttonKonfirmasi.isHidden = true
@@ -204,12 +202,15 @@ extension ListPiketViewController: UITableViewDataSource, UITableViewDelegate{
             return cell
         }
     }
-    
-    
-    
+
 }
 
 extension ListPiketViewController{
+    private func setButtonDisableAndHidden(cellSudah: ListSudahPiketTableViewCell){
+        cellSudah.buttonKonfirmasi.isEnabled = false
+        cellSudah.buttonKonfirmasi.isHidden = true
+        cellSudah.buttonKonfirmasi.backgroundColor = .white
+    }
     private func setButtonWithImage(cellSudah: ListSudahPiketTableViewCell) {
         cellSudah.buttonKonfirmasi.setImage(self.image, for: .normal)
         cellSudah.buttonKonfirmasi.backgroundColor = .white
@@ -222,3 +223,32 @@ extension ListPiketViewController{
         }
     }
 }
+
+extension ListPiketViewController: FSCalendarDelegate{
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        networkManager.pilihTanggalHariIni(tanggal: date){(listHariIni) in
+            if let dataHariIni = listHariIni{
+                self.getDataPiket(dataPiket: dataHariIni)
+                self.tableView?.reloadData()
+            }
+        }
+        
+        networkManager.pilihTanggalSudahPiket(tanggal: date){(listSudah) in
+            if let dataSudah = listSudah{
+                self.getDataSudah(dataPiket: dataSudah)
+                self.tableView?.reloadData()
+            }
+        }
+
+        networkManager.pilihTanggalBelumPiket(tanggal: date){(listBelum) in
+            if let dataBelum = listBelum{
+                self.getDataBelum(dataPiket: dataBelum)
+                self.tableView?.reloadData()
+            }
+        }
+        
+    }
+}
+
+
+

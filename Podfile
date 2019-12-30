@@ -8,6 +8,7 @@ target 'piket-cl-ios' do
   pod 'FSCalendar'
   pod 'Moya', '~> 13.0'
   pod "ViewAnimator"
+  pod 'HideShowPasswordTextField', :git => 'https://github.com/Guidebook/HideShowPasswordTextField'
 
 #  target 'piket-cl-iosTests' do
 #    inherit! :search_paths

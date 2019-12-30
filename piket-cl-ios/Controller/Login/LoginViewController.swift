@@ -8,14 +8,14 @@
 
 import UIKit
 import Alamofire
+import HideShowPasswordTextField
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var textFieldPassword: UITextField!{
         didSet {
             textFieldPassword.tintColor = UIColor.lightGray
-            textFieldPassword.setIcon(#imageLiteral(resourceName: "remove_red_eye-24px"))
-            textFieldPassword.isSecureTextEntry = true
+            textFieldPassword.isSecureTextEntry = true            
         }
     }
     @IBOutlet weak var labelKeteranganPassword: UILabel!

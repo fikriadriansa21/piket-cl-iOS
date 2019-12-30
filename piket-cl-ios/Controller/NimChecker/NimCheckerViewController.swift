@@ -12,7 +12,11 @@ import SwiftyJSON
 
 class NimCheckerViewController: UIViewController {
     
-    @IBOutlet weak var textFieldNim: UITextField!
+    @IBOutlet weak var textFieldNim: UITextField!{
+        didSet{
+            textFieldNim.keyboardType = UIKeyboardType.numberPad
+        }
+    }
     var nimText:String = ""
     var textBuatAddPassword = ""
     var networkManager = NetworkManager()
