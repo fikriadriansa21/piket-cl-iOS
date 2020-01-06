@@ -16,6 +16,7 @@ enum APIManager{
     case login(nim: String, password: String)
     case addPassword(nim: String, password: String)
     case listPiket
+    case piketWithTgl(queryParams: String)
     
 }
 extension APIManager: TargetType, AccessTokenAuthorizable {
@@ -29,12 +30,19 @@ extension APIManager: TargetType, AccessTokenAuthorizable {
             return .basic
         case .addPassword:
             return .none
+        case .piketWithTgl:
+            return .basic
         }
     }
         
     var baseURL: URL {
-        guard let url = URL(string: "https://absensi-codelabs.herokuapp.com") else {
-            fatalError("Base url not configured properly")
+        switch self {
+        case .piketWithTgl(let tgl):
+            let url = URL(string: "https://absensi-codelabs.herokuapp.com")?.appendParameters(params: queryParams)
+        default:
+            guard let url = URL(string: "https://absensi-codelabs.herokuapp.com") else {
+                fatalError("Base url not configured properly")
+            }
         }
         return url
     }
@@ -49,6 +57,8 @@ extension APIManager: TargetType, AccessTokenAuthorizable {
             return "mobile/login/add-password"
         case .listPiket:
             return "mobile/piket-hari-ini"
+        case .piketWithTgl:
+            return "mobile/cari-piket"
         }
     }
     
@@ -61,6 +71,8 @@ extension APIManager: TargetType, AccessTokenAuthorizable {
             case .addPassword:
                 return .post
             case .listPiket:
+                return .get
+            case .piketWithTgl:
                 return .get
         }
     }
@@ -90,6 +102,11 @@ extension APIManager: TargetType, AccessTokenAuthorizable {
                 return .requestParameters(parameters: param, encoding: JSONEncoding.default)
             case .listPiket:
                 return .requestPlain
+            case .piketWithTgl(let tgl):
+                let queryParams: [String: String] = [
+                        "tanggal": tgl
+                ]
+                return .requestParameters(parameters: queryParams, encoding: JSONEncoding.default)
             }
     }
     
@@ -99,8 +116,13 @@ extension APIManager: TargetType, AccessTokenAuthorizable {
             return [
                 "token" : "\(defToken.string(forKey: "token") ?? "")"
             ]
+        case .piketWithTgl(let tgl):
+            return [
+                "token" : "\(defToken.string(forKey: "token") ?? "")"
+            ]
         default:
             return nil
+            
         }
     }
 }

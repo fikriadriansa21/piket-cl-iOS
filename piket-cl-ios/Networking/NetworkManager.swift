@@ -86,4 +86,20 @@ class NetworkManager {
             }
         }
     }
+    func getListPiketWithTgl(tgl: String, completion: @escaping ([Piket]?)->Void){
+        provider.request(.piketWithTgl(tgl: tgl)){(response) in
+            switch response{
+            case .success(let value):
+                 do {
+                    let decoder = JSONDecoder()
+                    let post = try decoder.decode(ResponsePiket.self, from: value.data)
+                    completion(post.data)
+                 } catch {
+                   print("data tidak ditampilkan")
+            }
+            case .failure( _):
+                 print("gagal dalam menampilkan data")
+            }
+        }
+    }
 }

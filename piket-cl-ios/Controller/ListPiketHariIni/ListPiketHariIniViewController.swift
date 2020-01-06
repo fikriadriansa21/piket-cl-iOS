@@ -15,7 +15,7 @@ class ListPiketHariIniViewController: UIViewController {
     
     fileprivate let formatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
+        formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
     
@@ -27,13 +27,13 @@ class ListPiketHariIniViewController: UIViewController {
     var networkManager = NetworkManager()
     var piket = [Piket]()
     
+    
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var calendarWeekPiket: FSCalendar!{
         didSet{
             calendarWeekPiket.scope = .week
             calendarWeekPiket.appearance.headerMinimumDissolvedAlpha = 0.0
             calendarWeekPiket.allowsMultipleSelection = false
-            let dateString = calendar
         }
     }
 
@@ -105,11 +105,17 @@ extension ListPiketHariIniViewController: UITableViewDataSource, UITableViewDele
 
 extension ListPiketHariIniViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     
-    func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> String {
-        
+    func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let dateString = formatter.string(from: date as Date)
         print(dateString)
-        return dateString
+    }
+}
+
+extension URL {
+    func appendParameters( params: Parameters) -> URL? {
+        var components = URLComponents(string: self.absoluteString)
+        components?.queryItems = params.map { element in URLQueryItem(name: element.key, value: element.value as? String) }
+        return components?.url
     }
 }
 
